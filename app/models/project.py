@@ -16,3 +16,12 @@ class Project(db.Model):
     user = db.relationship('User', back_populates='projects', cascade='all, delete')
     tasks = db.relationship('Task', back_populates='project', cascade='all, delete')
     project_member = db.relationship('User', secondary=members, back_populates='user_member', cascade='all, delete')
+
+
+    def to_dict(self):
+      return {
+        'id': self.id,
+        'userId': self.userId,
+        'name': self.name,
+        'description': self.description
+      }
