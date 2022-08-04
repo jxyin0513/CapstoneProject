@@ -19,6 +19,11 @@ def get_all_projects():
     projects = Project.query.all()
     return {'projects': [project.to_dict() for project in projects]}
 
+@project_routes.route('/<id>')
+def get_project(id):
+    project = Project.query.get(id)
+    return {'project': project.to_dict()}
+
 @project_routes.route('/new', methods=['POST'])
 def create_project():
     data = request.json

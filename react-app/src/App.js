@@ -7,6 +7,9 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import NewProject from './components/projects/AddProject';
+import Project from './components/projects/ProjectDetail';
+import AllProjects from './components/projects/AllProjects';
+import AddTask from './components/tasks/AddTask';
 import User from './components/User';
 import { authenticate } from './store/session';
 
@@ -41,11 +44,17 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+        <ProtectedRoute path='/projects/:projectId'>
+          <Project />
+        </ProtectedRoute>
         <ProtectedRoute path='/new/project-form'>
           <NewProject />
         </ProtectedRoute>
+        <ProtectedRoute path='/new/task'>
+          <AddTask />
+        </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <AllProjects />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
