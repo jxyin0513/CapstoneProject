@@ -1,4 +1,5 @@
 const GET_PROJECTS = '/GET/ALL/PROJECTS';
+const GET_PROJECT_DETAIL = '/GET/PROJECT/DETAIL'
 const CREATE_PROJECT = '/POST/PROJECT';
 const EDIT_PROJECT = '/PUT/PROJECT';
 const DELETE_PROJECT = '/DELETE/PROJECT';
@@ -6,6 +7,11 @@ const DELETE_PROJECT = '/DELETE/PROJECT';
 const getProjects = (projects)=>({
     type: GET_PROJECTS,
     projects
+})
+
+const getProjectDetail = (project)=>({
+    type: GET_PROJECT_DETAIL,
+    project
 })
 
 const createProject = (project)=>({
@@ -28,6 +34,14 @@ export const GetAllProjects =() => async (dispatch)=>{
     if(response.ok){
         const data = await response.json()
         dispatch(getProjects(data.projects))
+    }
+}
+
+export const GetProjectDetail = (id) => async (dispatch)=>{
+    const response = await fetch(`/api/projects/${id}`)
+    if(response.ok){
+        const data = await response.json()
+        dispatch(getProjectDetail(data.projects))
     }
 }
 
@@ -88,12 +102,16 @@ const initialState = {}
 
 const projectReducer = (state=initialState, action)=>{
     let newState = {...state};
-
     switch(action.type){
         case GET_PROJECTS:
             action.projects.forEach(project => {
                 newState[project.id] = project
             });
+            return newState;
+
+        case GET_PROJECT_DETAIL:
+            newState={};
+            newState[action.project.id] = action.project;
             return newState;
 
         case CREATE_PROJECT:

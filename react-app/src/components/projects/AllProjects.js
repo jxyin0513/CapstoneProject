@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, {useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
+import { GetAllProjects } from '../../store/projects';
 
 function AllProjects(){
+    const dispatch = useDispatch()
     const projects = useSelector(state=>state.projects)
+    const allProjects = Object.values(projects)
 
+    useEffect(()=>{
+        dispatch(GetAllProjects())
+    }, [dispatch])
 
     return(
         <>
-        {projects && projects.map(project=>(
-            <div>{project.projectName}</div>
-        ))}
+        {projects && (allProjects.map(project=>(
+            <li key={project.id}>{project.name}</li>
+            // <div ></div>
+        )))}
         </>
     )
 }

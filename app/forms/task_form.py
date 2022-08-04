@@ -1,12 +1,17 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, DateField
-from wtforms.validators import DataRequired, Email, ValidationError
+from wtforms.validators import DataRequired, Length, ValidationError
+from datetime import date
+
+def date_check(form, field):
+    if(field.data < date.today()):
+        raise ValidationError('Please provide proper deadline.')
 
 class TaskForm(FlaskForm):
-    projectId = IntegerField('projectId', validators=[DataRequired()])
-    userId = IntegerField('userId', validators=[DataRequired()])
-    assignee = StringField('assignee', validators=[DataRequired()])
-    taskName = StringField('name', validators=[DataRequired()])
-    status = StringField('status', validators=[DataRequired()])
-    deadline = DateField('deadline', validators=[DataRequired()])
-    priority = StringField('priority', validators=[DataRequired()])
+    projectId = IntegerField('projectId', validators=[DataRequired(message="Please provide the project Id.")])
+    userId = IntegerField('userId', validators=[DataRequired(message='Please provide your user Id.')])
+    assignee = StringField('assignee', validators=[DataRequired(message='Please provide name of the assignee.'), Length(min=1, max=20, message='Message should be contrained to 20 characters.')])
+    taskName = StringField('name', validators=[DataRequired(message='Please provide your task name.'), Length(max=30, message='Please restrain your task name to 30 characters.')])
+    status = StringField('status', validators=[DataRequired(message='Please provide current status of your task')])
+    deadline = DateField('deadline', validators=[DataRequired(message='Deadline must be provided'), date_check])
+    priority = StringField('priority', validators=[DataRequired(message='Please provide your priority')])

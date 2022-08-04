@@ -17,13 +17,12 @@ def validation_errors_to_error_messages(validation_errors):
 @task_routes.route('/all')
 def get_tasks():
     tasks = Task.query.all()
-
-    return {'tasks': tasks}
+    return {'tasks': [task.to_dict() for task in tasks]}
 
 @task_routes.route('/<id>')
 def get_task(id):
     task = Task.query.get(id)
-    return {'task': task}
+    return {'task': task.to_dict()}
 
 @task_routes.route('/new', methods=['POST'])
 def create_task():
@@ -34,7 +33,9 @@ def create_task():
         new_task = Task(**data)
         db.session.add(new_task)
         db.session.commit()
-        return {'task': new_task}
+        return {'task': new_task.to_dict()}
+    if(form.errors):
+        {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @task_routes.route('/<id>/edit', methods=['PUT'])
 def update_task(id):
@@ -48,9 +49,11 @@ def update_task(id):
         task.deadline = form.data['deadline']
         task.priority = form.data['priority']
         db.session.commit()
-        return {'task': task}
+        return {'task': task.to_dict()}
+    if(form.errors):
+        {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 def delete_task(id):
     task = Task.query.get(id)
     db.session.remove(id)
-    return {'task': task}
+    return {'task': task.to_dict()}
