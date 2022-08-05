@@ -1,0 +1,42 @@
+.Todo-list > li{
+    display: flex;
+}
+.project-Detail{
+    display: inline;
+}
+div.task-Name{
+    font-family:'Times New Roman', Times, serif;
+    font-weight:bold;
+    display: inline-block;
+    width: 250px;
+}
+.todo-List > p{
+    display: inline-block;
+}
+p.task-Name{
+    width: 250px;
+}
+p.task-Assignee{
+    width: 100px;
+}
+p.task-Deadline{
+    width: 150px;
+}
+p.task-Status{
+    width: 100px;
+}
+div.task-Assignee{
+    display: inline-block;
+    font-weight:bold;
+    width: 100px;
+}
+div.task-Deadline{
+    display: inline-block;
+    font-weight:bold;
+    width: 150px;
+}
+div.task-Status{
+    display: inline-block;
+    font-weight:bold;
+    width: 100px;
+}

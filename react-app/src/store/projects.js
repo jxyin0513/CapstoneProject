@@ -41,7 +41,7 @@ export const GetProjectDetail = (id) => async (dispatch)=>{
     const response = await fetch(`/api/projects/${id}`)
     if(response.ok){
         const data = await response.json()
-        dispatch(getProjectDetail(data.projects))
+        dispatch(getProjectDetail(data.project))
     }
 }
 

@@ -4,8 +4,9 @@ import { GetAllProjects } from '../../store/projects';
 
 function AllProjects(){
     const dispatch = useDispatch()
+    const user = useSelector(state=>state.session.user)
     const projects = useSelector(state=>state.projects)
-    const allProjects = Object.values(projects)
+    const allProjects = Object.values(projects).filter(project=> project.userId === user.id)
 
     useEffect(()=>{
         dispatch(GetAllProjects())

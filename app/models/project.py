@@ -23,5 +23,6 @@ class Project(db.Model):
         'id': self.id,
         'userId': self.userId,
         'name': self.name,
-        'description': self.description
+        'description': self.description,
+        'members': self.project_member
       }
