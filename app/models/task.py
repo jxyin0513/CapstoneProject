@@ -23,6 +23,6 @@ class Task(db.Model):
             'assignee': self.assignee,
             'taskName': self.taskName,
             'status': self.status,
-            'deadline': self.deadline,
+            'deadline': str(self.deadline),
             'priority': self.priority
         }

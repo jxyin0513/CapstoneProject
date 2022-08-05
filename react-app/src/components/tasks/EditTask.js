@@ -8,8 +8,7 @@ function EditTasks({id}){
     const history = useHistory()
     const {projectId} = useParams()
     const user = useSelector(state=>state.session.user)
-    const task = useSelector(state=>state.tasks.id)
-
+    const task = useSelector(state=>state.tasks[id])
     const [assignee, setAssignee] = useState(task.assignee)
     const [taskName, setTaskName] = useState(task.taskName)
     const [deadline, setDeadline] = useState(task.deadline)
@@ -17,18 +16,20 @@ function EditTasks({id}){
     const [priority, setPriority] = useState(task.priority)
     const [errors, setErrors] = useState([])
 
+    console.log(deadline)
     async function onSubmit(e){
         e.preventDefault()
         const task = {
+            id,
             userId: user.id,
             projectId: projectId,
             assignee,
             taskName,
-            status: 'incomplete',
+            status,
             deadline,
             priority
         }
-        const editTask = dispatch(EditTask(task))
+        const editTask = await dispatch(EditTask(task))
         if(!editTask){
             history.push(`/projects/${projectId}`)
         }else{
@@ -51,7 +52,7 @@ function EditTasks({id}){
                     <input type='text' name='taskName' value={taskName} onChange={e=>setTaskName(e.target.value)}></input>
                 </label>
                 <label>Deadline:
-                    <input type='date' name='deadline' value={deadline} onChange={e=>setDeadline(e.target.value)}></input>
+                    <input type='date' name='deadline' value={deadline} onChange={e=>setDeadline(e.target.value)} ></input>
                 </label>
                 <label>Status:
                     <select name='status' value={status} onChange={e=>setStatus(e.target.value)}>
@@ -62,7 +63,7 @@ function EditTasks({id}){
                 <label>Priority:
                 <input type='text' name='priority' value={priority} onChange={e=>setPriority(e.target.value)}></input>
                 </label>
-                <button type='submit'></button>
+                <button type='submit'>Edit</button>
             </form>
         </>
     )

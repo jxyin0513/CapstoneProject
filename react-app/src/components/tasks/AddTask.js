@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import {useParams,  useHistory} from 'react-router-dom'
+import { useHistory} from 'react-router-dom'
 import { CreateTask } from '../../store/tasks';
 
 function AddTask(){
@@ -15,6 +15,7 @@ function AddTask(){
     const [errors, setErrors] = useState([])
 
     async function onSubmit(e){
+        console.log(deadline)
         e.preventDefault()
         const task = {
             userId: user.id,

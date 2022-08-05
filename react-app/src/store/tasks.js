@@ -34,16 +34,15 @@ export const GetAllTasks = ()=> async(dispatch)=>{
 
     if(response.ok){
         const data = await response.json();
-        dispatch(getTask(data.tasks))
+        dispatch(getTasks(data.tasks))
     }
 }
 
 export const GetTaskDetail = (id)=> async(dispatch)=>{
     const response = await fetch(`/api/tasks/${id}`)
-
     if(response.ok){
         const data = await response.json();
-        dispatch(getTasks(data.task))
+        dispatch(getTask(data.task))
     }
 }
 
@@ -55,7 +54,6 @@ export const CreateTask = (task)=> async(dispatch)=>{
     })
     if(response.ok){
         const data = await response.json();
-        console.log(data)
         dispatch(createTask(data.task))
         return null;
     } else if (response.status < 500) {
@@ -84,8 +82,8 @@ export const EditTask = (task) => async(dispatch)=>{
     }
 }
 
-export const DeleteTask = (task) =>async (dispatch)=>{
-    const response = await fetch(`/api/tasks/${task.id}/delete`,{
+export const DeleteTask = (id) =>async (dispatch)=>{
+    const response = await fetch(`/api/tasks/${id}/delete`,{
         method:'DELETE',
         headers: {'Content-Type': 'application/json'}
     })
