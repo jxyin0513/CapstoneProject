@@ -3,21 +3,25 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutButton from './auth/LogoutButton';
+import AddTaskModal from './tasks/TaskModal';
+// import NewProject from './projects/AddProject';
+// import AddTask from './tasks/AddTask';
+import AllProjects from './projects/AllProjects';
 import './NavBar.css'
 
 const NavBar = () => {
   const user = useSelector(state=>state.session.user)
 
   return (
-    <nav className='Nav-Bar'>
+    <nav className={user? 'Nav-Bar':'noUser-Nav-Bar'}>
       <ul>
+        <li>
+          <NavLink to='/' exact={true} activeClassName='active'>
+            Home
+          </NavLink>
+        </li>
         {!user && (
           <div>
-            <li>
-            <NavLink to='/' exact={true} activeClassName='active'>
-              Home
-            </NavLink>
-            </li>
             <li>
               <NavLink to='/login' exact={true} activeClassName='active'>
                 Login
@@ -34,13 +38,17 @@ const NavBar = () => {
         {user && (
           <div>
             <li>
-            <NavLink to='/users' exact={true} activeClassName='active'>
-              Users
-            </NavLink>
+              <NavLink to='/users' exact={true} activeClassName='active'>
+                Users
+              </NavLink>
+            </li>
+            <li>
+              <AddTaskModal />
             </li>
             <li>
               <LogoutButton />
             </li>
+            <AllProjects />
           </div>
         )}
 

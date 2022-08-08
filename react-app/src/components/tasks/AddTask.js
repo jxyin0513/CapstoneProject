@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { useHistory} from 'react-router-dom'
+import { useHistory, useParams} from 'react-router-dom'
 import { CreateTask } from '../../store/tasks';
+import './AddTask.css';
 
 function AddTask(){
     const dispatch = useDispatch()
     const history = useHistory()
-    // const {projectId} = useParams()
+    const {projectId} = useParams()
     const user = useSelector(state=>state.session.user)
     const [assignee, setAssignee] = useState('')
     const [taskName, setTaskName] = useState('')
@@ -15,11 +16,11 @@ function AddTask(){
     const [errors, setErrors] = useState([])
 
     async function onSubmit(e){
-        console.log(deadline)
+
         e.preventDefault()
         const task = {
             userId: user.id,
-            projectId: 1,
+            projectId,
             assignee,
             taskName,
             status: 'incomplete',
@@ -28,7 +29,7 @@ function AddTask(){
         }
         const newTask = await dispatch(CreateTask(task))
         if(!newTask){
-            history.push('/')
+            history.push(`/projects/${projectId}`)
         }else{
             setErrors(newTask)
         }
@@ -36,8 +37,8 @@ function AddTask(){
 
     return (
         <>
-            <form onSubmit={onSubmit}>
-                <div>
+            <form className='Add-Task' onSubmit={onSubmit}>
+                <div className='errors-handler'>
                     {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>
                     ))}
