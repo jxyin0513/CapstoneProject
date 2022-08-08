@@ -1,8 +1,14 @@
 .Todo-list > li{
     display: flex;
 }
+.project-Name{
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
 .project-Detail{
-    display: inline;
+    /* display: inline; */
+    margin-left: 200px;
 }
 div.task-Name{
     font-family:'Times New Roman', Times, serif;
@@ -39,4 +45,10 @@ div.task-Status{
     display: inline-block;
     font-weight:bold;
     width: 100px;
+}
+.todo-List > i {
+    cursor: pointer;
+}
+.edit-Menu > i{
+    cursor: pointer
 }

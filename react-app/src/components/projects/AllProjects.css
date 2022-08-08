@@ -1,0 +1,9 @@
+.project-detail:focus{
+    background-color:azure;
+}
+.project-detail{
+    text-decoration: none;
+}
+/* .not-clicked{
+    text-decoration: none;
+} */

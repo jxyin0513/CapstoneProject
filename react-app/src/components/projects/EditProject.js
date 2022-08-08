@@ -30,7 +30,7 @@ function EditProject({id}){
     return (
         <>
             <form onSubmit={onSubmit}>
-                <div>
+                <div className='errors-handler'>
                     {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>
                     ))}

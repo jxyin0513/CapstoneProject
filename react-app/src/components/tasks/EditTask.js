@@ -16,7 +16,6 @@ function EditTasks({id}){
     const [priority, setPriority] = useState(task.priority)
     const [errors, setErrors] = useState([])
 
-    console.log(deadline)
     async function onSubmit(e){
         e.preventDefault()
         const task = {
@@ -39,28 +38,28 @@ function EditTasks({id}){
 
     return (
         <>
-            <form onSubmit={onSubmit}>
-                <div>
+            <form key={id} onSubmit={onSubmit}>
+                <div className='errors-handler'>
                     {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>
                     ))}
                 </div>
-                <label>Assignee:
-                    <input type='text' name='assignee' value={assignee} onChange={e=>setAssignee(e.target.value)}></input>
-                </label>
-                <label>Name:
+                <label>
                     <input type='text' name='taskName' value={taskName} onChange={e=>setTaskName(e.target.value)}></input>
                 </label>
-                <label>Deadline:
+                <label>
+                    <input type='text' name='assignee' value={assignee} onChange={e=>setAssignee(e.target.value)}></input>
+                </label>
+                <label>
                     <input type='date' name='deadline' value={deadline} onChange={e=>setDeadline(e.target.value)} ></input>
                 </label>
-                <label>Status:
+                <label>
                     <select name='status' value={status} onChange={e=>setStatus(e.target.value)}>
                         <option value='incomplete'>Incomplete</option>
                         <option value='complete'>Complete</option>
                     </select>
                 </label>
-                <label>Priority:
+                <label>
                 <input type='text' name='priority' value={priority} onChange={e=>setPriority(e.target.value)}></input>
                 </label>
                 <button type='submit'>Edit</button>
