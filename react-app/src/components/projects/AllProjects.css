@@ -3,6 +3,8 @@
 }
 .project-detail{
     text-decoration: none;
+    width: 200px;
+    height: 400px;
 }
 /* .not-clicked{
     text-decoration: none;

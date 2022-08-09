@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import {useParams, useHistory} from 'react-router-dom'
 import { EditTask } from '../../store/tasks';
+import './EditTask.css'
 
 function EditTasks({id}){
     const dispatch = useDispatch()
@@ -38,7 +39,7 @@ function EditTasks({id}){
 
     return (
         <>
-            <form key={id} onSubmit={onSubmit}>
+            <form className='edit-Task' onSubmit={onSubmit}>
                 <div className='errors-handler'>
                     {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>
@@ -53,12 +54,12 @@ function EditTasks({id}){
                 <label>
                     <input type='date' name='deadline' value={deadline} onChange={e=>setDeadline(e.target.value)} ></input>
                 </label>
-                <label>
+                {/* <label>
                     <select name='status' value={status} onChange={e=>setStatus(e.target.value)}>
                         <option value='incomplete'>Incomplete</option>
                         <option value='complete'>Complete</option>
                     </select>
-                </label>
+                </label> */}
                 <label>
                 <input type='text' name='priority' value={priority} onChange={e=>setPriority(e.target.value)}></input>
                 </label>

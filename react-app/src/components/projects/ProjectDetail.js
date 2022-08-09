@@ -6,6 +6,8 @@ import { GetProjectDetail } from '../../store/projects';
 import EditTasks from '../tasks/EditTask';
 import { GetAllTasks } from '../../store/tasks';
 import { DeleteTask } from '../../store/tasks';
+import AddTaskModal from '../tasks/TaskModal';
+import EditProjectModal from './EditProjectModal';
 import './ProjectDetail.css'
 
 function Project(){
@@ -18,13 +20,7 @@ function Project(){
     const projectTask = tasks.filter(task => task.projectId === Number(projectId))
     const todoList = projectTask.filter(task=>task.status ==='incomplete')
     const doneList = projectTask.filter(task=>task.status === 'complete')
-    // const [assignee, setAssignee] = useState(task.assignee)
-    // const [taskName, setTaskName] = useState(task.taskName)
-    // const [deadline, setDeadline] = useState(task.deadline)
-    // const [status, setStatus] = useState(task.status)
-    // const [priority, setPriority] = useState(task.priority)
-    // const [errors, setErrors] = useState([])
-    // const [edit,setEdit] = useState(false)
+    const [showModal, setShowModal] = useState(false);
     const [showMenu, setShowMenu] = useState(false)
     const [editId, setEditId] = useState(0)
     const [menuId, setMenuId] = useState(0)
@@ -70,12 +66,24 @@ function Project(){
         <div className='project-Detail'>
         {
             project && (
-                <div>
+                <div className='project-profile'>
                     <p className='project-Name'>{project.name}</p>
+                    <div className='edit-delete-Project'>
+                        <i className="fa-solid fa-chevron-down"></i>
+                        <div className='edit-Icon'>
+                                <i className="far fa-edit" onClick={()=>setShowModal(true)}>Edit</i>
+                                <i className="fa-regular fa-trash-can">Delete</i>
+
+                        </div>
+                    </div>
                 </div>
 
             )
         }
+        {showModal && (<EditProjectModal onClose={()=>setShowModal(false)}/>)}
+
+        <AddTaskModal />
+
         <h2>Todo Lists</h2>
         <div className='task-Name'>Task name</div>
         <div className='task-Assignee'>Assignee</div>
@@ -89,14 +97,22 @@ function Project(){
                         <p className='task-Name'>{task.taskName}</p>
                         <p className='task-Assignee'>{task.assignee}</p>
                         <p className='task-Deadline'>{task.deadline}</p>
-                        <p className='task-Status'>{task.status}</p>
-                        <i className="fa-solid fa-bars" id={task.id} onClick={openMenu}></i>
-                        {showMenu && Number(menuId)===Number(task.id) && (
-                            <div key={task.id} className='edit-Menu'>
-                                <i id={task.id} onClick={onEdit} className="fas fa-edit"></i>
-                                <i id={task.id} onClick={onDelete} className="fa fa-trash" aria-hidden="true"></i>
+                        <div className='dropdown'>
+                            <p className='task-Status'>{task.status}</p>
+                            <div className='dropdown-Content'>
+                                <p>incomplete</p>
+                                <p>complete</p>
                             </div>
-                            )}
+                        </div>
+                        <div className='edit-button'>
+                            <i className="fa-solid fa-bars" id={task.id} onClick={openMenu}></i>
+                            {showMenu && Number(menuId)===Number(task.id) && (
+                                <div key={task.id} className='edit-Menu'>
+                                    <i id={task.id} onClick={onEdit} className="far fa-edit">Edit</i>
+                                    <i id={task.id} onClick={onDelete} className="fa-regular fa-trash-can">Delete</i>
+                                </div>
+                                )}
+                        </div>
                     </div>
                     )
                 }else if(Number(task.id)===Number(editId)){

@@ -1,7 +1,8 @@
 import React, {useEffect, useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import { GetAllProjects } from '../../store/projects';
+import AddProjectModal from './AddProjectModal';
 import './AllProjects.css'
 
 function AllProjects(){
@@ -18,6 +19,7 @@ function AllProjects(){
     return(
         <>
         <h3>@{user.username}</h3>
+        {/* <div className='add-Project'>+</div> */}
         {projects && (allProjects.map(project=>(
             // <Link className='project-detail'  key={project.id} to={`/projects/${project.id}`}>{project.name}</Link>
             <NavLink activeClassName={'project-detail'} activeStyle={{textDecoration:"none"}} key={project.id} to={`/projects/${project.id}`}>{project.name}</NavLink>

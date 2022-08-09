@@ -1,24 +1,23 @@
 import React, {useState} from 'react'
 import { Modal } from "../context/Modal";
-import AddTask from './AddTask';
-import './TaskModal.css'
+import NewProject from './AddProject';
 
-function AddTaskModal(){
+function AddProjectModal(){
     const [showModal, setShowModal] = useState(false);
     // const [demoUser, setDemoUser] = useState(false)
     return (
         <>
             <button className='add-Task' onClick={()=>setShowModal(true)}>
-               + Add task
+               +
             </button>
 
             {showModal&&(
                 <Modal onClose={() => setShowModal(false)}>
-                    <AddTask />
+                    <NewProject />
                 </Modal>
       )}
         </>
     )
 }
 
-export default AddTaskModal;
+export default AddProjectModal
