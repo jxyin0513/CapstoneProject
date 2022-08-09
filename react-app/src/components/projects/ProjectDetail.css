@@ -1,13 +1,51 @@
-.Todo-list > li{
-    display: flex;
-}
 .project-Name{
     font-size: 30px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
+    display: inline-block;
+    padding-right: 10px;
+}
+.edit-delete-Project > i{
+    cursor: pointer;
+    padding: 7px;
+    margin: 8px;
+}
+.edit-delete-Project > i:hover{
+    background-color:lightgray;
+
+}
+.edit-delete-Project{
+    display: inline-block;
+    position: relative;
+}
+.edit-Icon{
+    display: none;
+    position: absolute;
+    left: 25px;
+    color: red;
+    /* width: 70px;
+    height: 25px; */
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.edit-Icon > i{
+    width: 100px;
+    height: 25px;
+}
+.edit-Icon i:hover{
+    width: 100%;
+    background-color:lightgrey;
+    color:firebrick;
+}
+.edit-delete-Project:hover .edit-Icon{
+    display: block;
+    cursor: pointer;
+    /* position: absolute;
+    left: 25px; */
+    /* color: red; */
 }
 .project-Detail{
-    /* display: inline; */
     margin-left: 200px;
 }
 div.task-Name{
@@ -23,18 +61,21 @@ p.task-Name{
     width: 250px;
 }
 p.task-Assignee{
-    width: 100px;
+    width: 150px;
 }
 p.task-Deadline{
     width: 150px;
 }
 p.task-Status{
     width: 100px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 0px;
 }
 div.task-Assignee{
     display: inline-block;
     font-weight:bold;
-    width: 100px;
+    width: 150px;
 }
 div.task-Deadline{
     display: inline-block;
@@ -46,9 +87,44 @@ div.task-Status{
     font-weight:bold;
     width: 100px;
 }
-.todo-List > i {
+.todo-List i {
     cursor: pointer;
 }
-.edit-Menu > i{
-    cursor: pointer
+.edit-button{
+    display: inline-block;
+    position: relative;
 }
+.edit-Menu{
+    position: absolute;
+    left: 12px;
+}
+/* .edit-Menu > i{
+    display: inline-block;
+    color: red;
+} */
+.edit-Button {
+    display: inline-block;
+}
+/* .todo-List{
+    padding-bottom: 10px;
+} */
+.dropdown{
+    display: inline-block;
+    position: relative;
+}
+.dropdown-Content{
+    display: none;
+    /* padding-top: -10px;
+    margin-top: -10px; */
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-Content p:hover {
+    background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-Content {
+    display: block;
+  }

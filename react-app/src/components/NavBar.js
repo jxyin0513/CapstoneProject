@@ -15,11 +15,11 @@ const NavBar = () => {
   return (
     <nav className={user? 'Nav-Bar':'noUser-Nav-Bar'}>
       <ul>
-        <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Home
-          </NavLink>
-        </li>
+
+        <NavLink to='/' exact={true} activeClassName='active'>
+          <i className="fa-solid fa-house"></i>Home
+        </NavLink>
+
         {!user && (
           <div>
             <li>
@@ -38,12 +38,9 @@ const NavBar = () => {
         {user && (
           <div>
             <li>
-              <NavLink to='/users' exact={true} activeClassName='active'>
-                Users
+              <NavLink to='/tasks' exact={true} activeClassName='active'>
+                <i className="fa-solid fa-list-ul"></i>My Tasks
               </NavLink>
-            </li>
-            <li>
-              <AddTaskModal />
             </li>
             <li>
               <LogoutButton />

@@ -11,6 +11,7 @@ import NewProject from './components/projects/AddProject';
 import Project from './components/projects/ProjectDetail';
 import AllProjects from './components/projects/AllProjects';
 import AddTask from './components/tasks/AddTask';
+import AllTasks from './components/tasks/AllTasks';
 import User from './components/User';
 import { authenticate } from './store/session';
 
@@ -40,8 +41,8 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+        <ProtectedRoute path='/tasks' exact={true} >
+          <AllTasks />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />

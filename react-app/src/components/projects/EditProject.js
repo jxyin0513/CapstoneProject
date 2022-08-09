@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {useHistory} from 'react-router-dom'
+import {useHistory, useParams} from 'react-router-dom'
 import { EditProjects } from '../../store/projects';
 
-function EditProject({id}){
+function EditProject(){
     const dispatch = useDispatch()
     const history = useHistory()
+    const {projectId} = useParams()
     const user = useSelector(state=>state.session.user)
-    const project = useSelector(state=>state.projects.id)
+    const project = useSelector(state=>state.projects[projectId])
+    console.log(project)
     const [name, setName] = useState(project.name)
     const [description, setDescription] = useState(project.description);
     const [errors, setErrors] = useState([])
@@ -35,10 +37,10 @@ function EditProject({id}){
                     <div key={ind}>{error}</div>
                     ))}
                 </div>
-                <label>Project Name
+                <label>Project Name:
                     <input type='text' name='name' value={name} onChange={e=>setName(e.target.value)}></input>
                 </label>
-                <label>Description
+                <label>Description:
                     <input type='text' name='description' value={description} onChange={e=>setDescription(e.target.value)}></input>
                 </label>
                 <button type='submit'>Edit Project</button>
