@@ -1,0 +1,22 @@
+.edit-Project-Form > label{
+    display: block;
+}
+.edit-Project-Form{
+    width: 300px;
+    height: 200px;
+}
+.detail-Text{
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.detail-Header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+#close-Icon{
+    padding-right: 5px;
+    cursor: pointer;
+}

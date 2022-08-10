@@ -1,0 +1,107 @@
+.default-Page{
+    margin-left: 200px;
+}
+.date-Page{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    padding: 10px 0;
+}
+.welcome-Page{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 35px;
+    padding: 10px 0;
+}
+.weekly-Status{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 15px 0;
+
+}
+.weekly-Display{
+    width: 170px;
+    padding: 10px 0;
+    background-color: lightgray;
+    border-radius: 13px;
+    cursor: pointer;
+}
+#status-Icon{
+    padding: 0 5px;
+}
+.create-Project{
+    height: 50px;
+    width: 50px;
+    border-radius: 15px;
+    border: 1px lightgray dotted;
+    cursor: pointer;
+    text-align: center;
+    font-size: 40px;
+    color: grey;
+    display: inline-block;
+    margin: 20px 25px;
+    /* display: flexbox;
+    justify-content: center;
+    align-items: center; */
+}
+.create-Project:hover{
+    border: 1px black dotted;
+    color: black;
+}
+.project-Home-Header{
+    padding: 15px;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+.create-Project-T{
+    display: inline-block;
+}
+.project-Home-Page{
+    border-radius: 15px;
+    border: 1px solid lightgray;
+    width: 300px;
+    height: 400px;
+    /* display: inline-block; */
+}
+.project-Tasks{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 10px;
+
+}
+.project-Home-Page:hover{
+    border: 1px solid darkgrey;
+}
+.create-Project-Name{
+    display: inline-block;
+}
+.project-Specific{
+    cursor: pointer;
+    position: relative;
+}
+.create-Project-Name{
+    position: absolute;
+    top: 35px;
+}
+.project-Specific:hover{
+    background-color: lightgray;
+}
+
+.task-Home-Page{
+    border-radius: 15px;
+    border: 1px solid lightgray;
+    width: 300px;
+    height: 400px;
+    /* display: inline-block; */
+}
+.task-Home-Page:hover{
+    border: 1px solid darkgrey;
+}
+.task-Home-Header{
+    padding: 15px;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

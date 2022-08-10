@@ -31,7 +31,9 @@
 }
 .edit-Icon > i{
     width: 100px;
-    height: 25px;
+    height: 20px;
+    padding: 8px 0;
+    padding-left: 5px;
 }
 .edit-Icon i:hover{
     width: 100%;
@@ -53,6 +55,41 @@ div.task-Name{
     font-weight:bold;
     display: inline-block;
     width: 250px;
+    border: 1px lightgray solid;
+}
+div.task-Name:hover{
+    background-color: lightgrey;
+}
+div.task-Assignee{
+    display: inline-block;
+    font-weight:bold;
+    width: 150px;
+    border: 1px solid;
+    border-top-color: lightgrey;
+    border-right-color: lightgrey;
+    border-bottom-color: lightgrey;
+    border-left-color: transparent;
+}
+
+div.task-Deadline{
+    display: inline-block;
+    font-weight:bold;
+    width: 150px;
+    border: 1px solid;
+    border-top-color: lightgrey;
+    border-right-color: lightgrey;
+    border-bottom-color: lightgrey;
+    border-left-color: transparent;
+}
+div.task-Status{
+    display: inline-block;
+    font-weight:bold;
+    width: 100px;
+    border: 1px solid;
+    border-top-color: lightgrey;
+    border-right-color: lightgrey;
+    border-bottom-color: lightgrey;
+    border-left-color: transparent;
 }
 .todo-List > p{
     display: inline-block;
@@ -72,21 +109,7 @@ p.task-Status{
     cursor: pointer;
     margin-bottom: 0px;
 }
-div.task-Assignee{
-    display: inline-block;
-    font-weight:bold;
-    width: 150px;
-}
-div.task-Deadline{
-    display: inline-block;
-    font-weight:bold;
-    width: 150px;
-}
-div.task-Status{
-    display: inline-block;
-    font-weight:bold;
-    width: 100px;
-}
+
 .todo-List i {
     cursor: pointer;
 }
@@ -98,10 +121,18 @@ div.task-Status{
     position: absolute;
     left: 12px;
 }
-/* .edit-Menu > i{
-    display: inline-block;
+.edit-Menu > i{
+    /* display: inline-block; */
     color: red;
-} */
+    width: 80px;
+    height: 20px;
+    /* padding: 8px 0; */
+    padding-left: 5px;
+}
+.edit-Menu > i:hover{
+    background-color: lightgrey;
+    color: maroon;
+}
 .edit-Button {
     display: inline-block;
 }
@@ -117,14 +148,20 @@ div.task-Status{
     /* padding-top: -10px;
     margin-top: -10px; */
     position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color:#f9f9f9;
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
     z-index: 1;
 }
+.dropdown-Content >p {
+    padding: 5px 0;
+    cursor: pointer;
+}
 .dropdown-Content p:hover {
-    background-color: #f1f1f1
+    background-color:lightgray;
+    padding: 5px 0;
 }
 
 .dropdown:hover .dropdown-Content {
     display: block;
+
   }
