@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {useHistory, useParams} from 'react-router-dom'
 import { EditProjects } from '../../store/projects';
+import './EditProject.css'
 
 function EditProject(){
     const dispatch = useDispatch()
@@ -31,7 +32,11 @@ function EditProject(){
 
     return (
         <>
-            <form onSubmit={onSubmit}>
+            <div className='detail-Header'>
+                <div className='detail-Text'>Project Detail</div>
+                <i id='close-Icon' className="fa-solid fa-xmark"></i>
+            </div>
+            <form className='edit-Project-Form' onSubmit={onSubmit}>
                 <div className='errors-handler'>
                     {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>

@@ -1,6 +1,13 @@
-.Add-Task > label{
+.add-Task-Form > label{
     display: block;
 }
 .errors-handler{
     color: red;
+}
+.add-Tasks{
+    width: 300px;
+    height: 200px;
+    position: relative;
+    top: 30px;
+    left: 10px;
 }

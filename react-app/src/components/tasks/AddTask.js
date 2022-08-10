@@ -36,8 +36,8 @@ function AddTask(){
     }
 
     return (
-        <>
-            <form className='Add-Task' onSubmit={onSubmit}>
+        <div className='add-Tasks'>
+            <form className='add-Task-Form' onSubmit={onSubmit}>
                 <div className='errors-handler'>
                     {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>
@@ -46,10 +46,10 @@ function AddTask(){
                 <label>Assignee:
                     <input type='text' name='assignee' onChange={e=>setAssignee(e.target.value)}></input>
                 </label>
-                <label>Name:
+                <label>Task name:
                     <input type='text' name='taskName' onChange={e=>setTaskName(e.target.value)}></input>
                 </label>
-                <label>Deadline:
+                <label>Due date:
                     <input type='date' name='deadline' onChange={e=>setDeadline(e.target.value)}></input>
                 </label>
                 <label>Priority:
@@ -57,7 +57,7 @@ function AddTask(){
                 </label>
                 <button type='submit'>Add Task</button>
             </form>
-        </>
+        </div>
     )
 }
 

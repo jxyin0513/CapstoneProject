@@ -3,9 +3,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutButton from './auth/LogoutButton';
-import AddTaskModal from './tasks/TaskModal';
-// import NewProject from './projects/AddProject';
-// import AddTask from './tasks/AddTask';
 import AllProjects from './projects/AllProjects';
 import './NavBar.css'
 
@@ -14,9 +11,8 @@ const NavBar = () => {
 
   return (
     <nav className={user? 'Nav-Bar':'noUser-Nav-Bar'}>
-      <ul>
-
-        <NavLink to='/' exact={true} activeClassName='active'>
+      <div className='nav-Bar-container'>
+        <NavLink to='/' exact={true} activeClassName='home-Button'>
           <i className="fa-solid fa-house"></i>Home
         </NavLink>
 
@@ -37,21 +33,22 @@ const NavBar = () => {
 
         {user && (
           <div>
-            <li>
-              <NavLink to='/tasks' exact={true} activeClassName='active'>
+            <div>
+              <NavLink to='/tasks' exact={true} activeClassName='tasks-Button'>
                 <i className="fa-solid fa-list-ul"></i>My Tasks
               </NavLink>
-            </li>
-            <li>
+            </div>
+            <div>
               <LogoutButton />
-            </li>
+            </div>
             <AllProjects />
           </div>
         )}
 
 
-      </ul>
+      </div>
     </nav>
+
   );
 }
 
