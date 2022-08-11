@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {useHistory} from 'react-router-dom'
 import { CreateProjects } from '../../store/projects';
+import './AddProject.css';
 
 function NewProject(){
     const dispatch = useDispatch()
@@ -26,22 +27,22 @@ function NewProject(){
     }
 
     return (
-        <>
-            <form onSubmit={onSubmit}>
-                <div className='errors-handler'>
+        <div className='add-Project-Container'>
+            <form className='add-Project-Form' onSubmit={onSubmit}>
+                <div className='errors-handler-Project'>
                     {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>
                     ))}
                 </div>
                 <label>Project Name
-                    <input type='text' name='name' onChange={e=>setName(e.target.value)}></input>
+                    <input type='text' name='name' placeholder='Project name' onChange={e=>setName(e.target.value)}></input>
                 </label>
                 <label>Description
-                    <input type='text' name='description' onChange={e=>setDescription(e.target.value)}></input>
+                    <input type='text' name='description' placeholder='Description' onChange={e=>setDescription(e.target.value)}></input>
                 </label>
                 <button type='submit'>Add Project</button>
             </form>
-        </>
+        </div>
     )
 }
 

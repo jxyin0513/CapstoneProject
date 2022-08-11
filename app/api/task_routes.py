@@ -43,8 +43,8 @@ def create_task():
 @task_routes.route('/<id>/edit', methods=['PUT'])
 def update_task(id):
     form = TaskForm()
+    print(form.data)
     task = Task.query.get(id)
-    print(task)
     form['csrf_token'].data = request.cookies['csrf_token']
     if(form.validate_on_submit()):
         print('val')
@@ -57,6 +57,15 @@ def update_task(id):
         return {'task': task.to_dict()}
     if(form.errors):
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@task_routes.route('/<id>/update', methods=['PUT'])
+def update_status(id):
+    data = request.json
+    print(data)
+    task = Task.query.get(id)
+    task.status = data['status']
+    db.session.commit()
+    return {'task': task.to_dict()}
 
 @task_routes.route('/<id>/delete', methods=['DELETE'])
 def delete_task(id):

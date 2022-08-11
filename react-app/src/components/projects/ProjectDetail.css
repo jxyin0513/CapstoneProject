@@ -91,7 +91,7 @@ div.task-Status{
     border-bottom-color: lightgrey;
     border-left-color: transparent;
 }
-.todo-List > p{
+.todo-List > p, .done-List > p{
     display: inline-block;
 }
 p.task-Name{
@@ -109,8 +109,13 @@ p.task-Status{
     cursor: pointer;
     margin-bottom: 0px;
 }
-
-.todo-List i {
+.todo-List p.task-Status{
+    color: red;
+}
+.done-List p.task-Status{
+    color: green;
+}
+.todo-List i, .done-List i {
     cursor: pointer;
 }
 .edit-button{
@@ -120,6 +125,8 @@ p.task-Status{
 .edit-Menu{
     position: absolute;
     left: 12px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 .edit-Menu > i{
     /* display: inline-block; */
@@ -148,20 +155,43 @@ p.task-Status{
     /* padding-top: -10px;
     margin-top: -10px; */
     position: absolute;
-    background-color:#f9f9f9;
-    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
-.dropdown-Content >p {
-    padding: 5px 0;
+.dropdown-Content > div {
+    padding: 7px 10px;
     cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-.dropdown-Content p:hover {
+.dropdown-Content div:hover {
     background-color:lightgray;
-    padding: 5px 0;
+    /* padding: 5px 0; */
+}
+.incomplete{
+    color: red;
+
+}
+.complete{
+    color: green;
 }
 
 .dropdown:hover .dropdown-Content {
     display: block;
-
   }
+
+#todo-List-Bar {
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+#todo-List-Bar:hover{
+    background-color: gainsboro;
+}
+#done-Lists-Bar {
+    cursor: pointer;
+    padding: 0 5px;
+}
+#done-Lists-Bar:hover{
+    background-color: gainsboro;
+}

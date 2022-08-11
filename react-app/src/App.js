@@ -11,6 +11,7 @@ import NewProject from './components/projects/AddProject';
 import MainPageStatus from './components/DefaultPage';
 import Project from './components/projects/ProjectDetail';
 import AllProjects from './components/projects/AllProjects';
+import Page from './components/projects/MainPage';
 import AddTask from './components/tasks/AddTask';
 import AllTasks from './components/tasks/AllTasks';
 import User from './components/User';
@@ -36,6 +37,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route path='/' exact={true}>
+          <Page />
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>

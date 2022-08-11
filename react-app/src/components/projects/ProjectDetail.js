@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import {useParams} from 'react-router-dom'
 import { GetProjectDetail } from '../../store/projects';
-// import { EditTask } from '../../store/tasks';
+import { updateTask } from '../../store/tasks';
 import EditTasks from '../tasks/EditTask';
 import { GetAllTasks } from '../../store/tasks';
 import { DeleteTask } from '../../store/tasks';
+import { DeleteProjects } from '../../store/projects';
 import AddTaskModal from '../tasks/TaskModal';
 import EditProjectModal from './EditProjectModal';
 import './ProjectDetail.css'
@@ -22,8 +23,11 @@ function Project(){
     const doneList = projectTask.filter(task=>task.status === 'complete')
     const [showModal, setShowModal] = useState(false);
     const [showMenu, setShowMenu] = useState(false)
+    const [toList, setToList] = useState(true);
+    const [done, setDoneList] = useState(true)
     const [editId, setEditId] = useState(0)
     const [menuId, setMenuId] = useState(0)
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     // let editId = 0
 
     useEffect(()=>{
@@ -57,9 +61,21 @@ function Project(){
         setEditId(e.target.id)
         // setEdit(true);
     }
-    function onDelete(e){
+    async function onDelete(e){
         e.preventDefault();
-        dispatch(DeleteTask(e.target.id))
+        await dispatch(DeleteTask(e.target.id))
+    }
+    async function onDeleteProject(e){
+        e.preventDefault();
+        await dispatch(DeleteProjects(project.id))
+    }
+    async function changeStatus(e){
+        console.log(e.target.className)
+
+        await dispatch(updateTask({
+            id: e.target.id,
+            status: e.target.className
+        }))
     }
 
     return (
@@ -71,8 +87,8 @@ function Project(){
                     <div className='edit-delete-Project'>
                         <i className="fa-solid fa-chevron-down"></i>
                         <div className='edit-Icon'>
-                                <i className="far fa-edit" onClick={()=>setShowModal(true)}>Edit</i>
-                                <i className="fa-regular fa-trash-can">Delete</i>
+                                <i className="far fa-edit" onClick={()=>setShowModal(true)}>  Edit</i>
+                                <i onClick={onDeleteProject} className="fa-regular fa-trash-can">  Delete</i>
 
                         </div>
                     </div>
@@ -84,32 +100,34 @@ function Project(){
 
         <AddTaskModal />
 
-        <h2>Todo Lists</h2>
+        <h2><i id='todo-List-Bar' onClick={()=>setToList(!toList)} className={toList ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> Todo Lists</h2>
         <div className='task-Name'>Task name</div>
         <div className='task-Assignee'>Assignee</div>
         <div className='task-Deadline'>Due date</div>
         <div className='task-Status'>Status</div>
         {
-            todoList.length && todoList.map(task=>{
+            toList && todoList && todoList.map(task=>{
+                let deadline = task.deadline.split('-');
+                let date = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
                 if(Number(editId)!==Number(task.id)){
                     return (
                     <div className='todo-List' key={task.id}>
                         <p className='task-Name'>{task.taskName}</p>
                         <p className='task-Assignee'>{task.assignee}</p>
-                        <p className='task-Deadline'>{task.deadline}</p>
+                        <p className='task-Deadline'>{`${months[date.getMonth()]}  ${date.getDate()}`}</p>
                         <div className='dropdown'>
                             <p className='task-Status'>{task.status}</p>
                             <div className='dropdown-Content'>
-                                <p>incomplete</p>
-                                <p>complete</p>
+                                <div onClick={changeStatus} id={task.id} className='incomplete'>incomplete</div>
+                                <div onClick={changeStatus} id={task.id} className='complete'>complete</div>
                             </div>
                         </div>
                         <div className='edit-button'>
                             <i className="fa-solid fa-bars" id={task.id} onClick={openMenu}></i>
                             {showMenu && Number(menuId)===Number(task.id) && (
                                 <div key={task.id} className='edit-Menu'>
-                                    <i id={task.id} onClick={onEdit} className="far fa-edit">Edit</i>
-                                    <i id={task.id} onClick={onDelete} className="fa-regular fa-trash-can">Delete</i>
+                                    <i id={task.id} onClick={onEdit} className="far fa-edit">  Edit</i>
+                                    <i id={task.id} onClick={onDelete} className="fa-regular fa-trash-can">   Delete</i>
                                 </div>
                                 )}
                         </div>
@@ -122,21 +140,46 @@ function Project(){
             )
 
         }
-        <h2>Done Lists</h2>
+        <h2><i id='done-Lists-Bar' onClick={()=>setDoneList(!done)} className={done ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> Done Lists</h2>
         <div className='task-Name'>Task name</div>
         <div className='task-Assignee'>Assignee</div>
         <div className='task-Deadline'>Due date</div>
         <div className='task-Status'>Status</div>
         {
 
-            doneList&&(doneList.map(list=>(
-                <div className='Done-list' key={list.id}>
-                    <li>{list.assignee}</li>
-                    <li>{list.taskName}</li>
-                    <li>{list.status}</li>
-                    <li>{list.deadline}</li>
-                </div>
-            )))
+            done && doneList&&(doneList.map(task=>{
+                let deadline = task.deadline.split('-');
+                let date = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
+                console.log(date.getMonth())
+                if(Number(editId)!==Number(task.id)){
+                    return (
+                    <div className='done-List' key={task.id}>
+                        <p className='task-Name'>{task.taskName}</p>
+                        <p className='task-Assignee'>{task.assignee}</p>
+                        <p className='task-Deadline'>{`${months[date.getMonth()]}  ${date.getDate()}`}</p>
+                        <div className='dropdown'>
+                            <p className='task-Status'>{task.status}</p>
+                            <div className='dropdown-Content'>
+                                <div onClick={changeStatus} id={task.id} className='incomplete'>incomplete</div>
+                                <div onClick={changeStatus} id={task.id} className='complete'>complete</div>
+                            </div>
+                        </div>
+                        <div className='edit-button'>
+                            <i className="fa-solid fa-bars" id={task.id} onClick={openMenu}></i>
+                            {showMenu && Number(menuId)===Number(task.id) && (
+                                <div key={task.id} className='edit-Menu'>
+                                    <i id={task.id} onClick={onEdit} className="far fa-edit">  Edit</i>
+                                    <i id={task.id} onClick={onDelete} className="fa-regular fa-trash-can">   Delete</i>
+                                </div>
+                                )}
+                        </div>
+                    </div>
+                    )
+                }else if(Number(task.id)===Number(editId)){
+                    return (<EditTasks id={task.id}/>)
+                }
+
+            }))
         }
         </div>
     )

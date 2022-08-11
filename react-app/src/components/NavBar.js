@@ -12,22 +12,23 @@ const NavBar = () => {
   return (
     <nav className={user? 'Nav-Bar':'noUser-Nav-Bar'}>
       <div className='nav-Bar-container'>
+        <NavLink to='/' exact={true} activeClassName='home-Logo'>
+          <img src='/image/Asanalist-logos.jpeg' className='logo' height='50px' width='auto' alt='Site Logo'></img>
+        </NavLink>
+        {user &&
         <NavLink to='/' exact={true} activeClassName='home-Button'>
           <i className="fa-solid fa-house"></i>Home
-        </NavLink>
+        </NavLink>}
 
         {!user && (
           <div>
-            <li>
-              <NavLink to='/login' exact={true} activeClassName='active'>
-                Login
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                Sign Up
-              </NavLink>
-            </li>
+            <NavLink to='/login' exact={true} activeClassName='active'>
+              <button className='login-Button'>Login</button>
+            </NavLink>
+
+            <NavLink to='/sign-up' exact={true} activeClassName='active'>
+              <button className='signup-Button'>Sign Up</button>
+            </NavLink>
           </div>
         )}
 

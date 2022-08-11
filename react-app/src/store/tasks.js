@@ -82,6 +82,19 @@ export const EditTask = (task) => async(dispatch)=>{
     }
 }
 
+export const updateTask = (task) => async(dispatch)=>{
+    const response = await fetch(`/api/tasks/${task.id}/update`,{
+        method:'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(task)
+    })
+    if(response.ok){
+        const data = await response.json();
+        dispatch(editTask(data.task))
+        return null;
+    }
+}
+
 export const DeleteTask = (id) =>async (dispatch)=>{
     const response = await fetch(`/api/tasks/${id}/delete`,{
         method:'DELETE',
