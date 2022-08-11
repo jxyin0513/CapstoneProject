@@ -81,8 +81,8 @@ export const EditProjects = (project) => async (dispatch)=>{
     }
 }
 
-export const DeleteProjects = (project) => async (dispatch)=>{
-    const response = await fetch(`/api/projects/${project.id}/delete`,{
+export const DeleteProjects = (id) => async (dispatch)=>{
+    const response = await fetch(`/api/projects/${id}/delete`,{
         method: 'DELETE',
         headers: {'Content-Type': 'application/json'},
     })

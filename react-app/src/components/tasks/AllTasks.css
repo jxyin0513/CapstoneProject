@@ -1,3 +1,46 @@
 .all-Tasks{
     margin-left: 200px;
 }
+.col-Bar{
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 30px 0px 10px 0px;
+}
+.my-Task-Names{
+    width: 300px;
+}
+.my-Deadline{
+    width: 150px;
+}
+.my-Projects{
+    width: 150px;
+}
+.my-Tasks-Assigned{
+    display: flex;
+    justify-content: space-between;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 7px 0;
+}
+.my-Detail-Name{
+    width: 300px;
+}
+#recently-Assigned{
+    cursor: pointer;
+}
+.my-Detail-Deadline{
+    width: 150px;
+}
+.all-Tasks-Header{
+    border-bottom: 1px lightgray solid;
+}
+.my-Detail-Project{
+    width: 150px;
+}
+
+#today-Assigned{
+    cursor: pointer;
+}
+#this-week-Assigned{
+    cursor: pointer;
+}

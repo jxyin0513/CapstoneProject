@@ -1,0 +1,24 @@
+.home-Page{
+    position: relative;
+}
+.starter-Message{
+    position: absolute;
+    /* background-color: white; */
+    top: 100px;
+    left: 50px;
+    font-size: 30px;
+    width: 300px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.project-Starter{
+    position: absolute;
+    top: 350px;
+    left: 70px;
+    font-size: 20px;
+    width: 90px;
+    height: 30px;
+    background-color: black;
+    color: ghostwhite;
+    border-radius: 5px;
+    cursor: pointer;
+}
