@@ -1,7 +1,7 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from .project import members
+# from .project import members
 
 
 class User(db.Model, UserMixin):
@@ -14,7 +14,7 @@ class User(db.Model, UserMixin):
 
     projects = db.relationship('Project', back_populates='user', cascade='all, delete')
     tasks = db.relationship('Task', back_populates='user', cascade= 'all, delete')
-    user_member = db.relationship('Project', secondary=members, back_populates='project_member', cascade='all, delete')
+    # user_member = db.relationship('Project', secondary=members, back_populates='project_member', cascade='all, delete')
 
     @property
     def password(self):

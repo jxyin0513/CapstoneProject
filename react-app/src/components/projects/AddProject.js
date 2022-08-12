@@ -28,17 +28,20 @@ function NewProject(){
 
     return (
         <div className='add-Project-Container'>
+
             <form className='add-Project-Form' onSubmit={onSubmit}>
+                <div className='new-Project-Header'>New Project</div>
                 <div className='errors-handler-Project'>
                     {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>
                     ))}
                 </div>
-                <label>Project Name
+                <label>
                     <input type='text' name='name' placeholder='Project name' onChange={e=>setName(e.target.value)}></input>
                 </label>
-                <label>Description
-                    <input type='text' name='description' placeholder='Description' onChange={e=>setDescription(e.target.value)}></input>
+
+                <label>
+                    <textarea name='description' placeholder='Description' rows='5' cols='25' onChange={e=>setDescription(e.target.value)}></textarea>
                 </label>
                 <button type='submit'>Add Project</button>
             </form>

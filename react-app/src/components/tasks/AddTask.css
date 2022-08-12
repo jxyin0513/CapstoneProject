@@ -1,13 +1,29 @@
 .add-Task-Form > label{
     display: block;
+    padding-bottom: 5px;
 }
 .errors-handler{
     color: red;
+    /* height: 80px; */
 }
 .add-Tasks{
     width: 300px;
-    height: 200px;
-    position: relative;
-    top: 30px;
-    left: 10px;
+    height: 300px;
+    margin-top: 10px;
+}
+.add-Task-Form {
+    padding-left: 10px;
+}
+.add-Task-Form > button{
+    border-radius: 5px;
+}
+.add-Task-Form > button:hover{
+    background-color:dimgray;
+    color:azure;
+}
+.add-new-Task {
+    padding: 5px 10px 15px 10px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    border-bottom: 1px solid lightgray;
 }

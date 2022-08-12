@@ -31,6 +31,48 @@ img.logo{
     background-color: dimgray;
     color: cornsilk;
 }
+.nav-Bar-container div > .home-Button{
+    margin: 0 15px;
+    text-decoration: none;
+}
+.home-nav-Page:hover{
+    background-color: lightgray;
+}
+.home-nav-Page{
+    padding: 5px 0;
+}
+.home-Button{
+    padding: 3px 5px ;
+}
+
+#my-tasks-Button{
+    margin: 0 15px;
+    padding: 3px 5px;
+    text-decoration: none;
+}
+.my-tasks-outer{
+    padding: 5px 0;
+}
+.my-tasks-outer:hover{
+    background-color: lightgray;
+}
+#my-tasks-Button:hover{
+    background-color: lightgray;
+}
+/* .my-tasks-Button{
+    background-color:lightgrey;
+} */
+
+.all-projects-Profile > h3{
+    margin-left: 15px;
+}
+.all-projects-Profile > a > div{
+    padding: 5px 0 5px 20px;
+}
+.all-projects-Profile > a{
+    text-decoration: none;
+}
+
 /* .nav-Bar-container{
     padding-left: 5px;
 } */

@@ -30,6 +30,17 @@
 #status-Icon{
     padding: 0 5px;
 }
+.create-Project-Container{
+    cursor: pointer;
+}
+.create-Project-Container:hover{
+    background-color: lightgrey;
+}
+.create-Project-Container:hover .create-Project{
+    border: 1px black dotted;
+    color: black;
+}
+
 .create-Project{
     height: 50px;
     width: 50px;
@@ -45,9 +56,21 @@
     justify-content: center;
     align-items: center; */
 }
-.create-Project:hover{
+.project-Specific:hover .create-Project{
     border: 1px black dotted;
     color: black;
+}
+.create-Project-Name{
+    display: inline-block;
+    /* position: absolute;
+    top: 35px; */
+}
+.project-Specific{
+    cursor: pointer;
+    position: relative;
+}
+.project-Specific:hover{
+    background-color: lightgray;
 }
 .project-Home-Header{
     padding: 15px;
@@ -74,20 +97,6 @@
 }
 .project-Home-Page:hover{
     border: 1px solid darkgrey;
-}
-.create-Project-Name{
-    display: inline-block;
-}
-.project-Specific{
-    cursor: pointer;
-    position: relative;
-}
-.create-Project-Name{
-    position: absolute;
-    top: 35px;
-}
-.project-Specific:hover{
-    background-color: lightgray;
 }
 
 .task-Home-Page{

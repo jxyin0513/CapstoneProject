@@ -50,50 +50,49 @@
 .project-Detail{
     margin-left: 200px;
 }
+.todo-Bar{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+}
+.done-List-Bar{
+    display: flex;
+    justify-content: space-between;
+}
 div.task-Name{
     font-family:'Times New Roman', Times, serif;
     font-weight:bold;
-    display: inline-block;
     width: 250px;
-    border: 1px lightgray solid;
 }
 div.task-Name:hover{
     background-color: lightgrey;
 }
 div.task-Assignee{
-    display: inline-block;
     font-weight:bold;
     width: 150px;
-    border: 1px solid;
-    border-top-color: lightgrey;
-    border-right-color: lightgrey;
-    border-bottom-color: lightgrey;
-    border-left-color: transparent;
 }
 
 div.task-Deadline{
-    display: inline-block;
+    /* display: inline-block; */
     font-weight:bold;
     width: 150px;
-    border: 1px solid;
-    border-top-color: lightgrey;
-    border-right-color: lightgrey;
-    border-bottom-color: lightgrey;
-    border-left-color: transparent;
 }
 div.task-Status{
-    display: inline-block;
+    /* display: inline-block; */
     font-weight:bold;
-    width: 100px;
-    border: 1px solid;
+    width: 150px;
+    /* border: 1px solid;
     border-top-color: lightgrey;
     border-right-color: lightgrey;
     border-bottom-color: lightgrey;
-    border-left-color: transparent;
+    border-left-color: transparent; */
 }
-.todo-List > p, .done-List > p{
+div.edit-Bar{
+    width: 100px;
+}
+/* .todo-List > p, .done-List > p{
     display: inline-block;
-}
+} */
 p.task-Name{
     width: 250px;
 }
@@ -104,10 +103,13 @@ p.task-Deadline{
     width: 150px;
 }
 p.task-Status{
-    width: 100px;
+    width: 150px;
     border: none;
     cursor: pointer;
     margin-bottom: 0px;
+    display: inline-block;
+    /* margin-right: -10px;
+    box-sizing: border-box; */
 }
 .todo-List p.task-Status{
     color: red;
@@ -118,10 +120,20 @@ p.task-Status{
 .todo-List i, .done-List i {
     cursor: pointer;
 }
+.done-List{
+    display: flex;
+    justify-content: space-between;
+}
+.todo-List{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+}
 .edit-button{
     display: inline-block;
     position: relative;
 }
+
 .edit-Menu{
     position: absolute;
     left: 12px;
@@ -140,14 +152,16 @@ p.task-Status{
     background-color: lightgrey;
     color: maroon;
 }
-.edit-Button {
-    display: inline-block;
+.edit-button > i {
+    /* display: inline-block; */
+    margin: 16px 70px 0 10px;
 }
+
 /* .todo-List{
     padding-bottom: 10px;
 } */
 .dropdown{
-    display: inline-block;
+    /* display: inline-block; */
     position: relative;
 }
 .dropdown-Content{
