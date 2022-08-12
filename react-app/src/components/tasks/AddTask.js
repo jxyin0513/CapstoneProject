@@ -4,7 +4,7 @@ import { useHistory, useParams} from 'react-router-dom'
 import { CreateTask } from '../../store/tasks';
 import './AddTask.css';
 
-function AddTask(){
+function AddTask({onClose}){
     const dispatch = useDispatch()
     const history = useHistory()
     const {projectId} = useParams()
@@ -29,7 +29,8 @@ function AddTask(){
         }
         const newTask = await dispatch(CreateTask(task))
         if(!newTask){
-            history.push(`/projects/${projectId}`)
+            onClose()
+            // history.push(`/projects/${projectId}`)
         }else{
             setErrors(newTask)
         }
@@ -56,7 +57,9 @@ function AddTask(){
                 <label>
                 <input type='text' name='priority' placeholder='Priority' onChange={e=>setPriority(e.target.value)}></input>
                 </label>
+                <button onClick={onClose}>Cancel</button>
                 <button type='submit'>Add Task</button>
+
             </form>
         </div>
     )

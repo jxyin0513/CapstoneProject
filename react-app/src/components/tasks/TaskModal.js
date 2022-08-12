@@ -14,7 +14,7 @@ function AddTaskModal(){
 
             {showModal&&(
                 <Modal onClose={() => setShowModal(false)}>
-                    <AddTask />
+                    <AddTask onClose={() => setShowModal(false)} />
                 </Modal>
       )}
         </>

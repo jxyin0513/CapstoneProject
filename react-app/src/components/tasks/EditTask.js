@@ -4,7 +4,7 @@ import {useParams, useHistory} from 'react-router-dom'
 import { EditTask } from '../../store/tasks';
 import './EditTask.css'
 
-function EditTasks({id}){
+function EditTasks({onEdit, id, onClose}){
     const dispatch = useDispatch()
     const history = useHistory()
     const {projectId} = useParams()
@@ -18,6 +18,7 @@ function EditTasks({id}){
     const [errors, setErrors] = useState([])
 
     async function onSubmit(e){
+        console.log(deadline)
         e.preventDefault()
         const task = {
             id,
@@ -31,15 +32,18 @@ function EditTasks({id}){
         }
         const editTask = await dispatch(EditTask(task))
         if(!editTask){
-            history.push(`/projects/${projectId}`)
+            onClose()
+            onEdit()
+            // history.push(`/projects/${projectId}`)
         }else{
             setErrors(editTask)
         }
     }
 
     return (
-        <>
-            <form className='edit-Task' onSubmit={onSubmit}>
+        <div className='edit-Task-Outer'>
+            <div className='edit-task-Header'>Edit task</div>
+            <form className='edit-Task-Form' onSubmit={onSubmit}>
                 <div className='errors-handler'>
                     {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>
@@ -63,9 +67,10 @@ function EditTasks({id}){
                 <label>
                 <input type='text' name='priority' value={priority} onChange={e=>setPriority(e.target.value)}></input>
                 </label>
+                {/* <button onClick={onClose}>Cancel</button> */}
                 <button type='submit'>Edit</button>
             </form>
-        </>
+        </div>
     )
 }
 

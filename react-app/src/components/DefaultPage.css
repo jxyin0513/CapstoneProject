@@ -86,6 +86,7 @@
     border: 1px solid lightgray;
     width: 300px;
     height: 400px;
+    overflow-y: scroll;
     /* display: inline-block; */
 }
 .project-Tasks{

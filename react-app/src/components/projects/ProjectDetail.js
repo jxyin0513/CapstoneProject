@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import {useParams} from 'react-router-dom'
-import { GetProjectDetail } from '../../store/projects';
+// import { GetProjectDetail } from '../../store/projects';
+import { GetAllProjects } from '../../store/projects';
 import { updateTask } from '../../store/tasks';
 import EditTasks from '../tasks/EditTask';
 import { GetAllTasks } from '../../store/tasks';
 import { DeleteTask } from '../../store/tasks';
 // import { DeleteProjects } from '../../store/projects';
 import AddTaskModal from '../tasks/TaskModal';
+import EditTaskModal from '../tasks/EditTaskModal';
 import EditProjectModal from './EditProjectModal';
 import DeleteProjectModal from './DeleteProject';
 import './ProjectDetail.css'
@@ -22,8 +24,10 @@ function Project(){
     const projectTask = tasks.filter(task => task.projectId === Number(projectId))
     const todoList = projectTask.filter(task=>task.status ==='incomplete')
     const doneList = projectTask.filter(task=>task.status === 'complete')
+    console.log(projectTask, todoList, doneList)
     const [showModal, setShowModal] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
+    const [showEdit, setShowEdit] = useState(false)
     const [showMenu, setShowMenu] = useState(false)
     const [toList, setToList] = useState(true);
     const [done, setDoneList] = useState(true)
@@ -33,9 +37,10 @@ function Project(){
     // let editId = 0
 
     useEffect(()=>{
-        dispatch(GetProjectDetail(projectId))
+        // dispatch(GetProjectDetail(projectId))
+        dispatch(GetAllProjects())
         dispatch(GetAllTasks())
-    }, [dispatch, projectId])
+    }, [dispatch])
 
     function openMenu(e){
         if(showMenu) return;
@@ -61,6 +66,7 @@ function Project(){
     // },[edit])
     function onEdit(e){
         setEditId(e.target.id)
+        setShowEdit(true)
         // setEdit(true);
     }
     async function onDelete(e){
@@ -139,8 +145,8 @@ function Project(){
                             </div>
                     </div>
                     )
-                }else if(Number(task.id)===Number(editId)){
-                    return (<EditTasks id={task.id}/>)
+                }else if(Number(task.id)===Number(editId) && showEdit){
+                    return (<EditTaskModal onEdit={()=>setEditId(0)} onClose={()=>setShowEdit(false)} id={task.id}/>)
                 }
             }
             )
@@ -184,8 +190,8 @@ function Project(){
                         </div>
                     </div>
                     )
-                }else if(Number(task.id)===Number(editId)){
-                    return (<EditTasks id={task.id}/>)
+                }else if(Number(task.id)===Number(editId)&& showEdit){
+                    return (<EditTaskModal onEdit={()=>setEditId(0)} onClose={()=>setShowEdit(false)} id={task.id}/>)
                 }
 
             }))
