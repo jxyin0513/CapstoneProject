@@ -20,12 +20,13 @@ function AllProjects(){
         <>
         <h3 className='user-Name'>@{user.username}</h3>
         {/* <div className='add-Project'>+</div> */}
-        {projects && (allProjects.map(project=>(
+        {allProjects && (allProjects.map(project=>(
             // <Link className='project-detail'  key={project.id} to={`/projects/${project.id}`}>{project.name}</Link>
-            <NavLink activeClassName={'project-detail'} activeStyle={{textDecoration:"none"}} key={project.id} to={`/projects/${project.id}`}>
+            <NavLink activeClassName={'project-detail'} className='project-detail-page' key={project.id} to={`/projects/${project.id}`}>
                 <div className='project-detail-Name'>{project.name}
                 </div>
             </NavLink>
+
 
             // <li key={project.id}>{project.name}</li>
             // <div ></div>

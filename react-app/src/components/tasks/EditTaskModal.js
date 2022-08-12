@@ -1,23 +1,19 @@
 import React from 'react'
 import { Modal } from "../context/Modal";
-import EditProject from './EditProject';
+import EditTasks from './EditTask';
 
-function EditProjectModal({onClose}){
+function EditTaskModal({onEdit, onClose, id}){
     // const [showModal, setShowModal] = useState(false);
     // const [demoUser, setDemoUser] = useState(false)
     return (
         <>
-            {/* <button className='add-Task' onClick={()=>setShowModal(true)}>
-               +
-            </button> */}
 
-
+            {(
                 <Modal onClose={onClose}>
-                    <EditProject onClose={onClose}/>
+                    <EditTasks onEdit={onEdit} id={id} onClose={onClose} />
                 </Modal>
-
+      )}
         </>
     )
 }
-
-export default EditProjectModal
+export default EditTaskModal;
