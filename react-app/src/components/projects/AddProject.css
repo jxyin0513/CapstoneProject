@@ -22,3 +22,16 @@
     left: 70px;
     border-radius: 20px;
 }
+.add-Project-Form > label{
+    display: block;
+    padding: 10px 10px 5px 10px;
+}
+.add-Project-Form > button{
+    margin: 10px;
+}
+.new-Project-Header{
+    padding: 10px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    border-bottom: 1px solid lightgray;
+}

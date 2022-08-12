@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutButton from './auth/LogoutButton';
 import AllProjects from './projects/AllProjects';
+import logo from './image/Asanalist-logos.jpeg';
 import './NavBar.css'
 
 const NavBar = () => {
@@ -13,12 +14,15 @@ const NavBar = () => {
     <nav className={user? 'Nav-Bar':'noUser-Nav-Bar'}>
       <div className='nav-Bar-container'>
         <NavLink to='/' exact={true} activeClassName='home-Logo'>
-          <img src='/image/Asanalist-logos.jpeg' className='logo' height='50px' width='auto' alt='Site Logo'></img>
+          <img src={logo} className='logo' height='50px' width='auto' alt='Site Logo'></img>
         </NavLink>
         {user &&
-        <NavLink to='/' exact={true} activeClassName='home-Button'>
-          <i className="fa-solid fa-house"></i>Home
-        </NavLink>}
+        <div className='home-nav-Page'>
+          <NavLink to='/' exact={true} className='home-Button' activeClassName='home-page-Button'>
+            <i className="fa-solid fa-house"></i>  Home
+          </NavLink>
+        </div>
+        }
 
         {!user && (
           <div>
@@ -34,15 +38,17 @@ const NavBar = () => {
 
         {user && (
           <div>
-            <div>
-              <NavLink to='/tasks' exact={true} activeClassName='tasks-Button'>
-                <i className="fa-solid fa-list-ul"></i>My Tasks
+            <div className='my-tasks-outer'>
+              <NavLink to='/tasks' exact={true} id='my-tasks-Button' activeClassName='my-tasks-Button'>
+                <i className="fa-solid fa-list-ul"></i>  My Tasks
               </NavLink>
             </div>
             <div>
               <LogoutButton />
             </div>
-            <AllProjects />
+            <div className='all-projects-Profile'>
+              <AllProjects />
+            </div>
           </div>
         )}
 

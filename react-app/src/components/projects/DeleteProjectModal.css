@@ -1,0 +1,20 @@
+.delete-Project-Container{
+    height: 250px;
+    width: 400px;
+}
+.delete-Message{
+    padding: 15px 0 15px 15px;
+    border-bottom: 1px solid lightgray;
+}
+.delete-project-Intro{
+    padding: 15px 10px 5px 10px;
+}
+.delete-Project-Container > button{
+    margin: 10px 0 0 10px;
+    border-radius: 5px;
+}
+.delete-Project-Container > button:hover{
+    background-color: slategrey;
+    color: floralwhite;
+    cursor: pointer;
+}

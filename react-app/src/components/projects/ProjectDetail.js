@@ -6,9 +6,10 @@ import { updateTask } from '../../store/tasks';
 import EditTasks from '../tasks/EditTask';
 import { GetAllTasks } from '../../store/tasks';
 import { DeleteTask } from '../../store/tasks';
-import { DeleteProjects } from '../../store/projects';
+// import { DeleteProjects } from '../../store/projects';
 import AddTaskModal from '../tasks/TaskModal';
 import EditProjectModal from './EditProjectModal';
+import DeleteProjectModal from './DeleteProject';
 import './ProjectDetail.css'
 
 function Project(){
@@ -22,6 +23,7 @@ function Project(){
     const todoList = projectTask.filter(task=>task.status ==='incomplete')
     const doneList = projectTask.filter(task=>task.status === 'complete')
     const [showModal, setShowModal] = useState(false);
+    const [showDelete, setShowDelete] = useState(false);
     const [showMenu, setShowMenu] = useState(false)
     const [toList, setToList] = useState(true);
     const [done, setDoneList] = useState(true)
@@ -65,10 +67,10 @@ function Project(){
         e.preventDefault();
         await dispatch(DeleteTask(e.target.id))
     }
-    async function onDeleteProject(e){
-        e.preventDefault();
-        await dispatch(DeleteProjects(project.id))
-    }
+    // async function onDeleteProject(e){
+    //     e.preventDefault();
+    //     await dispatch(DeleteProjects(project.id))
+    // }
     async function changeStatus(e){
         console.log(e.target.className)
 
@@ -88,7 +90,7 @@ function Project(){
                         <i className="fa-solid fa-chevron-down"></i>
                         <div className='edit-Icon'>
                                 <i className="far fa-edit" onClick={()=>setShowModal(true)}>  Edit</i>
-                                <i onClick={onDeleteProject} className="fa-regular fa-trash-can">  Delete</i>
+                                <i onClick={()=>setShowDelete(true)} className="fa-regular fa-trash-can">  Delete</i>
 
                         </div>
                     </div>
@@ -97,14 +99,17 @@ function Project(){
             )
         }
         {showModal && (<EditProjectModal onClose={()=>setShowModal(false)}/>)}
-
+        {showDelete && (<DeleteProjectModal id={projectId} onClose={()=>setShowDelete(false)} />)}
         <AddTaskModal />
 
         <h2><i id='todo-List-Bar' onClick={()=>setToList(!toList)} className={toList ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> Todo Lists</h2>
-        <div className='task-Name'>Task name</div>
-        <div className='task-Assignee'>Assignee</div>
-        <div className='task-Deadline'>Due date</div>
-        <div className='task-Status'>Status</div>
+        <div className='todo-Bar'>
+            <div className='task-Name'>Task name</div>
+            <div className='task-Assignee'>Assignee</div>
+            <div className='task-Deadline'>Due date</div>
+            <div className='task-Status'>Status</div>
+            <div className='edit-Bar'></div>
+        </div>
         {
             toList && todoList && todoList.map(task=>{
                 let deadline = task.deadline.split('-');
@@ -121,16 +126,17 @@ function Project(){
                                 <div onClick={changeStatus} id={task.id} className='incomplete'>incomplete</div>
                                 <div onClick={changeStatus} id={task.id} className='complete'>complete</div>
                             </div>
+
                         </div>
                         <div className='edit-button'>
-                            <i className="fa-solid fa-bars" id={task.id} onClick={openMenu}></i>
-                            {showMenu && Number(menuId)===Number(task.id) && (
-                                <div key={task.id} className='edit-Menu'>
-                                    <i id={task.id} onClick={onEdit} className="far fa-edit">  Edit</i>
-                                    <i id={task.id} onClick={onDelete} className="fa-regular fa-trash-can">   Delete</i>
-                                </div>
-                                )}
-                        </div>
+                                <i className="fa-solid fa-bars" id={task.id} onClick={openMenu}></i>
+                                {showMenu && Number(menuId)===Number(task.id) && (
+                                    <div key={task.id} className='edit-Menu'>
+                                        <i id={task.id} onClick={onEdit} className="far fa-edit">  Edit</i>
+                                        <i id={task.id} onClick={onDelete} className="fa-regular fa-trash-can">   Delete</i>
+                                    </div>
+                                    )}
+                            </div>
                     </div>
                     )
                 }else if(Number(task.id)===Number(editId)){
@@ -141,10 +147,13 @@ function Project(){
 
         }
         <h2><i id='done-Lists-Bar' onClick={()=>setDoneList(!done)} className={done ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> Done Lists</h2>
-        <div className='task-Name'>Task name</div>
-        <div className='task-Assignee'>Assignee</div>
-        <div className='task-Deadline'>Due date</div>
-        <div className='task-Status'>Status</div>
+        <div className='done-List-Bar'>
+            <div className='task-Name'>Task name</div>
+            <div className='task-Assignee'>Assignee</div>
+            <div className='task-Deadline'>Due date</div>
+            <div className='task-Status'>Status</div>
+            <div className='edit-Bar'></div>
+        </div>
         {
 
             done && doneList&&(doneList.map(task=>{

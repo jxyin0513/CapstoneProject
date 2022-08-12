@@ -37,23 +37,24 @@ function AddTask(){
 
     return (
         <div className='add-Tasks'>
+            <div className='add-new-Task'>Add Task</div>
             <form className='add-Task-Form' onSubmit={onSubmit}>
                 <div className='errors-handler'>
                     {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>
                     ))}
                 </div>
-                <label>Assignee:
-                    <input type='text' name='assignee' onChange={e=>setAssignee(e.target.value)}></input>
+                <label>
+                    <input type='text' name='assignee' placeholder='Assignee' onChange={e=>setAssignee(e.target.value)}></input>
                 </label>
-                <label>Task name:
-                    <input type='text' name='taskName' onChange={e=>setTaskName(e.target.value)}></input>
+                <label>
+                    <input type='text' name='taskName' placeholder='Task name' onChange={e=>setTaskName(e.target.value)}></input>
                 </label>
-                <label>Due date:
-                    <input type='date' name='deadline' onChange={e=>setDeadline(e.target.value)}></input>
+                <label>
+                    <input type='date' name='deadline' placeholder='Due date' onChange={e=>setDeadline(e.target.value)}></input>
                 </label>
-                <label>Priority:
-                <input type='text' name='priority' onChange={e=>setPriority(e.target.value)}></input>
+                <label>
+                <input type='text' name='priority' placeholder='Priority' onChange={e=>setPriority(e.target.value)}></input>
                 </label>
                 <button type='submit'>Add Task</button>
             </form>
