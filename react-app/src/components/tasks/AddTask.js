@@ -11,8 +11,9 @@ function AddTask({onClose}){
     const user = useSelector(state=>state.session.user)
     const [assignee, setAssignee] = useState('')
     const [taskName, setTaskName] = useState('')
+    const [startdate, setStartdate] = useState(new Date());
     const [deadline, setDeadline] = useState('')
-    const [priority, setPriority] = useState('')
+    // const [priority, setPriority] = useState('')
     const [errors, setErrors] = useState([])
 
     async function onSubmit(e){
@@ -24,8 +25,8 @@ function AddTask({onClose}){
             assignee,
             taskName,
             status: 'incomplete',
+            startdate:`${startdate.getFullYear()}-${startdate.getMonth()+1}-${startdate.getDate()}`,
             deadline,
-            priority
         }
         const newTask = await dispatch(CreateTask(task))
         if(!newTask){
@@ -54,9 +55,9 @@ function AddTask({onClose}){
                 <label>
                     <input type='date' name='deadline' placeholder='Due date' onChange={e=>setDeadline(e.target.value)}></input>
                 </label>
-                <label>
+                {/* <label>
                 <input type='text' name='priority' placeholder='Priority' onChange={e=>setPriority(e.target.value)}></input>
-                </label>
+                </label> */}
                 <button onClick={onClose}>Cancel</button>
                 <button type='submit'>Add Task</button>
 

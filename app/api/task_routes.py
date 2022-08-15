@@ -52,7 +52,7 @@ def update_task(id):
         task.taskName = form.data['taskName']
         task.status = form.data['status']
         task.deadline = form.data['deadline']
-        task.priority = form.data['priority']
+        # task.priority = form.data['priority']
         db.session.commit()
         return {'task': task.to_dict()}
     if(form.errors):
@@ -74,3 +74,12 @@ def delete_task(id):
     db.session.delete(task)
     db.session.commit()
     return {'task': task.to_dict()}
+
+@task_routes.route('/<id>/delete/relate', methods=['DELETE'])
+def delete_task_related(id):
+    tasks = Task.query.filter_by(projectId = id).all()
+    print(tasks)
+    for task in tasks:
+        db.session.delete(task)
+    db.session.commit()
+    return {'tasks': [task.to_dict() for task in tasks]}

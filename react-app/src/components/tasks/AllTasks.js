@@ -13,7 +13,8 @@ function AllTasks(){
     const todayTasks = allTasks.filter(task=>{
         const deadline = task.deadline.split('-')
         const tdate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
-        if(tdate === new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`)){
+        console.log(tdate.getMonth()+1, date.getMonth()+1)
+        if(tdate.getMonth() === date.getMonth() && tdate.getDate() === date.getDate() && tdate.getFullYear() === date.getFullYear()){
             return true;
         }else{
             return false;
@@ -23,7 +24,7 @@ function AllTasks(){
         const deadline = task.deadline.split('-')
         const tdate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
         const nextWeek = new Date(`${date.getMonth()+1}, ${date.getDate()+7}, ${date.getFullYear()}`)
-        console.log(new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`), tdate)
+
         if(new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`) < tdate && tdate < nextWeek){
             if(date.getDay()< tdate.getDay()){
                 return true

@@ -8,8 +8,10 @@
     padding-left: 10px;
 }
 button{
-    border-radius: 5px;
+    border-radius: 7px;
     cursor: pointer;
+    background-color:ivory;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 button:hover{
     background-color: darkgrey;

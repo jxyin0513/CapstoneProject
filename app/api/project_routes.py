@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from app.forms import ProjectForm
-from app.models import Project, db
+from app.models import Project, Task, db
 
 project_routes = Blueprint('projects', __name__)
 
@@ -48,6 +48,7 @@ def edit_project(id):
         project.userId = form.data['userId']
         project.name = form.data['name']
         project.description = form.data['description']
+        project.deadline = form.data['deadline']
         db.session.commit()
         return {'project': project.to_dict()}
 

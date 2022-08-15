@@ -10,6 +10,7 @@ function EditTasks({onEdit, id, onClose}){
     const {projectId} = useParams()
     const user = useSelector(state=>state.session.user)
     const task = useSelector(state=>state.tasks[id])
+    const startdate = task.startdate
     const [assignee, setAssignee] = useState(task.assignee)
     const [taskName, setTaskName] = useState(task.taskName)
     const [deadline, setDeadline] = useState(task.deadline)
@@ -27,6 +28,7 @@ function EditTasks({onEdit, id, onClose}){
             assignee,
             taskName,
             status,
+            startdate,
             deadline,
             priority
         }
@@ -64,11 +66,11 @@ function EditTasks({onEdit, id, onClose}){
                         <option value='complete'>Complete</option>
                     </select>
                 </label> */}
-                <label>
+                {/* <label>
                 <input type='text' name='priority' value={priority} onChange={e=>setPriority(e.target.value)}></input>
-                </label>
+                </label> */}
                 {/* <button onClick={onClose}>Cancel</button> */}
-                <button type='submit'>Edit</button>
+                <button type='submit'>Edit Task</button>
             </form>
         </div>
     )
