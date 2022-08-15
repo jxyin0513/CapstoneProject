@@ -24,13 +24,16 @@ AsanaList is clone of [Asana](https://asana.com) that users can use it to manage
 ## App in action
 
 ### Main page
+![home-page](./react-app/src/components/image/main-page.jpg)
 
 ### Main page(for signed in user)
+![main-page](./react-app/src/components/image/home-page-signed.jpg)
 
 ### Tasks page
+![tasks](./react-app/src/components/image/tasks-all.jpg)
 
 ### Project page
-
+![project-detail](./react-app/src/components/image/project-detail.jpg)
 
 ## Technologies Used
 ![](https://img.shields.io/badge/-HTML-5555ff?style=flat-square&logo=html5&logoColor=FFFFFF) ![](https://img.shields.io/badge/-CSS-5555ff?style=flat-square&logo=css3&logoColor=FFFFFF) ![](https://img.shields.io/badge/-JS-5555ff?style=flat-square&logo=javascript&logoColor=FFFFFF)  ![](https://img.shields.io/badge/-Python-5555ff?style=flat-square&logo=python&logoColor=ffffff)  ![](https://img.shields.io/badge/-React-5555ff?style=flat-square&logo=react&logoColor=FFFFFF) ![](https://img.shields.io/badge/-VScode-5555ff?style=flat-square&logo=visual-studio-code&logoColor=FFFFFF)
@@ -52,9 +55,14 @@ I made dropdown box for updating status of the task was also challenging, and it
 ![to-do-list](./react-app/src/components/image/todolist.jpg) \
 ![css](./react-app/src/components/image/todolistCSS.jpg) \
 
-Also, I made a icon clickable to show and hide tasks in each section, and also use ternary to set its className for specific icon to display show and hide. \
-![](./react-app/src/components/image/icon.jpg) \
-![](./react-app/src/components/image/tasks-hide.jpg) \
-![](./react-app/src/components/image/tasks-show.jpg)
+Also, I made a icon clickable to show and hide tasks in each section, and also use ternary to set its className for specific icon to display show and hide. 
+### When tasks are hidden
+![tasks-hide](./react-app/src/components/image/tasks-hide.jpg) 
+
+### When tasks are shown
+![tasks-show](./react-app/src/components/image/tasks-show.jpg) 
+
+### code for tasks right-arrow and down-arrow icon
+![icon](./react-app/src/components/image/icon.jpg) 
 
 
