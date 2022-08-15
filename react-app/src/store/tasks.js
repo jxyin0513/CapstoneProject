@@ -3,6 +3,7 @@ const GET_TASK = '/GET/TASK/DETAIL'
 const CREATE_TASK = '/POST/NEW/TASK';
 const EDIT_TASK = '/PUT/TASK';
 const DELETE_TASK = '/DELETE/TASK';
+const DELETE_RELATED_TASK = '/DELETE/RELATED/TASKS'
 
 const getTasks = (tasks)=>({
     type: GET_TASKS,
@@ -27,6 +28,11 @@ const editTask = (task)=>({
 const deleteTask = (task)=>({
     type: DELETE_TASK,
     task
+})
+
+const deleteTasks = (tasks)=>({
+    type: DELETE_RELATED_TASK,
+    tasks
 })
 
 export const GetAllTasks = ()=> async(dispatch)=>{
@@ -111,6 +117,23 @@ export const DeleteTask = (id) =>async (dispatch)=>{
         }
     }
 }
+export const DeleteRelatedTask = (id) =>async (dispatch)=>{
+    console.log(id)
+    const response = await fetch(`/api/tasks/${id}/delete/relate`,{
+        method:'DELETE',
+        headers: {'Content-Type': 'application/json'}
+    })
+    if(response.ok){
+        const data = await response.json();
+        dispatch(deleteTasks(data.tasks))
+        return null;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+        return data.errors;
+        }
+    }
+}
 
 const initialState = {}
 
@@ -138,6 +161,12 @@ const taskReducer = (state=initialState, action) =>{
 
         case DELETE_TASK:
             delete newState[action.task.id];
+            return newState;
+
+        case DELETE_RELATED_TASK:
+            action.tasks.forEach(task=>{
+                delete newState[task.id]
+            })
             return newState;
 
         default:

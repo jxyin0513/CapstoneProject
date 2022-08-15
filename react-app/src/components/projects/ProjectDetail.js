@@ -18,8 +18,10 @@ function Project(){
     const dispatch = useDispatch();
     const {projectId} = useParams()
     const project = useSelector(state=>state.projects[projectId])
+    const pDeadline = project?.deadline.split('-')
     const alltasks = useSelector(state=>state.tasks)
     const user = useSelector(state=>state.session.user)
+    const today = new Date()
     const tasks = Object.values(alltasks).filter(task=> task.userId === user.id)
     const projectTask = tasks.filter(task => task.projectId === Number(projectId))
     const todoList = projectTask.filter(task=>task.status ==='incomplete')
@@ -99,7 +101,10 @@ function Project(){
                                 <i onClick={()=>setShowDelete(true)} className="fa-regular fa-trash-can">  Delete</i>
 
                         </div>
+                        <div className='project-Deadline'>{`${months[today.getMonth()]} ${today.getDate()} - ${months[new Date(`${pDeadline[1]}, ${pDeadline[2]}, ${pDeadline[0]}`).getMonth()]} ${pDeadline[2]}`}</div>
                     </div>
+                    <div className='project-Description'>Description: {project.description}</div>
+
                 </div>
 
             )

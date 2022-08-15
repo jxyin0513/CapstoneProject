@@ -25,6 +25,7 @@ function MainPageStatus(){
     })
     const pastTasks = tasks.filter(task=>{
         const tdate = task.deadline.split('-');
+        console.log(tdate < new Date())
         if(((new Date(`${tdate[1]}, ${tdate[2]}, ${tdate[0]}`)-new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`))/(3600 * 1000 * 24)) <0 ){
             return true;
         }else{
@@ -46,7 +47,6 @@ function MainPageStatus(){
     }
     function onProject(e){
         history.push(`/projects/${e.target.id}`)
-        console.log(e.target.id)
     }
     function addProject(e){
         history.push('/new/project-form')

@@ -12,9 +12,11 @@ class Project(db.Model):
     userId = db.Column(db.Integer,db.ForeignKey('users.id'), nullable = False)
     name = db.Column(db.String, nullable = False)
     description = db.Column(db.String, nullable=False)
+    startdate = db.Column(db.Date, nullable=False)
+    deadline = db.Column(db.Date, nullable=False)
 
     user = db.relationship('User', back_populates='projects')
-    tasks = db.relationship('Task', back_populates='project', cascade='all, delete')
+    tasks = db.relationship('Task', back_populates='project', cascade= 'all, delete')
     # project_member = db.relationship('User', secondary=members, back_populates='user_member', cascade='all, delete')
 
 
@@ -23,6 +25,8 @@ class Project(db.Model):
         'id': self.id,
         'userId': self.userId,
         'name': self.name,
+        'startdate': str(self.startdate),
+        'deadline': str(self.deadline),
         'description': self.description,
         # 'members': self.project_member
       }
