@@ -24,5 +24,6 @@ class Task(db.Model):
             'taskName': self.taskName,
             'status': self.status,
             'deadline': str(self.deadline),
-            'priority': self.priority
+            'priority': self.priority,
+            'project': self.project.to_dict()
         }

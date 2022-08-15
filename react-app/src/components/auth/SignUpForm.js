@@ -46,6 +46,7 @@ const SignUpForm = () => {
   return (
     <div className='signUp-Container'>
       <div className='signUp-inner-Container'>
+        <div className='signUp-Header'>Sign up Form</div>
         <form className='signup-Form' onSubmit={onSignUp}>
           <div className='errors-handle-Signup'>
             {errors.map((error, ind) => (
@@ -53,37 +54,41 @@ const SignUpForm = () => {
             ))}
           </div>
           <div>
-            <label>User Name</label>
+            <label></label>
             <input
               type='text'
               name='username'
+              placeholder='Enter your username'
               onChange={updateUsername}
               value={username}
             ></input>
           </div>
           <div>
-            <label>Email</label>
+            <label></label>
             <input
               type='text'
               name='email'
+              placeholder='aa@example.com'
               onChange={updateEmail}
               value={email}
             ></input>
           </div>
           <div>
-            <label>Password</label>
+            <label></label>
             <input
               type='password'
               name='password'
+              placeholder='Enter your password'
               onChange={updatePassword}
               value={password}
             ></input>
           </div>
           <div>
-            <label>Repeat Password</label>
+            <label></label>
             <input
               type='password'
               name='repeat_password'
+              placeholder='Confirm your password'
               onChange={updateRepeatPassword}
               value={repeatPassword}
               required={true}

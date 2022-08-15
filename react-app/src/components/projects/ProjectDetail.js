@@ -120,36 +120,37 @@ function Project(){
             toList && todoList && todoList.map(task=>{
                 let deadline = task.deadline.split('-');
                 let date = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
-                if(Number(editId)!==Number(task.id)){
-                    return (
-                    <div className='todo-List' key={task.id}>
-                        <p className='task-Name'>{task.taskName}</p>
-                        <p className='task-Assignee'>{task.assignee}</p>
-                        <p className='task-Deadline'>{`${months[date.getMonth()]}  ${date.getDate()}`}</p>
-                        <div className='dropdown'>
-                            <p className='task-Status'>{task.status}</p>
-                            <div className='dropdown-Content'>
-                                <div onClick={changeStatus} id={task.id} className='incomplete'>incomplete</div>
-                                <div onClick={changeStatus} id={task.id} className='complete'>complete</div>
-                            </div>
 
+                return (
+                <div className='todo-List' key={task.id}>
+                    <p className='task-Name'>{task.taskName}</p>
+                    <p className='task-Assignee'>{task.assignee}</p>
+                    <p className='task-Deadline'>{`${months[date.getMonth()]}  ${date.getDate()}`}</p>
+                    <div className='dropdown'>
+                        <p className='task-Status'>{task.status}</p>
+                        <div className='dropdown-Content'>
+                            <div onClick={changeStatus} id={task.id} className='incomplete'>incomplete</div>
+                            <div onClick={changeStatus} id={task.id} className='complete'>complete</div>
                         </div>
-                        <div className='edit-button'>
-                                <i className="fa-solid fa-bars" id={task.id} onClick={openMenu}></i>
-                                {showMenu && Number(menuId)===Number(task.id) && (
-                                    <div key={task.id} className='edit-Menu'>
-                                        <i id={task.id} onClick={onEdit} className="far fa-edit">  Edit</i>
-                                        <i id={task.id} onClick={onDelete} className="fa-regular fa-trash-can">   Delete</i>
-                                    </div>
-                                    )}
-                            </div>
+
                     </div>
-                    )
-                }else if(Number(task.id)===Number(editId) && showEdit){
-                    return (<EditTaskModal onEdit={()=>setEditId(0)} onClose={()=>setShowEdit(false)} id={task.id}/>)
-                }
-            }
-            )
+                    <div className='edit-button'>
+                            <i className="fa-solid fa-bars" id={task.id} onClick={openMenu}></i>
+                            {showMenu && Number(menuId)===Number(task.id) && (
+                                <div key={task.id} className='edit-Menu'>
+                                    <i id={task.id} onClick={onEdit} className="far fa-edit">  Edit</i>
+                                    <i id={task.id} onClick={onDelete} className="fa-regular fa-trash-can">   Delete</i>
+                                </div>
+                                )}
+                        </div>
+                        {Number(task.id)===Number(editId) && showEdit && <EditTaskModal onEdit={()=>setEditId(0)} onClose={()=>setShowEdit(false)} id={task.id}/>}
+                </div>
+
+                // if(Number(task.id)===Number(editId) && showEdit){
+                //     return (<EditTaskModal onEdit={()=>setEditId(0)} onClose={()=>setShowEdit(false)} id={task.id}/>)
+                // }
+
+            )})
 
         }
         <h2><i id='done-Lists-Bar' onClick={()=>setDoneList(!done)} className={done ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> Done Lists</h2>
@@ -166,8 +167,7 @@ function Project(){
                 let deadline = task.deadline.split('-');
                 let date = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
                 console.log(date.getMonth())
-                if(Number(editId)!==Number(task.id)){
-                    return (
+                return (
                     <div className='done-List' key={task.id}>
                         <p className='task-Name'>{task.taskName}</p>
                         <p className='task-Assignee'>{task.assignee}</p>
@@ -188,14 +188,12 @@ function Project(){
                                 </div>
                                 )}
                         </div>
+                        {Number(task.id)===Number(editId)&& showEdit && <EditTaskModal onEdit={()=>setEditId(0)} onClose={()=>setShowEdit(false)} id={task.id}/>}
                     </div>
-                    )
-                }else if(Number(task.id)===Number(editId)&& showEdit){
-                    return (<EditTaskModal onEdit={()=>setEditId(0)} onClose={()=>setShowEdit(false)} id={task.id}/>)
-                }
-
-            }))
-        }
+                )
+            }
+            ))
+            }
         </div>
     )
 }

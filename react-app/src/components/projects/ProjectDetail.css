@@ -58,6 +58,7 @@
 .done-List-Bar{
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid lightgray;
 }
 div.task-Name{
     font-family:'Times New Roman', Times, serif;
@@ -123,6 +124,7 @@ p.task-Status{
 .done-List{
     display: flex;
     justify-content: space-between;
+    border-bottom: solid 1px lightgray;
 }
 .todo-List{
     display: flex;
