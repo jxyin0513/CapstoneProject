@@ -50,7 +50,7 @@ const SignUpForm = () => {
         <form className='signup-Form' onSubmit={onSignUp}>
           <div className='errors-handle-Signup'>
             {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
+              <div key={ind}>* {error}</div>
             ))}
           </div>
           <div>
