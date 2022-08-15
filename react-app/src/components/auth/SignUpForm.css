@@ -1,19 +1,30 @@
 .signUp-Container{
     position: relative;
-    height: 500px;
+    height: 700px;
+    background-image: url('https://as2.ftcdn.net/v2/jpg/00/78/51/35/1000_F_78513559_9ZSeU1o0j11Vqs8FS3YVGgPVRc0WHq4G.jpg');
 }
 .signUp-inner-Container{
     position: absolute;
     width: 300px;
     height: 300px;
-    top: 20%;
+    top: 40%;
     left: 25%;
     border-radius: 15px;
-    background-color:cornflowerblue;
+    background-color:dimgray;
 }
 .errors-handle-Signup{
-    height: 80px;
+    /* height: 80px; */
+    color:blue;
 }
 .signup-Form{
     padding: 5px 0 10px 15px;
+}
+.signup-Form > div{
+    padding: 3px 0;
+}
+.signUp-Header{
+    padding: 10px 0 5px 15px;
+    color: azure;
+    font-size: 20px;
+    border-bottom: 1px solid azure;
 }

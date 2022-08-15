@@ -9,7 +9,7 @@ nav.noUser-Nav-Bar > .nav-Bar-container {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color:darkgray;
+    background-color:dimgray;
     overflow-x: hidden;
     padding-top: 20px;
 }
@@ -21,6 +21,11 @@ img.logo{
 }
 .home-Button, .tasks-Button{
     padding-left: 5px;
+}
+.home-page-act-Button{
+    /* display: block;
+    background-color: white;
+    width: 200px; */
 }
 .login-Button, .signup-Button{
     margin: 10px 10px 0 0;
@@ -71,6 +76,17 @@ img.logo{
 }
 .all-projects-Profile > a{
     text-decoration: none;
+}
+.home-nav-Page > a, .my-tasks-outer > a{
+    color:darkblue;
+}
+.nav-Bar-Header{
+    display: flex;
+    justify-content: space-between;
+}
+.nav-Bar-Header > button {
+    margin: 25px 5px;
+    padding: 5px;
 }
 
 /* .nav-Bar-container{

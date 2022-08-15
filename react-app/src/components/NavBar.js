@@ -13,16 +13,14 @@ const NavBar = () => {
   return (
     <nav className={user? 'Nav-Bar':'noUser-Nav-Bar'}>
       <div className='nav-Bar-container'>
-        <NavLink to='/' exact={true} activeClassName='home-Logo'>
-          <img src={logo} className='logo' height='50px' width='auto' alt='Site Logo'></img>
-        </NavLink>
-        {user &&
-        <div className='home-nav-Page'>
-          <NavLink to='/' exact={true} className='home-Button' activeClassName='home-page-Button'>
-            <i className="fa-solid fa-house"></i>  Home
+        <div className='nav-Bar-Header'>
+          <NavLink to='/' exact={true} activeClassName='home-Logo'>
+            <img src={logo} className='logo' height='50px' width='auto' alt='Site Logo'></img>
           </NavLink>
+          {user &&
+            <LogoutButton />
+          }
         </div>
-        }
 
         {!user && (
           <div>
@@ -38,13 +36,15 @@ const NavBar = () => {
 
         {user && (
           <div>
+            <div className='home-nav-Page'>
+              <NavLink to='/' exact={true} className='home-Button' activeClassName='home-page-act-Button'>
+                <i className="fa-solid fa-house"></i>  Home
+              </NavLink>
+            </div>
             <div className='my-tasks-outer'>
               <NavLink to='/tasks' exact={true} id='my-tasks-Button' activeClassName='my-tasks-Button'>
                 <i className="fa-solid fa-list-ul"></i>  My Tasks
               </NavLink>
-            </div>
-            <div>
-              <LogoutButton />
             </div>
             <div className='all-projects-Profile'>
               <AllProjects />

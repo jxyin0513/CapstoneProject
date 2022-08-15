@@ -22,7 +22,7 @@ function AllProjects(){
         {/* <div className='add-Project'>+</div> */}
         {allProjects && (allProjects.map(project=>(
             // <Link className='project-detail'  key={project.id} to={`/projects/${project.id}`}>{project.name}</Link>
-            <NavLink activeClassName={'project-detail'} className='project-detail-page' key={project.id} to={`/projects/${project.id}`}>
+            <NavLink activeClassName={'project-detail'} className='project-detail-nav-Bar' key={project.id} to={`/projects/${project.id}`}>
                 <div className='project-detail-Name'>{project.name}
                 </div>
             </NavLink>

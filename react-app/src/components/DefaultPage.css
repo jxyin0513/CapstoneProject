@@ -84,7 +84,7 @@
 .project-Home-Page{
     border-radius: 15px;
     border: 1px solid lightgray;
-    width: 300px;
+    width: 330px;
     height: 400px;
     overflow-y: scroll;
     /* display: inline-block; */
@@ -103,8 +103,9 @@
 .task-Home-Page{
     border-radius: 15px;
     border: 1px solid lightgray;
-    width: 300px;
+    width: 330px;
     height: 400px;
+    overflow-y: scroll;
     /* display: inline-block; */
 }
 .task-Home-Page:hover{
@@ -114,4 +115,52 @@
     padding: 15px;
     font-size: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.task-Home-Bar{
+    display: flex;
+    border-bottom: solid 1px lightgrey;
+}
+
+.task-Home-Bar > div{
+    padding: 7px 13px;
+    cursor: pointer;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.upcoming-Tasks{
+    display: flex;
+    justify-content: space-around;
+}
+.upcoming-Tasks > div {
+    margin: 5px 0;
+    cursor: pointer;
+    width: 100px;
+}
+
+.past-Tasks{
+    display: flex;
+    justify-content: space-around;
+}
+.past-Tasks  div {
+    margin: 5px 0;
+    cursor: pointer;
+}
+.upcoming-Tasks-Bar{
+    border-bottom: 3px solid black;
+}
+
+.overdue-Tasks-Bar{
+    border-bottom: 3px solid black;
+}
+.task-header-Names{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 10px 0;
+}
+.task-header-Names  div{
+    width: 100px;
+    /* padding-left: 10px; */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
 }

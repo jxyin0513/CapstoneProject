@@ -10,8 +10,29 @@ function AllTasks(){
     const tasks = Object.values(useSelector(state=>state.tasks))
     const allTasks = tasks.filter(task=>task.userId = user.id)
     const date = new Date()
-    const todayTasks = allTasks.filter(task=>task.deadline === `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`)
-    console.log(allTasks)
+    const todayTasks = allTasks.filter(task=>{
+        const deadline = task.deadline.split('-')
+        const tdate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
+        if(tdate === new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`)){
+            return true;
+        }else{
+            return false;
+        }
+    })
+    const weekTasks = allTasks.filter(task=>{
+        const deadline = task.deadline.split('-')
+        const tdate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
+        const nextWeek = new Date(`${date.getMonth()+1}, ${date.getDate()+7}, ${date.getFullYear()}`)
+        console.log(new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`), tdate)
+        if(new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`) < tdate && tdate < nextWeek){
+            if(date.getDay()< tdate.getDay()){
+                return true
+            }
+        }else{
+            return false
+        }
+    })
+    console.log(todayTasks, weekTasks)
     const [recent, setRecent] = useState(true)
     const [today, setToday] = useState(false)
     const [week, setWeek] = useState(false)
@@ -41,11 +62,25 @@ function AllTasks(){
                 <div className='my-Tasks-Assigned' key={task.id}>
                     <div className='my-Detail-Name'>{task.taskName}</div>
                     <div className='my-Detail-Deadline'>{task.deadline}</div>
-                    <div className='my-Detail-Project'>{task.priority}</div>
+                    <div className='my-Detail-Project'>{task.project.name}</div>
                 </div>
             ))}
             <h3><i id='today-Assigned' onClick={()=>setToday(!today)}  className={today ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> Due today</h3>
+            {today && todayTasks && todayTasks.map(task=>(
+                <div className='my-Tasks-Assigned' key={task.id}>
+                    <div className='my-Detail-Name'>{task.taskName}</div>
+                    <div className='my-Detail-Deadline'>{task.deadline}</div>
+                    <div className='my-Detail-Project'>{task.project.name}</div>
+                </div>
+            ))}
             <h3><i id='this-week-Assigned' onClick={()=>setWeek(!week)}  className={week ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> Due this week</h3>
+            {week && weekTasks && weekTasks.map(task=>(
+                <div className='my-Tasks-Assigned' key={task.id}>
+                    <div className='my-Detail-Name'>{task.taskName}</div>
+                    <div className='my-Detail-Deadline'>{task.deadline}</div>
+                    <div className='my-Detail-Project'>{task.project.name}</div>
+                </div>
+            ))}
         </div>
     )
 }

@@ -10,6 +10,15 @@
 }
 .project-detail-Name:hover{
     background-color: lightgrey;
+    /* color:darkslateblue; */
+}
+.project-detail-nav-Bar{
+    color:darkblue;
+}
+.user-Name{
+    color: azure;
+    font-size: 23px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 /* .not-clicked{
     text-decoration: none;
