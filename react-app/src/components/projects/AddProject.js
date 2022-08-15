@@ -39,7 +39,7 @@ function NewProject(){
                 <div className='new-Project-Header'>New Project</div>
                 <div className='errors-handler-Project'>
                     {errors.map((error, ind) => (
-                    <div key={ind}>{error}</div>
+                    <div key={ind}>* {error}</div>
                     ))}
                 </div>
                 <label>

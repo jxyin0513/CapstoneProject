@@ -43,7 +43,7 @@ function AddTask({onClose}){
             <form className='add-Task-Form' onSubmit={onSubmit}>
                 <div className='errors-handler'>
                     {errors.map((error, ind) => (
-                    <div key={ind}>{error}</div>
+                    <div key={ind}>* {error}</div>
                     ))}
                 </div>
                 <label>
