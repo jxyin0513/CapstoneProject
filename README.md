@@ -1,8 +1,9 @@
 # AsanaList Readme
 
-Welcome to the README for AsanaList! \
+Welcome to the README for Asanalist! \
 Live Link [Asanalist](https://captoneproject.herokuapp.com) \
-AsanaList is clone of [Asana](https://asana.com) that users can use it to manage their todo lists
+AsanaList is clone of [Asana](https://asana.com) that users can use it to manage their todo lists, which users can exploit it to manage their tasks using features and functionalities. There's multiple fun functionalities that I built very hard to make it user intuitive. Hope you can enjoy it!!!
+
 
 ## Installation
 
