@@ -1,8 +1,8 @@
 # AsanaList Readme
 
 Welcome to the README for AsanaList! \
-Live Link https://captoneproject.herokuapp.com/ \
-AsanaList is clone of Asana TodoList that users can use it to manage their todo lists
+Live Link [Asanalist](https://captoneproject.herokuapp.com) \
+AsanaList is clone of [Asana](https://asana.com) that users can use it to manage their todo lists
 
 ## Installation
 
@@ -49,8 +49,12 @@ AsanaList is clone of Asana TodoList that users can use it to manage their todo 
 If there's something that blocked me from the beginning, I need to figure out how to layout todo lists and done lists, how to specifically display each tasks. What I kept thinking whenever I tried to add functionalities into app is how to make it easy to use and intuitive.I have to be careful of the UI/UX side of the app.
 
 I made dropdown box for updating status of the task was also challenging, and its design that only show dropdown when hover over. I needed to only update the status of task, so I just made another API route to update just status.
+![to-do-list](./react-app/src/components/image/todolist.jpg)
+![css](./react-app/src/components/image/todolistCSS.jpg)
 
-Also, I made a icon clickable to show and hide tasks in each section, and how I used element attributes to design is challenging at the beginning.
-
+Also, I made a icon clickable to show and hide tasks in each section, and also use ternary to set its className for specific icon to display show and hide.
+![](./react-app/src/components/image/icon.jpg)
+![](./react-app/src/components/image/tasks-hide.jpg)
+![](./react-app/src/components/image/tasks-show.jpg)
 
 
