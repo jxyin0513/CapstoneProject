@@ -5,7 +5,7 @@ class Task(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    projectId = db.Column(db.Integer, db.ForeignKey('projects.id', ondelete="CASCADE"), nullable=False)
+    projectId = db.Column(db.Integer, db.ForeignKey('projects.id'), nullable=False)
     assignee = db.Column(db.String, nullable=False)
     taskName = db.Column(db.String, nullable=False)
     status = db.Column(db.String, nullable=False)
@@ -13,7 +13,7 @@ class Task(db.Model):
     deadline = db.Column(db.Date, nullable=False)
 
     user = db.relationship('User', back_populates='tasks')
-    project = db.relationship('Project', lazy='subquery', back_populates='tasks')
+    project = db.relationship('Project', lazy='subquery',  back_populates='tasks')
 
     def to_dict(self):
         return {
