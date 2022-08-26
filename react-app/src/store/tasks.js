@@ -40,6 +40,7 @@ export const GetAllTasks = ()=> async(dispatch)=>{
 
     if(response.ok){
         const data = await response.json();
+        console.log('getAlltasksThunk', data.tasks)
         dispatch(getTasks(data.tasks))
     }
 }
@@ -141,6 +142,7 @@ const taskReducer = (state=initialState, action) =>{
     let newState = {...state}
     switch(action.type){
         case GET_TASKS:
+            newState={}
             action.tasks.forEach(task=>{
                 newState[task.id] = task
             })

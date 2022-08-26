@@ -11,14 +11,12 @@ function DeleteProjectModal({id, onClose}){
     const history = useHistory();
     async function onDelete(e){
         e.preventDefault();
-        const deletedTask = await dispatch(DeleteRelatedTask(id))
-        if(!deletedTask){
-            const deleted =  await dispatch(DeleteProjects(id))
-            if(!deleted){
-                history.push('/')
-            }
+        // const deletedTask = await dispatch(DeleteRelatedTask(id))
+        // if(!deletedTask){}
+        const deleted =  await dispatch(DeleteProjects(id))
+        if(!deleted){
+            history.push('/')
         }
-
     }
     return (
         <>

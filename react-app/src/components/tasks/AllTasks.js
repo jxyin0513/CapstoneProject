@@ -9,11 +9,22 @@ function AllTasks(){
     const user = useSelector(state=>state.session.user)
     const tasks = Object.values(useSelector(state=>state.tasks))
     const allTasks = tasks.filter(task=>task.userId = user.id)
+    // console.log(allTasks)
     const date = new Date()
+    const recentlyAssigned = allTasks.filter(task=>{
+        const startdate = task.startdate.split('-')
+        const tdate = new Date(`${startdate[1]}, ${startdate[2]}, ${startdate[0]}`)
+        if((new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`) - tdate)/(3600*1000*24) < 3){
+            return true;
+        }else{
+            return false;
+        }
+    })
+    console.log(recentlyAssigned)
     const todayTasks = allTasks.filter(task=>{
         const deadline = task.deadline.split('-')
         const tdate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
-        console.log(tdate.getMonth()+1, date.getMonth()+1)
+        // console.log(tdate.getMonth()+1, date.getMonth()+1)
         if(tdate.getMonth() === date.getMonth() && tdate.getDate() === date.getDate() && tdate.getFullYear() === date.getFullYear()){
             return true;
         }else{
@@ -33,12 +44,12 @@ function AllTasks(){
             return false
         }
     })
-    console.log(todayTasks, weekTasks)
+    // console.log(todayTasks, weekTasks)
     const [recent, setRecent] = useState(true)
-    const [today, setToday] = useState(false)
+    const [today, setToday] = useState(true)
     const [week, setWeek] = useState(false)
-    console.log(`${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`,'2022-07-10',date.getFullYear(),date.getDate(), date.getMonth())
-    console.log(date, new Date('August 10, 2022'))
+    // console.log(`${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`,'2022-07-10',date.getFullYear(),date.getDate(), date.getMonth())
+    // console.log(date, new Date('August 10, 2022'))
     // function checkRecent(){
     //     if(recent)
     // }
@@ -59,7 +70,7 @@ function AllTasks(){
                 <div className='my-Projects'>Projects</div>
             </div>
             <h3><i id='recently-Assigned' onClick={()=>setRecent(!recent)} className={recent ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> Recently assigned</h3>
-            {recent && allTasks && allTasks.map(task=>(
+            {recent && recentlyAssigned && recentlyAssigned.map(task=>(
                 <div className='my-Tasks-Assigned' key={task.id}>
                     <div className='my-Detail-Name'>{task.taskName}</div>
                     <div className='my-Detail-Deadline'>{task.deadline}</div>
