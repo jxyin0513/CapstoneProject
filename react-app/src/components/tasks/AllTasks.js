@@ -20,7 +20,7 @@ function AllTasks(){
             return false;
         }
     })
-    console.log(recentlyAssigned)
+    // console.log(recentlyAssigned)
     const todayTasks = allTasks.filter(task=>{
         const deadline = task.deadline.split('-')
         const tdate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
@@ -34,17 +34,19 @@ function AllTasks(){
     const weekTasks = allTasks.filter(task=>{
         const deadline = task.deadline.split('-')
         const tdate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
-        const nextWeek = new Date(`${date.getMonth()+1}, ${date.getDate()+7}, ${date.getFullYear()}`)
+        let nextWeek = new Date(`${date.getMonth()+1}, ${date.getDate()+7}, ${date.getFullYear()}`)
 
+        // console.log(tdate, nextWeek)
         if(new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`) < tdate && tdate < nextWeek){
             if(date.getDay()< tdate.getDay()){
+                // console.log('--')
                 return true
             }
         }else{
             return false
         }
     })
-    // console.log(todayTasks, weekTasks)
+    console.log(weekTasks)
     const [recent, setRecent] = useState(true)
     const [today, setToday] = useState(true)
     const [week, setWeek] = useState(false)

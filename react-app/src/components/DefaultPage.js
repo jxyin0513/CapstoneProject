@@ -38,7 +38,8 @@ function MainPageStatus(){
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     console.log(typeof((new Date('08, 30, 2022')-new Date('08, 14, 2022'))/(3600 *1000 * 24)), tasks, pastTasks, upcomingTasks)
     let message;
-    if(date.getHours()>12 && date.getHours()<19){
+    console.log(date.getHours())
+    if(date.getHours()>=12 && date.getHours()<19){
         message='Good afternoon'
     }else if(date.getHours()<12){
         message='Good morning'
