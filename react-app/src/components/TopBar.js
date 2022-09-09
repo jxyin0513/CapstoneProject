@@ -7,7 +7,9 @@ import './TopBar.css'
 function TopBar(){
     return (
         <div className='top-Bar'>
+            <div>menu</div>
             <Search />
+            <div>Log out</div>
         </div>
     )
 }

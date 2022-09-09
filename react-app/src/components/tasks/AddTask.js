@@ -6,7 +6,7 @@ import './AddTask.css';
 
 function AddTask({onClose}){
     const dispatch = useDispatch()
-    const history = useHistory()
+    // const history = useHistory()
     const {projectId} = useParams()
     const user = useSelector(state=>state.session.user)
     const [assignee, setAssignee] = useState('')

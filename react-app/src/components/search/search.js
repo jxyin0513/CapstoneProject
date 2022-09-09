@@ -4,27 +4,35 @@ import { useSelector } from 'react-redux';
 
 const Search = () => {
 
-    const [enhancedSearch, setEnhancedSearch] = useState([])
+    const [projectsResult, setProjectsResult] = useState([])
+    const [taskResults, setTaskResults] = useState([])
     // const [keystroke, setKeystroke] = useState('');
     const tasks = Object.values(useSelector(state=>state.tasks))
     const projects = Object.values(useSelector(state=>state.projects))
-    let search = []
+    let projectSearch = []
+    let taskSearch = []
     // const cleanup = () => {
     //   setEnhancedSearch([])
     // }
     const filteredProjects = (e)=>{
       if(e.target.value){
-        search = projects.filter(project=>{
-          if(project.name.toLowerCase().includes(e.target.value.toLowerCase()) || project.name.toLowerCase().includes(e.target.value.toLowerCase())){
+        projectSearch = projects.filter(project=>{
+          if(project.name.toLowerCase().includes(e.target.value.toLowerCase())){
+            return true;
+          }
+        })
+        taskSearch = tasks.filter(task=>{
+          if(task.taskName.toLowerCase().includes(e.target.value.toLowerCase())){
             return true;
           }
         })
       }
-      console.log(search)
-      setEnhancedSearch(search)
+      console.log(projectSearch)
+      setProjectsResult(projectSearch)
+      setTaskResults(taskSearch)
     }
     return (
-        <>
+        <div>
           <input
             className='search'
             type='text'
@@ -41,17 +49,26 @@ const Search = () => {
               // }
              />
           <div className='results-container'>
-            {enhancedSearch.map(result => (
-              <NavLink key={result.id} to={`/projects/${result.id}`}>
-                <div className='individual-result'>
-                  <p className='search-name'>{result.name}</p>
+            {projectsResult.map(project => (
+              <NavLink key={project.id} to={`/projects/${project.id}`}>
+                <div className='project-result'>
+                  <p className='search-name'>{project.name}</p>
                   {/* <p>{result.cuisine}</p> */}
-                  <p className='search-detail'>Deadline: {result.deadline} | </p>
+                  <p className='search-detail'>Deadline: {project.deadline} | </p>
                 </div>
               </NavLink>
             ))}
+            {taskResults.map(task=>(
+              <NavLink key={task.id} to={`/projects/${task.project.id}`}>
+              <div className='task-result'>
+                <p className='search-name'>{task.taskName}</p>
+                <p>{task.project.name}</p>
+                <p className='search-detail'>Deadline: {task.deadline} </p>
+              </div>
+            </NavLink>
+            ))}
           </div>
-        </>
+        </div>
       )
     };
     export default Search;

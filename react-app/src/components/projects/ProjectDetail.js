@@ -4,7 +4,7 @@ import {useParams} from 'react-router-dom'
 // import { GetProjectDetail } from '../../store/projects';
 import { GetAllProjects } from '../../store/projects';
 import { updateTask } from '../../store/tasks';
-import EditTasks from '../tasks/EditTask';
+// import EditTasks from '../tasks/EditTask';
 import { GetAllTasks } from '../../store/tasks';
 import { getSectionsThunk } from '../../store/section';
 import { DeleteTask } from '../../store/tasks';
@@ -25,7 +25,7 @@ function Project(){
     const pStartdate = project?.startdate.split('-')
     const alltasks = useSelector(state=>state.tasks)
     const user = useSelector(state=>state.session.user)
-    const today = new Date()
+    // const today = new Date()
     const tasks = Object.values(alltasks).filter(task=> task.userId === user.id)
     const projectTask = tasks.filter(task => task.projectId === Number(projectId))
     const todoList = projectTask.filter(task=>task.status ==='incomplete')
@@ -37,6 +37,8 @@ function Project(){
     const [showMenu, setShowMenu] = useState(false);
     const [showSection, setShowSection] = useState(false);
     const [showEditSection, setShowEditSection] = useState(false);
+    const [changeSection, setChangeSection] = useState(false)
+    const [changePriority, setChangePriority] = useState(false)
     const [toList, setToList] = useState(true);
     const [done, setDoneList] = useState(true)
     const [editId, setEditId] = useState(0)
@@ -50,7 +52,7 @@ function Project(){
         dispatch(GetAllProjects())
         dispatch(GetAllTasks())
         dispatch(getSectionsThunk(projectId))
-    }, [dispatch])
+    }, [dispatch, projectId])
 
     function openMenu(e){
         if(showMenu) return;
@@ -68,6 +70,18 @@ function Project(){
 
         return () => document.removeEventListener("click", closeMenu);
     }, [showMenu]);
+
+    useEffect(() => {
+        if (!changeSection) return;
+
+        const closeMenu = () => {
+          setChangeSection(false);
+        };
+
+        document.addEventListener('click', closeMenu);
+
+        return () => document.removeEventListener("click", closeMenu);
+    }, [changeSection]);
     // useEffect(()=>{
 
     //     document.addEventListener('click',)
@@ -119,13 +133,12 @@ function Project(){
         {showModal && (<EditProjectModal onClose={()=>setShowModal(false)}/>)}
         {showDelete && (<DeleteProjectModal id={projectId} onClose={()=>setShowDelete(false)} />)}
         <AddTaskModal />
-
         <h2><i id='todo-List-Bar' onClick={()=>setToList(!toList)} className={toList ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> Todo Lists</h2>
         <div className='todo-Bar'>
             <div className='task-Name'>Task name</div>
             <div className='task-Assignee'>Assignee</div>
             <div className='task-Deadline'>Due date</div>
-            <div className='task-Status'>Status</div>
+            <div className='task-Status'>Priority</div>
             <div className='edit-Bar'></div>
         </div>
         {
@@ -135,11 +148,11 @@ function Project(){
 
                 return (
                 <div className='todo-List' key={task.id}>
-                    <p className='task-Name'>{task.taskName}</p>
+                    <p className='task-Name'>{task.taskName} <i className="fa-solid fa-arrow-down" id='change-section' onClick={()=>setChangeSection(true)}></i></p>
                     <p className='task-Assignee'>{task.assignee}</p>
                     <p className='task-Deadline'>{`${months[date.getMonth()]}  ${date.getDate()}`}</p>
                     <div className='dropdown'>
-                        <p className='task-Status'>{task.status}</p>
+                        <p className='task-Status'>{task.status}<i className="fa-solid fa-angle-down" id='priority-setting' onClick={()=>setChangePriority(true)}></i></p>
                         <div className='dropdown-Content'>
                             <div onClick={changeStatus} id={task.id} className='incomplete'>incomplete</div>
                             <div onClick={changeStatus} id={task.id} className='complete'>complete</div>
@@ -206,7 +219,7 @@ function Project(){
             }
             ))
             }
-            <div className='add-section-button' onClick={()=>setShowSection(true)}>+  Add section</div>
+            <div className='add-section-button' onClick={()=>setShowSection(true)}>+   Add section</div>
             {showSection && <AddSectionModal onClose={()=>setShowSection(false)} projectId={projectId} />}
             {showEditSection && <EditSectionModal onClose={()=>setShowEditSection(false)} projectId={projectId} id={sectionId} />}
         </div>

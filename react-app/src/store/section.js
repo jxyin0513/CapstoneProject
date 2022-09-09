@@ -91,6 +91,7 @@ const sectionReducer = (state=initialState, action)=>{
     let newState = {...state}
     switch(action.type){
         case GET_SECTIONS:
+            newState={}
             action.sections.forEach(section=>{
                 newState[section.id] = section.name
             })

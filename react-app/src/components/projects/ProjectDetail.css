@@ -160,7 +160,19 @@ p.task-Status{
     /* display: inline-block; */
     margin: 16px 70px 0 10px;
 }
-
+#change-section{
+    padding-left: 20px;
+    display: none;
+}
+.task-Name:hover > #change-section{
+    display: inline;
+}
+#priority-setting{
+    display: none;
+}
+.task-Status:hover > #priority-setting{
+    display: inline;
+}
 /* .todo-List{
     padding-bottom: 10px;
 } */

@@ -3,7 +3,7 @@ import {  useDispatch } from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import { Modal } from '../context/Modal';
 import { DeleteProjects } from '../../store/projects';
-import { DeleteRelatedTask } from '../../store/tasks';
+// import { DeleteRelatedTask } from '../../store/tasks';
 import './DeleteProjectModal.css'
 
 function DeleteProjectModal({id, onClose}){
