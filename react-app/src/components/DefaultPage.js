@@ -103,7 +103,7 @@ function MainPageStatus(){
                     </div>
                     <div className='task-header-Names'>
                         <div>Assignee</div>
-                        <div>Name</div>
+                        <div>Task name</div>
                         <div>Due date</div>
                     </div>
                     {upcoming && upcomingTasks && upcomingTasks.map(task=>(

@@ -10,10 +10,11 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import NewProject from './components/projects/AddProject';
 import MainPageStatus from './components/DefaultPage';
 import Project from './components/projects/ProjectDetail';
-import AllProjects from './components/projects/AllProjects';
+// import AllProjects from './components/projects/AllProjects';
 import Page from './components/projects/MainPage';
 import AddTask from './components/tasks/AddTask';
 import AllTasks from './components/tasks/AllTasks';
+import TopBar from './components/TopBar';
 import User from './components/User';
 import { authenticate } from './store/session';
 
@@ -35,6 +36,7 @@ function App() {
   return (
     <ModalProvider>
     <BrowserRouter>
+      <TopBar />
       <NavBar />
       <Switch>
         <Route path='/' exact={true}>

@@ -6,9 +6,12 @@ import { GetAllProjects } from '../../store/projects';
 import { updateTask } from '../../store/tasks';
 import EditTasks from '../tasks/EditTask';
 import { GetAllTasks } from '../../store/tasks';
+import { getSectionsThunk } from '../../store/section';
 import { DeleteTask } from '../../store/tasks';
 // import { DeleteProjects } from '../../store/projects';
 import AddTaskModal from '../tasks/TaskModal';
+import AddSectionModal from '../sections/AddSectionModal';
+import EditSectionModal from '../sections/EditSectionModal';
 import EditTaskModal from '../tasks/EditTaskModal';
 import EditProjectModal from './EditProjectModal';
 import DeleteProjectModal from './DeleteProject';
@@ -19,6 +22,7 @@ function Project(){
     const {projectId} = useParams()
     const project = useSelector(state=>state.projects[projectId])
     const pDeadline = project?.deadline.split('-')
+    const pStartdate = project?.startdate.split('-')
     const alltasks = useSelector(state=>state.tasks)
     const user = useSelector(state=>state.session.user)
     const today = new Date()
@@ -26,15 +30,18 @@ function Project(){
     const projectTask = tasks.filter(task => task.projectId === Number(projectId))
     const todoList = projectTask.filter(task=>task.status ==='incomplete')
     const doneList = projectTask.filter(task=>task.status === 'complete')
-    console.log(projectTask, todoList, doneList)
+    // console.log(projectTask, todoList, doneList)
     const [showModal, setShowModal] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
     const [showEdit, setShowEdit] = useState(false)
-    const [showMenu, setShowMenu] = useState(false)
+    const [showMenu, setShowMenu] = useState(false);
+    const [showSection, setShowSection] = useState(false);
+    const [showEditSection, setShowEditSection] = useState(false);
     const [toList, setToList] = useState(true);
     const [done, setDoneList] = useState(true)
     const [editId, setEditId] = useState(0)
     const [menuId, setMenuId] = useState(0)
+    const [sectionId, setSectionId] = useState(0)
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     // let editId = 0
 
@@ -42,6 +49,7 @@ function Project(){
         // dispatch(GetProjectDetail(projectId))
         dispatch(GetAllProjects())
         dispatch(GetAllTasks())
+        dispatch(getSectionsThunk(projectId))
     }, [dispatch])
 
     function openMenu(e){
@@ -101,10 +109,9 @@ function Project(){
                                 <i onClick={()=>setShowDelete(true)} className="fa-regular fa-trash-can">  Delete</i>
 
                         </div>
-                        <div className='project-Deadline'>{`${months[today.getMonth()]} ${today.getDate()} - ${months[new Date(`${pDeadline[1]}, ${pDeadline[2]}, ${pDeadline[0]}`).getMonth()]} ${pDeadline[2]}`}</div>
                     </div>
+                    <div className='project-Deadline'>{`${months[new Date(`${pStartdate[1]}, ${pStartdate[2]}, ${pStartdate[0]}`).getMonth()]} ${pStartdate[2]} - ${months[new Date(`${pDeadline[1]}, ${pDeadline[2]}, ${pDeadline[0]}`).getMonth()]} ${pDeadline[2]}`}</div>
                     <div className='project-Description'>Description: {project.description}</div>
-
                 </div>
 
             )
@@ -199,6 +206,9 @@ function Project(){
             }
             ))
             }
+            <div className='add-section-button' onClick={()=>setShowSection(true)}>+  Add section</div>
+            {showSection && <AddSectionModal onClose={()=>setShowSection(false)} projectId={projectId} />}
+            {showEditSection && <EditSectionModal onClose={()=>setShowEditSection(false)} projectId={projectId} id={sectionId} />}
         </div>
     )
 }

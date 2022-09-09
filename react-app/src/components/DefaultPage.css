@@ -25,7 +25,7 @@
     padding: 10px 0;
     background-color: lightgray;
     border-radius: 13px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 #status-Icon{
     padding: 0 5px;
