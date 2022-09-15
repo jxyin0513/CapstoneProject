@@ -17,6 +17,7 @@ class Project(db.Model):
 
     user = db.relationship('User', back_populates='projects')
     tasks = db.relationship('Task', back_populates='project', cascade= 'all, delete')
+    sections = db.relationship('Section', back_populates='project', cascade='all, delete')
     # project_member = db.relationship('User', secondary=members, back_populates='user_member', cascade='all, delete')
 
 

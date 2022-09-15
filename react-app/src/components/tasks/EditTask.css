@@ -5,12 +5,18 @@
     display: block;
     padding: 3px 5px;
 }
+.errors-handler-edit-task{
+    color: red;
+    height: 70px;
+}
 .edit-Task-Form > button {
     margin: 10px 5px 5px 5px;
 }
 .edit-Task-Outer{
-    height: 340px;
-    width: 290px;
+    height: 300px;
+    width: 280px;
+    background-color: rgba(255, 255, 255, 0.941);
+    border-radius: 15px;
 }
 .edit-task-Header{
     font-size: 23px;

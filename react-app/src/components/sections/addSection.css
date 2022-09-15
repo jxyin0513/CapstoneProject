@@ -1,0 +1,27 @@
+.add-section-form{
+    height: 170px;
+    width: 230px;
+    background-color: rgba(255, 255, 255, 0.976);
+    border-radius: 15px;
+}
+.errors-handler-section{
+    padding: 10px 0 0px 0px;
+    height: 40px;
+    color: red;
+    /* box-sizing: border-box; */
+}
+.new-section-bar{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    padding: 15px 10px 10px 10px;
+    border-bottom: solid 0.5px rgba(68, 66, 66, 0.791);
+}
+.section-button{
+    display: block;
+}
+.section-form{
+    padding: 0 0 0 10px;
+}
+.section-form  input{
+    margin: 0 0 10px 0;
+}

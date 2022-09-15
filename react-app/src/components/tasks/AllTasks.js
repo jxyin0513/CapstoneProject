@@ -49,7 +49,7 @@ function AllTasks(){
     console.log(weekTasks)
     const [recent, setRecent] = useState(true)
     const [today, setToday] = useState(true)
-    const [week, setWeek] = useState(false)
+    const [week, setWeek] = useState(true)
     // console.log(`${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`,'2022-07-10',date.getFullYear(),date.getDate(), date.getMonth())
     // console.log(date, new Date('August 10, 2022'))
     // function checkRecent(){
@@ -64,7 +64,7 @@ function AllTasks(){
     return (
         <div className='all-Tasks'>
             <div className='all-Tasks-Header'>
-                <h2>My Tasks</h2>
+                <h2 className='tasks-header'>My Tasks</h2>
             </div>
             <div className='col-Bar'>
                 <div className='my-Task-Names'>Task name</div>

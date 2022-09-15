@@ -1,6 +1,8 @@
 .delete-Project-Container{
     height: 250px;
-    width: 400px;
+    width: 350px;
+    background-color: rgba(255, 255, 255, 0.958);
+    border-radius: 15px;
 }
 .delete-Message{
     padding: 15px 0 15px 15px;

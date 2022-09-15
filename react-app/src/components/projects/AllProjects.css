@@ -4,16 +4,16 @@
 .project-detail .project-detail-Name{
     /* text-decoration: none; */
     /* font-size: 5px; */
-    background-color: white;
+    background-color: rgba(189, 177, 177, 0.467);
     width: 200px;
     padding: 5px 0 5px 20px;
 }
 .project-detail-Name:hover{
-    background-color: lightgrey;
+    background-color: rgba(168, 167, 167, 0.33);
     /* color:darkslateblue; */
 }
 .project-detail-nav-Bar{
-    color:darkblue;
+    color:rgb(216, 210, 210);
 }
 .user-Name{
     color: azure;

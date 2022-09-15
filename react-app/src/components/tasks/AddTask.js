@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { useHistory, useParams} from 'react-router-dom'
+import { useParams} from 'react-router-dom'
 import { CreateTask } from '../../store/tasks';
 import './AddTask.css';
 
 function AddTask({onClose}){
     const dispatch = useDispatch()
-    const history = useHistory()
+    // const history = useHistory()
     const {projectId} = useParams()
     const user = useSelector(state=>state.session.user)
     const [assignee, setAssignee] = useState('')
@@ -41,7 +41,7 @@ function AddTask({onClose}){
         <div className='add-Tasks'>
             <div className='add-new-Task'>Add Task</div>
             <form className='add-Task-Form' onSubmit={onSubmit}>
-                <div className='errors-handler'>
+                <div className='errors-handler-task'>
                     {errors.map((error, ind) => (
                     <div key={ind}>* {error}</div>
                     ))}
