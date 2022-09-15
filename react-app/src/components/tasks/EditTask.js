@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import {useParams, useHistory} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import { EditTask } from '../../store/tasks';
 import './EditTask.css'
 
 function EditTasks({onEdit, id, onClose}){
     const dispatch = useDispatch()
-    const history = useHistory()
+    // const history = useHistory()
     const {projectId} = useParams()
     const user = useSelector(state=>state.session.user)
     const task = useSelector(state=>state.tasks[id])
@@ -14,25 +14,25 @@ function EditTasks({onEdit, id, onClose}){
     const [assignee, setAssignee] = useState(task.assignee)
     const [taskName, setTaskName] = useState(task.taskName)
     const [deadline, setDeadline] = useState(task.deadline)
-    const [status, setStatus] = useState(task.status)
-    const [priority, setPriority] = useState(task.priority)
+    // const [status, setStatus] = useState(task.status)
+    // const [priority, setPriority] = useState(task.priority)
     const [errors, setErrors] = useState([])
 
     async function onSubmit(e){
         console.log(deadline)
         e.preventDefault()
-        const task = {
+        const eTask = {
             id,
             userId: user.id,
             projectId: projectId,
             assignee,
             taskName,
-            status,
+            status: task.status,
+            priority: task.priority,
             startdate,
             deadline,
-            priority
         }
-        const editTask = await dispatch(EditTask(task))
+        const editTask = await dispatch(EditTask(eTask))
         if(!editTask){
             onClose()
             onEdit()
@@ -46,7 +46,7 @@ function EditTasks({onEdit, id, onClose}){
         <div className='edit-Task-Outer'>
             <div className='edit-task-Header'>Edit task</div>
             <form className='edit-Task-Form' onSubmit={onSubmit}>
-                <div className='errors-handler'>
+                <div className='errors-handler-edit-task'>
                     {errors.map((error, ind) => (
                     <div key={ind}>* {error}</div>
                     ))}

@@ -1,7 +1,12 @@
 .top-Bar{
-    background-color:black;
-    height: 55px;
+    background-color: rgb(71, 68, 68);
+    height: 70px;
     z-index: 3;
+    width: 100%;
+    top: 0;
+    left: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
 }

@@ -93,7 +93,7 @@ const sectionReducer = (state=initialState, action)=>{
         case GET_SECTIONS:
             newState={}
             action.sections.forEach(section=>{
-                newState[section.id] = section.name
+                newState[section.id] = section
             })
             return newState;
 

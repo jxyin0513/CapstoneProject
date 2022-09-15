@@ -69,7 +69,7 @@ function MainPageStatus(){
 
     return (
         <div className='default-Page'>
-            <h2>Home</h2>
+            <h2 className='home-header'>Home</h2>
             <div className='date-Page'>{`${days[date.getDay()]}, ${months[date.getMonth()]} ${date.getDate()}`}</div>
             <div className='welcome-Page'>{`${message}, ${user.username}`}</div>
             <div className='weekly-Status'>
@@ -108,14 +108,14 @@ function MainPageStatus(){
                     </div>
                     {upcoming && upcomingTasks && upcomingTasks.map(task=>(
 
-                        <div className='upcoming-Tasks'>
+                        <div key={task.id} className='upcoming-Tasks'>
                             <div>{task.assignee}</div>
                             <div>{task.project.name}</div>
                             <div>{task.deadline}</div>
                         </div>
                     ))}
                     {pastDue && pastTasks && pastTasks.map(task=>(
-                        <div className='past-Tasks'>
+                        <div key={task.id} className='past-Tasks'>
                             <div>{task.assignee}</div>
                             <div>{task.project.name}</div>
                             <div>{task.deadline}</div>

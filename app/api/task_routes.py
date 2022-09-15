@@ -17,7 +17,7 @@ def validation_errors_to_error_messages(validation_errors):
 @task_routes.route('/all')
 def get_tasks():
     tasks = Task.query.all()
-    print([task.to_dict() for task in tasks])
+    # print([task.to_dict() for task in tasks])
     return {'tasks': [task.to_dict() for task in tasks]}
 
 @task_routes.route('/<id>')
@@ -61,9 +61,12 @@ def update_task(id):
 @task_routes.route('/<id>/update', methods=['PUT'])
 def update_status(id):
     data = request.json
-    print(data)
+    print(data, '---')
     task = Task.query.get(id)
-    task.status = data['status']
+    if(data.get('priority')):
+        task.priority = data['priority']
+    if(data.get('sectionId')):
+        task.sectionId = data['sectionId']
     db.session.commit()
     return {'task': task.to_dict()}
 

@@ -165,11 +165,11 @@ const taskReducer = (state=initialState, action) =>{
             delete newState[action.task.id];
             return newState;
 
-        case DELETE_RELATED_TASK:
-            action.tasks.forEach(task=>{
-                delete newState[task.id]
-            })
-            return newState;
+        // case DELETE_RELATED_TASK:
+        //     action.tasks.forEach(task=>{
+        //         delete newState[task.id]
+        //     })
+        //     return newState;
 
         default:
             return state;

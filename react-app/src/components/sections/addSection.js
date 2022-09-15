@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createSectionThunk } from '../../store/section';
+import './addSection.css'
 
 function AddSection({onClose, projectId}){
     const dispatch = useDispatch()
@@ -22,9 +23,10 @@ function AddSection({onClose, projectId}){
         }
     }
     return (
-        <div>
-            <form onSubmit={onSubmit}>
-                <div className='errors-handler-Project'>
+        <div className='add-section-form'>
+            <div className='new-section-bar'>Add New Section</div>
+            <form onSubmit={onSubmit} className='section-form'>
+                <div className='errors-handler-section'>
                     {errors.map((error, ind) => (
                         <div key={ind}>* {error}</div>
                     ))}
@@ -32,7 +34,7 @@ function AddSection({onClose, projectId}){
                 <label>
                     <input type='text' name='name' placeholder='add section' onChange={e=>setName(e.target.value)}></input>
                 </label>
-                <button type='submit'>Submit</button>
+                <button className='section-button' type='submit'>Submit</button>
             </form>
         </div>
     )

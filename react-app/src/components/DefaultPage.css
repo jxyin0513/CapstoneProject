@@ -1,5 +1,6 @@
 .default-Page{
     margin-left: 200px;
+    margin-top: 70px;
 }
 .date-Page{
     text-align: center;
@@ -40,7 +41,6 @@
     border: 1px black dotted;
     color: black;
 }
-
 .create-Project{
     height: 50px;
     width: 50px;
@@ -127,7 +127,9 @@
     cursor: pointer;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-
+.home-header{
+    padding: 15px 0 0 15px;
+}
 .upcoming-Tasks{
     display: flex;
     justify-content: space-around;

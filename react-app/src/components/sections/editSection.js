@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { editSectionThunk } from '../../store/section';
+import './editSection.css'
 
 function EditSection({onClose, projectId, id}){
     const dispatch = useDispatch()
     // const history = useHistory()
-    const [name, setName] = useState('')
+    const section = useSelector(state=>state.sections[id])
+    const [name, setName] = useState(section.name)
     const [errors, setErrors] = useState([])
 
     async function onSubmit(e){
@@ -24,9 +26,12 @@ function EditSection({onClose, projectId, id}){
     }
 
     return (
-        <div>
-            <form onSubmit={onSubmit}>
-                <div className='errors-handler-Project'>
+        <div className='edit-section-outer'>
+            <div className='edit-section-bar'>
+                <div>Edit section</div>
+            </div>
+            <form onSubmit={onSubmit} className='edit-section-form'>
+                <div className='errors-handler-section'>
                     {errors.map((error, ind) => (
                         <div key={ind}>* {error}</div>
                     ))}

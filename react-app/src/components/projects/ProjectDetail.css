@@ -3,7 +3,7 @@
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     display: inline-block;
-    padding-right: 10px;
+    padding: 20px 10px 15px 20px;
 }
 .edit-delete-Project > i{
     cursor: pointer;
@@ -49,25 +49,28 @@
 }
 .project-Detail{
     margin-left: 200px;
+    margin-top: 70px;
 }
-.todo-Bar{
+.section-header{
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid rgb(233, 230, 230);
+    margin: 0 0 0 15px;
 }
 .done-List-Bar{
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid rgb(233, 230, 230);
+    margin: 0 0 0 15px;
 }
 div.task-Name{
     font-family:'Times New Roman', Times, serif;
     font-weight:bold;
     width: 250px;
 }
-div.task-Name:hover{
+/* div.task-Name:hover{
     background-color: lightgrey;
-}
+} */
 div.task-Assignee{
     font-weight:bold;
     width: 150px;
@@ -89,13 +92,66 @@ div.task-Status{
     border-left-color: transparent; */
 }
 div.edit-Bar{
-    width: 100px;
+    width: 150px;
 }
 /* .todo-List > p, .done-List > p{
     display: inline-block;
 } */
-p.task-Name{
+.task-name-outer{
     width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+p.task-Name{
+    margin-left: 5px;
+}
+#change-section{
+    padding: 2px 5px;
+    display: none;
+    margin: 0 30px 0 0;
+}
+.task-name-outer:hover #change-section{
+    display: inline;
+}
+.section-Bar{
+    display: flex;
+    align-items: center;
+}
+.section-Bar > i{
+    margin: 3px;
+    padding: 5px;
+    cursor: pointer;
+}
+.section-Bar > i:hover{
+    background-color: rgb(213, 199, 199);
+}
+.section-selector{
+    position: relative;
+}
+#change-section:hover{
+    background-color: rgb(241, 239, 239);
+}
+.section-dropdown{
+    display: none;
+}
+.section-name{
+    cursor: pointer;
+    padding: 5px 10px;
+}
+.section-name:hover{
+    background-color: rgb(209, 208, 208);
+}
+.section-selector:hover .section-dropdown{
+    display: block;
+    position: absolute;
+    width: 100px;
+    padding: 5px 0 0 0;
+    border: 0.5px solid rgb(227, 215, 215);
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    z-index: 3;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 p.task-Assignee{
     width: 150px;
@@ -103,53 +159,79 @@ p.task-Assignee{
 p.task-Deadline{
     width: 150px;
 }
-p.task-Status{
+.dropdown{
     width: 150px;
+}
+.dropdown > p{
     border: none;
     cursor: pointer;
-    margin-bottom: 0px;
-    display: inline-block;
+    /* margin-bottom: 0px; */
+    /* display: inline-block; */
     /* margin-right: -10px;
     box-sizing: border-box; */
 }
-.todo-List p.task-Status{
+.Medium-priority{
+    padding: 2px 8px;
+    border-radius: 10px;
+    background-color:rgb(222, 146, 5);
+    width: fit-content;
+}
+.High-priority{
+    padding: 2px 8px;
+    border-radius: 10px;
+    background-color:rgb(212, 115, 209);
+    width: fit-content;
+}
+.Low-priority{
+    padding: 2px 8px;
+    border-radius: 10px;
+    background-color: rgb(23, 227, 227);
+    width: fit-content;
+}
+.task-List p.task-Status{
     color: red;
 }
 .done-List p.task-Status{
     color: green;
 }
-.todo-List i, .done-List i {
+.task-List i, .done-List i {
     cursor: pointer;
 }
 .done-List{
     display: flex;
     justify-content: space-between;
-    border-bottom: solid 1px lightgray;
+    border-bottom: solid 1px rgb(233, 230, 230);
+    margin: 0 0 0 20px;
 }
-.todo-List{
+.task-List{
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid rgb(233, 230, 230);
+    margin: 0 0 0 20px;
 }
 .edit-button{
     display: inline-block;
     position: relative;
+    width: 150px;
 }
 
 .edit-Menu{
     position: absolute;
     left: 20px;
+    width: 100px;
     background-color: #f9f9f9;
+    border: 0.5px solid rgb(227, 215, 215);
+    border-radius: 3px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 .edit-Menu > i{
     /* display: inline-block; */
     color: red;
-    width: 80px;
-    height: 20px;
+
+    /* height: 20px; */
     /* padding: 8px 0; */
-    padding-left: 5px;
+    padding: 5px;
     /* z-index: 1; */
 }
 .edit-Menu > i:hover{
@@ -160,67 +242,83 @@ p.task-Status{
     /* display: inline-block; */
     margin: 16px 70px 0 10px;
 }
-#change-section{
-    padding-left: 20px;
-    display: none;
-}
-.task-Name:hover > #change-section{
-    display: inline;
-}
 #priority-setting{
     display: none;
 }
-.task-Status:hover > #priority-setting{
-    display: inline;
-}
+
 /* .todo-List{
     padding-bottom: 10px;
 } */
 .dropdown{
     /* display: inline-block; */
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.dropdown:hover > #priority-setting{
+    display: inline;
+    margin: 0 30px 0 0;
 }
 .dropdown-Content{
     display: none;
     /* padding-top: -10px;
     margin-top: -10px; */
     position: absolute;
+    top: 50px;
     background-color: #f9f9f9;
+    width: 140px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 .dropdown-Content > div {
-    padding: 7px 10px;
+    position: relative;
+    padding: 7px 0 7px 15px;
     cursor: pointer;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-.dropdown-Content div:hover {
+.dropdown-Content > div:hover {
     background-color:lightgray;
     /* padding: 5px 0; */
 }
-.incomplete{
-    color: red;
-
+.low-priority > div{
+    width: fit-content;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background-color: rgb(23, 227, 227);
 }
-.complete{
-    color: green;
+.medium-priority > div{
+    width: fit-content;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background-color:rgb(222, 146, 5);
+}
+.high-priority > div{
+    width: fit-content;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background-color:rgb(212, 115, 209);
 }
 
 .dropdown:hover .dropdown-Content {
     display: block;
+    border: 0.5px solid rgb(227, 215, 215);
+    border-radius: 3px;
   }
 
-#todo-List-Bar {
+#section-Bar {
     cursor: pointer;
     padding: 0 5px;
+    margin: 0 0 0 3px;
 }
 
-#todo-List-Bar:hover{
+#section-Bar:hover{
     background-color: gainsboro;
 }
 #done-Lists-Bar {
     cursor: pointer;
     padding: 0 5px;
+    margin: 0 0 0 3px;
 }
 #done-Lists-Bar:hover{
     background-color: gainsboro;
@@ -238,4 +336,15 @@ p.task-Status{
     font-size: 15px;
     color: darkblue;
     margin-bottom: 15px;
+    padding: 0 0 0 20px;
+}
+.add-section-button{
+    padding: 5px 5px;
+    width: fit-content;
+    cursor: pointer;
+    margin: 10px 0 20px 5px;
+}
+.add-section-button:hover{
+    border-radius: 2px;
+    background-color: rgb(237, 232, 232);
 }

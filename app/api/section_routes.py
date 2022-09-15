@@ -17,7 +17,7 @@ def validation_errors_to_error_messages(validation_errors):
 @section_routes.route('/<id>', methods=['GET'])
 def all_sections(id):
     sections = Section.query.filter_by(projectId=id).all()
-    print(sections)
+    print(section.to_dict() for section in sections)
     return {'sections': [section.to_dict() for section in sections]}
 
 @section_routes.route('/new', methods=['POST'])

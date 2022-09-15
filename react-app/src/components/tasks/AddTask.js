@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { useHistory, useParams} from 'react-router-dom'
+import { useParams} from 'react-router-dom'
 import { CreateTask } from '../../store/tasks';
 import './AddTask.css';
 
@@ -41,7 +41,7 @@ function AddTask({onClose}){
         <div className='add-Tasks'>
             <div className='add-new-Task'>Add Task</div>
             <form className='add-Task-Form' onSubmit={onSubmit}>
-                <div className='errors-handler'>
+                <div className='errors-handler-task'>
                     {errors.map((error, ind) => (
                     <div key={ind}>* {error}</div>
                     ))}
