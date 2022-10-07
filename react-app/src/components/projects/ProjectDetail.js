@@ -25,14 +25,11 @@ function Project(){
     const pDeadline = project?.deadline.split('-')
     const pStartdate = project?.startdate.split('-')
     const alltasks = useSelector(state=>state.tasks)
-    console.log(sections)
     const user = useSelector(state=>state.session.user)
-    // const today = new Date()
     const tasks = Object.values(alltasks).filter(task=> task.userId === user.id)
     // const projectTask = tasks.filter(task => task.projectId === Number(projectId))
     // const todoList = projectTask.filter(task=>task.status ==='incomplete')
     // const doneList = projectTask.filter(task=>task.status === 'complete')
-    // console.log(projectTask, todoList, doneList)
     const [showModal, setShowModal] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
     const [showEdit, setShowEdit] = useState(false)
@@ -40,9 +37,8 @@ function Project(){
     const [showSection, setShowSection] = useState(false);
     const [showEditSection, setShowEditSection] = useState(false);
     const [changeSection, setChangeSection] = useState(false)
-    // const [changePriority, setChangePriority] = useState(false)
-    const [toList, setToList] = useState(true);
-    // const [done, setDoneList] = useState(true)
+    const [showTaskId, setShowTaskId] = useState(0);
+    // const [toList, setToList] = useState(true);
     const [editId, setEditId] = useState(0)
     const [menuId, setMenuId] = useState(0)
     const [sectionId, setSectionId] = useState(0)
@@ -124,6 +120,17 @@ function Project(){
             priority: task[1]
         }))
     }
+    function showTask(e){
+        console.log(e.target.id)
+        //
+        if(showTaskId === e.target.id){
+            setShowTaskId(0)
+            console.log(showTaskId)
+        }else{
+            setShowTaskId(e.target.id)
+            console.log(showTaskId)
+        }
+    }
 
     return (
         <div className='project-Detail'>
@@ -158,11 +165,15 @@ function Project(){
                 <div key={section.id}>
                     <div className='section-Bar'>
                         <h2>
-                            <i id='section-Bar' onClick={()=>setToList(!toList)} className={toList ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> {section.name}
+                            <i id={section.id} onClick={showTask} className={Number(showTaskId)!==section.id ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> {section.name}
                         </h2>
                         <i onClick={editSection} id={section.id} className="fa-regular fa-pen-to-square"></i>
                         <i id={section.id} className="fa-solid fa-trash"></i>
                     </div>
+                    {section.id !== Number(showTaskId) &&(
+
+                    <div>
+
                     <div className='section-header'>
                         <div className='task-Name'>Task name</div>
                         <div className='task-Assignee'>Assignee</div>
@@ -227,6 +238,8 @@ function Project(){
                             )
                         }
                     })}
+                    </div>
+                    )}
                 </div>
             )
         })}

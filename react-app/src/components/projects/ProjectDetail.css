@@ -320,13 +320,13 @@ p.task-Deadline{
     border-radius: 3px;
   }
 
-#section-Bar {
+.section-Bar > h2 > i {
     cursor: pointer;
     padding: 0 5px;
     margin: 0 0 0 3px;
 }
 
-#section-Bar:hover{
+.section-Bar > h2 > i:hover{
     background-color: gainsboro;
 }
 #done-Lists-Bar {
