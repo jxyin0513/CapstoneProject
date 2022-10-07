@@ -134,9 +134,14 @@ function Project(){
                     <div className='edit-delete-Project'>
                         <i className="fa-solid fa-chevron-down"></i>
                         <div className='edit-Icon'>
-                                <i className="far fa-edit" onClick={()=>setShowModal(true)}>  Edit</i>
-                                <i onClick={()=>setShowDelete(true)} className="fa-regular fa-trash-can">  Delete</i>
-
+                            <div className='edit-Project'>
+                                <i className="far fa-edit" onClick={()=>setShowModal(true)}></i>
+                                <div onClick={()=>setShowModal(true)}>Edit</div>
+                            </div>
+                            <div className='delete-Project'>
+                                <i onClick={()=>setShowDelete(true)} className="fa-regular fa-trash-can"></i>
+                                <div onClick={()=>setShowDelete(true)}>Delete</div>
+                            </div>
                         </div>
                     </div>
                     <div className='project-Deadline'>{`${months[new Date(`${pStartdate[1]}, ${pStartdate[2]}, ${pStartdate[0]}`).getMonth()]} ${pStartdate[2]} - ${months[new Date(`${pDeadline[1]}, ${pDeadline[2]}, ${pDeadline[0]}`).getMonth()]} ${pDeadline[2]}`}</div>

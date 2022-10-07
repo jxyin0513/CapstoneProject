@@ -29,16 +29,28 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
-.edit-Icon > i{
+/* .edit-Project> div {
+    width: 100px;
+    height: 20px;
+    padding: 8px 0;
+    padding-left: 5px;
+} */
+.edit-Icon > div:hover{
+    width: 100%;
+    background-color:lightgrey;
+    color:firebrick;
+}
+.edit-Project, .delete-Project{
+    display: flex;
     width: 100px;
     height: 20px;
     padding: 8px 0;
     padding-left: 5px;
 }
-.edit-Icon i:hover{
-    width: 100%;
-    background-color:lightgrey;
-    color:firebrick;
+.edit-Project > div, .delete-Project>div{
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 5px;
 }
 .edit-delete-Project:hover .edit-Icon{
     display: block;
