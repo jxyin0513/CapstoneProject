@@ -29,16 +29,28 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
-.edit-Icon > i{
+/* .edit-Project> div {
+    width: 100px;
+    height: 20px;
+    padding: 8px 0;
+    padding-left: 5px;
+} */
+.edit-Icon > div:hover{
+    width: 100%;
+    background-color:lightgrey;
+    color:firebrick;
+}
+.edit-Project, .delete-Project{
+    display: flex;
     width: 100px;
     height: 20px;
     padding: 8px 0;
     padding-left: 5px;
 }
-.edit-Icon i:hover{
-    width: 100%;
-    background-color:lightgrey;
-    color:firebrick;
+.edit-Project > div, .delete-Project>div{
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 5px;
 }
 .edit-delete-Project:hover .edit-Icon{
     display: block;
@@ -225,16 +237,18 @@ p.task-Deadline{
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
-.edit-Menu > i{
-    /* display: inline-block; */
+.edit-Task, .delete-Task{
+    display: flex;
     color: red;
-
-    /* height: 20px; */
-    /* padding: 8px 0; */
     padding: 5px;
-    /* z-index: 1; */
+    cursor: pointer;
 }
-.edit-Menu > i:hover{
+.edit-Task > div, .delete-Task > div{
+    padding: 0 0 0 5px;
+    font-size: 17px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.edit-Menu > div:hover{
     background-color: lightgrey;
     color: maroon;
 }
@@ -306,13 +320,13 @@ p.task-Deadline{
     border-radius: 3px;
   }
 
-#section-Bar {
+.section-Bar > h2 > i {
     cursor: pointer;
     padding: 0 5px;
     margin: 0 0 0 3px;
 }
 
-#section-Bar:hover{
+.section-Bar > h2 > i:hover{
     background-color: gainsboro;
 }
 #done-Lists-Bar {

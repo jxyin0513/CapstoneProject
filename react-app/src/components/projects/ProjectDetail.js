@@ -25,14 +25,11 @@ function Project(){
     const pDeadline = project?.deadline.split('-')
     const pStartdate = project?.startdate.split('-')
     const alltasks = useSelector(state=>state.tasks)
-    console.log(sections)
     const user = useSelector(state=>state.session.user)
-    // const today = new Date()
     const tasks = Object.values(alltasks).filter(task=> task.userId === user.id)
     // const projectTask = tasks.filter(task => task.projectId === Number(projectId))
     // const todoList = projectTask.filter(task=>task.status ==='incomplete')
     // const doneList = projectTask.filter(task=>task.status === 'complete')
-    // console.log(projectTask, todoList, doneList)
     const [showModal, setShowModal] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
     const [showEdit, setShowEdit] = useState(false)
@@ -40,9 +37,8 @@ function Project(){
     const [showSection, setShowSection] = useState(false);
     const [showEditSection, setShowEditSection] = useState(false);
     const [changeSection, setChangeSection] = useState(false)
-    // const [changePriority, setChangePriority] = useState(false)
-    const [toList, setToList] = useState(true);
-    // const [done, setDoneList] = useState(true)
+    const [showTaskId, setShowTaskId] = useState(0);
+    // const [toList, setToList] = useState(true);
     const [editId, setEditId] = useState(0)
     const [menuId, setMenuId] = useState(0)
     const [sectionId, setSectionId] = useState(0)
@@ -124,6 +120,17 @@ function Project(){
             priority: task[1]
         }))
     }
+    function showTask(e){
+        console.log(e.target.id)
+        //
+        if(showTaskId === e.target.id){
+            setShowTaskId(0)
+            console.log(showTaskId)
+        }else{
+            setShowTaskId(e.target.id)
+            console.log(showTaskId)
+        }
+    }
 
     return (
         <div className='project-Detail'>
@@ -134,9 +141,14 @@ function Project(){
                     <div className='edit-delete-Project'>
                         <i className="fa-solid fa-chevron-down"></i>
                         <div className='edit-Icon'>
-                                <i className="far fa-edit" onClick={()=>setShowModal(true)}>  Edit</i>
-                                <i onClick={()=>setShowDelete(true)} className="fa-regular fa-trash-can">  Delete</i>
-
+                            <div onClick={()=>setShowModal(true)} className='edit-Project'>
+                                <i className="far fa-edit" onClick={()=>setShowModal(true)}></i>
+                                <div onClick={()=>setShowModal(true)}>Edit</div>
+                            </div>
+                            <div className='delete-Project' onClick={()=>setShowDelete(true)}>
+                                <i onClick={()=>setShowDelete(true)} className="fa-regular fa-trash-can"></i>
+                                <div onClick={()=>setShowDelete(true)}>Delete</div>
+                            </div>
                         </div>
                     </div>
                     <div className='project-Deadline'>{`${months[new Date(`${pStartdate[1]}, ${pStartdate[2]}, ${pStartdate[0]}`).getMonth()]} ${pStartdate[2]} - ${months[new Date(`${pDeadline[1]}, ${pDeadline[2]}, ${pDeadline[0]}`).getMonth()]} ${pDeadline[2]}`}</div>
@@ -153,11 +165,15 @@ function Project(){
                 <div key={section.id}>
                     <div className='section-Bar'>
                         <h2>
-                            <i id='section-Bar' onClick={()=>setToList(!toList)} className={toList ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> {section.name}
+                            <i id={section.id} onClick={showTask} className={Number(showTaskId)!==section.id ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> {section.name}
                         </h2>
                         <i onClick={editSection} id={section.id} className="fa-regular fa-pen-to-square"></i>
                         <i id={section.id} className="fa-solid fa-trash"></i>
                     </div>
+                    {section.id !== Number(showTaskId) &&(
+
+                    <div>
+
                     <div className='section-header'>
                         <div className='task-Name'>Task name</div>
                         <div className='task-Assignee'>Assignee</div>
@@ -206,8 +222,14 @@ function Project(){
                                         <i className="fa-solid fa-bars" id={task.id} onClick={openMenu}></i>
                                         {showMenu && Number(menuId)===Number(task.id) && (
                                             <div key={task.id} className='edit-Menu'>
-                                                <i id={task.id} onClick={onEdit} className="far fa-edit">  Edit</i>
-                                                <i id={task.id} onClick={onDelete} className="fa-regular fa-trash-can">   Delete</i>
+                                                <div className='edit-Task'>
+                                                    <i id={task.id} onClick={onEdit} className="far fa-edit"></i>
+                                                    <div>Edit</div>
+                                                </div>
+                                                <div className='delete-Task'>
+                                                    <i id={task.id} onClick={onDelete} className="fa-regular fa-trash-can"></i>
+                                                    <div>Delete</div>
+                                                </div>
                                             </div>
                                             )}
                                     </div>
@@ -216,6 +238,8 @@ function Project(){
                             )
                         }
                     })}
+                    </div>
+                    )}
                 </div>
             )
         })}

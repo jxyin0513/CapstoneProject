@@ -9,8 +9,11 @@ function AddTask({onClose}){
     // const history = useHistory()
     const {projectId} = useParams()
     const user = useSelector(state=>state.session.user)
+    const sections = Object.values(useSelector(state=>state.sections))
     const [assignee, setAssignee] = useState('')
     const [taskName, setTaskName] = useState('')
+    const [priority, setPriority] = useState('')
+    const [sectionId, setSectionId] = useState('')
     const [startdate, setStartdate] = useState(new Date());
     const [deadline, setDeadline] = useState('')
     // const [priority, setPriority] = useState('')
@@ -24,6 +27,8 @@ function AddTask({onClose}){
             projectId,
             assignee,
             taskName,
+            sectionId,
+            priority,
             status: 'incomplete',
             startdate:`${startdate.getFullYear()}-${startdate.getMonth()+1}-${startdate.getDate()}`,
             deadline,
@@ -51,6 +56,24 @@ function AddTask({onClose}){
                 </label>
                 <label>
                     <input type='text' name='taskName' placeholder='Task name' onChange={e=>setTaskName(e.target.value)}></input>
+                </label>
+                <label>
+                    <select name='section' placeholder='section' onChange={e=>setSectionId(e.target.value)}>
+                        {sections && sections.map(section=>(
+                            <option value={section.id}>{section.name}</option>
+                        ))}
+
+                    </select>
+                </label>
+                <label>
+                    <select name='priority' placeholder='priority' onChange={e=>setPriority(e.target.value)}>
+                        <option value={''}>Please choose task priority</option>
+                        <option value={"Low"}>Low</option>
+                        <option value={"Medium"}>Medium</option>
+                        <option value={"High"}>High</option>
+
+
+                    </select>
                 </label>
                 <label>
                     <input type='date' name='deadline' placeholder='Due date' onChange={e=>setDeadline(e.target.value)}></input>
