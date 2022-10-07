@@ -134,11 +134,11 @@ function Project(){
                     <div className='edit-delete-Project'>
                         <i className="fa-solid fa-chevron-down"></i>
                         <div className='edit-Icon'>
-                            <div className='edit-Project'>
+                            <div onClick={()=>setShowModal(true)} className='edit-Project'>
                                 <i className="far fa-edit" onClick={()=>setShowModal(true)}></i>
                                 <div onClick={()=>setShowModal(true)}>Edit</div>
                             </div>
-                            <div className='delete-Project'>
+                            <div className='delete-Project' onClick={()=>setShowDelete(true)}>
                                 <i onClick={()=>setShowDelete(true)} className="fa-regular fa-trash-can"></i>
                                 <div onClick={()=>setShowDelete(true)}>Delete</div>
                             </div>
@@ -211,8 +211,14 @@ function Project(){
                                         <i className="fa-solid fa-bars" id={task.id} onClick={openMenu}></i>
                                         {showMenu && Number(menuId)===Number(task.id) && (
                                             <div key={task.id} className='edit-Menu'>
-                                                <i id={task.id} onClick={onEdit} className="far fa-edit">  Edit</i>
-                                                <i id={task.id} onClick={onDelete} className="fa-regular fa-trash-can">   Delete</i>
+                                                <div className='edit-Task'>
+                                                    <i id={task.id} onClick={onEdit} className="far fa-edit"></i>
+                                                    <div>Edit</div>
+                                                </div>
+                                                <div className='delete-Task'>
+                                                    <i id={task.id} onClick={onDelete} className="fa-regular fa-trash-can"></i>
+                                                    <div>Delete</div>
+                                                </div>
                                             </div>
                                             )}
                                     </div>
