@@ -186,6 +186,8 @@ function Project(){
 
                         let deadline = task.deadline.split('-');
                         let date = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
+                        console.log('-----')
+                        console.log(task.sectionId, section.id)
                         if(task.projectId===Number(projectId) && task.sectionId === section.id){
                             return(
                                 <div className='task-List' key={task.id}>
