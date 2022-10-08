@@ -41,6 +41,7 @@ function Project(){
     // const [toList, setToList] = useState(true);
     const [editId, setEditId] = useState(0)
     const [menuId, setMenuId] = useState(0)
+
     const [sectionId, setSectionId] = useState(0)
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     // let editId = 0
@@ -192,11 +193,15 @@ function Project(){
                                         <p className='task-Name'>{task.taskName}</p>
                                         <div className='section-selector'>
                                             <i className="fa-solid fa-arrow-down" id='change-section' onClick={()=>setChangeSection(true)}></i>
+                                            <div className='section-tag'>move to other sections</div>
+                                            {changeSection && (
                                             <div className='section-dropdown'>
+
                                                 {sections.map(section=>(
                                                     <div id={`${section.id}-${task.id}`} key={section.id} onClick={onSection} className='section-name'>{section.name}</div>
                                                 ))}
                                             </div>
+                                            )}
                                         </div>
 
                                     </div>
@@ -222,13 +227,13 @@ function Project(){
                                         <i className="fa-solid fa-bars" id={task.id} onClick={openMenu}></i>
                                         {showMenu && Number(menuId)===Number(task.id) && (
                                             <div key={task.id} className='edit-Menu'>
-                                                <div className='edit-Task'>
+                                                <div className='edit-Task' id={task.id} onClick={onEdit}>
                                                     <i id={task.id} onClick={onEdit} className="far fa-edit"></i>
-                                                    <div>Edit</div>
+                                                    <div id={task.id} onClick={onEdit}>Edit</div>
                                                 </div>
-                                                <div className='delete-Task'>
+                                                <div onClick={onDelete} id={task.id} className='delete-Task'>
                                                     <i id={task.id} onClick={onDelete} className="fa-regular fa-trash-can"></i>
-                                                    <div>Delete</div>
+                                                    <div id={task.id} onClick={onDelete}>Delete</div>
                                                 </div>
                                             </div>
                                             )}
