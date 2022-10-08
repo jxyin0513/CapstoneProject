@@ -25,7 +25,7 @@ function MainPageStatus(){
     })
     const pastTasks = tasks.filter(task=>{
         const tdate = task.deadline.split('-');
-        console.log(tdate < new Date())
+        // console.log(tdate < new Date())
         if(((new Date(`${tdate[1]}, ${tdate[2]}, ${tdate[0]}`)-new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`))/(3600 * 1000 * 24)) <0 ){
             return true;
         }else{
@@ -38,7 +38,7 @@ function MainPageStatus(){
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     console.log(typeof((new Date('08, 30, 2022')-new Date('08, 14, 2022'))/(3600 *1000 * 24)), tasks, pastTasks, upcomingTasks)
     let message;
-    console.log(date.getHours())
+    // console.log(date.getHours())
     if(date.getHours()>=12 && date.getHours()<19){
         message='Good afternoon'
     }else if(date.getHours()<12){

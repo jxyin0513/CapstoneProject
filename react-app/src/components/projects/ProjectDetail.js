@@ -99,7 +99,7 @@ function Project(){
     }
     async function onSection(e){
         const task = e.target.id.split('-');
-        console.log(task)
+        // console.log(task)
         await dispatch(updateTask({
             id: task[1],
             sectionId: task[0]
@@ -123,7 +123,7 @@ function Project(){
         }))
     }
     function showTask(e){
-        console.log(e.target.id)
+        // console.log(e.target.id)
         //
         if(showTaskId === e.target.id){
             setShowTaskId(0)
