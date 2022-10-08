@@ -39,6 +39,7 @@ function Project(){
     const [changeSection, setChangeSection] = useState(false)
     const [showTaskId, setShowTaskId] = useState(0);
     // const [toList, setToList] = useState(true);
+    const [taskId, setTaskId] = useState(0)
     const [editId, setEditId] = useState(0)
     const [menuId, setMenuId] = useState(0)
 
@@ -98,7 +99,7 @@ function Project(){
     }
     async function onSection(e){
         const task = e.target.id.split('-');
-        console.log(task)
+        // console.log(task)
         await dispatch(updateTask({
             id: task[1],
             sectionId: task[0]
@@ -122,7 +123,7 @@ function Project(){
         }))
     }
     function showTask(e){
-        console.log(e.target.id)
+        // console.log(e.target.id)
         //
         if(showTaskId === e.target.id){
             setShowTaskId(0)
@@ -133,6 +134,10 @@ function Project(){
         }
     }
 
+    function moveSection(e){
+        setChangeSection(true)
+        setTaskId(e.target.id)
+    }
     return (
         <div className='project-Detail'>
         {
@@ -194,11 +199,10 @@ function Project(){
                                     <div className='task-name-outer'>
                                         <p className='task-Name'>{task.taskName}</p>
                                         <div className='section-selector'>
-                                            <i className="fa-solid fa-arrow-down" id='change-section' onClick={()=>setChangeSection(true)}></i>
+                                            <i className="fa-solid fa-arrow-down" id={task.id} onClick={moveSection}></i>
                                             <div className='section-tag'>move to other sections</div>
-                                            {changeSection && (
+                                            {changeSection && Number(taskId)===task.id && (
                                             <div className='section-dropdown'>
-
                                                 {sections.map(section=>(
                                                     <div id={`${section.id}-${task.id}`} key={section.id} onClick={onSection} className='section-name'>{section.name}</div>
                                                 ))}
