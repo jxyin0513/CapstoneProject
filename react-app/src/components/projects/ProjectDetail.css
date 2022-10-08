@@ -145,6 +145,16 @@ p.task-Name{
     background-color: rgb(241, 239, 239);
 }
 .section-dropdown{
+    position: absolute;
+    width: 120px;
+    padding: 5px 0 0 0;
+    border: 0.5px solid rgb(227, 215, 215);
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    z-index: 3;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.section-tag{
     display: none;
 }
 .section-name{
@@ -154,17 +164,25 @@ p.task-Name{
 .section-name:hover{
     background-color: rgb(209, 208, 208);
 }
-.section-selector:hover .section-dropdown{
+.section-selector:hover > .section-tag{
     display: block;
     position: absolute;
+    z-index: 2;
+    /* background-color: rgb(255, 255, 255); */
+    font-size: 10px;
     width: 100px;
+}
+/* .section-selector:hover .section-dropdown{
+    display: block;
+    position: absolute;
+    width: 120px;
     padding: 5px 0 0 0;
     border: 0.5px solid rgb(227, 215, 215);
     border-radius: 3px;
     background-color: rgb(255, 255, 255);
     z-index: 3;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
+} */
 p.task-Assignee{
     width: 150px;
 }
