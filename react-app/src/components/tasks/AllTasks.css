@@ -39,6 +39,10 @@ h3{
 }
 #recently-Assigned{
     cursor: pointer;
+    padding: 3px 5px;
+}
+#recently-Assigned:hover{
+    background-color: lightgrey;
 }
 .my-Detail-Deadline{
     width: 150px;
@@ -52,7 +56,15 @@ h3{
 
 #today-Assigned{
     cursor: pointer;
+    padding: 3px 5px;
+}
+#today-Assigned:hover{
+    background-color: lightgrey;
 }
 #this-week-Assigned{
     cursor: pointer;
+    padding: 3px 5px;
+}
+#this-week-Assigned:hover{
+    background-color: lightgrey;
 }

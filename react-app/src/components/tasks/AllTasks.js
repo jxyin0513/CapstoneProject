@@ -34,14 +34,15 @@ function AllTasks(){
     const weekTasks = allTasks.filter(task=>{
         const deadline = task.deadline.split('-')
         const tdate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
-        let nextWeek = new Date(`${date.getMonth()+1}, ${date.getDate()+7}, ${date.getFullYear()}`)
+        const nextWeek = date + (3600*1000*24)*(7-date.getDay())
 
-        // console.log(tdate, nextWeek)
+        console.log(tdate, nextWeek)
         if(new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`) < tdate && tdate < nextWeek){
-            if(date.getDay()< tdate.getDay()){
-                // console.log('--')
-                return true
-            }
+            return true
+            // if(date.getDay()< tdate.getDay()){
+            //     // console.log('--')
+
+            // }
         }else{
             return false
         }
