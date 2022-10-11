@@ -12,8 +12,8 @@ class Project(db.Model):
     userId = db.Column(db.Integer,db.ForeignKey('users.id'), nullable = False)
     name = db.Column(db.String, nullable = False)
     description = db.Column(db.String, nullable=False)
-    startdate = db.Column(db.Date, nullable=False)
-    deadline = db.Column(db.Date, nullable=False)
+    startdate = db.Column(db.DateTime, nullable=False)
+    deadline = db.Column(db.DateTime, nullable=False)
 
     user = db.relationship('User', back_populates='projects')
     tasks = db.relationship('Task', back_populates='project', cascade= 'all, delete')
