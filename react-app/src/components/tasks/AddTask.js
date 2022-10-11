@@ -76,7 +76,7 @@ function AddTask({onClose}){
                     </select>
                 </label>
                 <label>
-                    <input type='date' name='deadline' placeholder='Due date' onChange={e=>setDeadline(e.target.value)}></input>
+                    <input type='datetime-local' name='deadline' placeholder='Due date' onChange={e=>setDeadline(e.target.value)}></input>
                 </label>
                 {/* <label>
                 <input type='text' name='priority' placeholder='Priority' onChange={e=>setPriority(e.target.value)}></input>

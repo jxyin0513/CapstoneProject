@@ -11,8 +11,8 @@ class Task(db.Model):
     taskName = db.Column(db.String, nullable=False)
     status = db.Column(db.String, nullable=False)
     priority = db.Column(db.String, nullable=False)
-    startdate = db.Column(db.Date, nullable=False)
-    deadline = db.Column(db.Date, nullable=False)
+    startdate = db.Column(db.DateTime, nullable=False)
+    deadline = db.Column(db.DateTime, nullable=False)
 
     user = db.relationship('User', back_populates='tasks')
     project = db.relationship('Project', lazy='subquery',  back_populates='tasks')
