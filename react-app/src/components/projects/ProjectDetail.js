@@ -15,6 +15,7 @@ import EditSectionModal from '../sections/EditSectionModal';
 import EditTaskModal from '../tasks/EditTaskModal';
 import EditProjectModal from './EditProjectModal';
 import DeleteProjectModal from './DeleteProject';
+import DeleteSectionModal from '../sections/DeleteSectionModal';
 import './ProjectDetail.css'
 
 function Project(){
@@ -34,6 +35,7 @@ function Project(){
     const [showDelete, setShowDelete] = useState(false);
     const [showEdit, setShowEdit] = useState(false)
     const [showMenu, setShowMenu] = useState(false);
+    const [showDeleteSection, setShowDeleteSection] = useState(false)
     const [showSection, setShowSection] = useState(false);
     const [showEditSection, setShowEditSection] = useState(false);
     const [changeSection, setChangeSection] = useState(false)
@@ -42,7 +44,7 @@ function Project(){
     const [taskId, setTaskId] = useState(0)
     const [editId, setEditId] = useState(0)
     const [menuId, setMenuId] = useState(0)
-
+    const [deleteSectionId, setDeleteSectionId] = useState(0)
     const [sectionId, setSectionId] = useState(0)
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     // let editId = 0
@@ -138,6 +140,10 @@ function Project(){
         setChangeSection(true)
         setTaskId(e.target.id)
     }
+    function deleteSection(e){
+        setShowDeleteSection(true)
+        setDeleteSectionId(e.target.id)
+    }
     return (
         <div className='project-Detail'>
         {
@@ -174,7 +180,7 @@ function Project(){
                             <i id={section.id} onClick={showTask} className={Number(showTaskId)!==section.id ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> {section.name}
                         </h2>
                         <i onClick={editSection} id={section.id} className="fa-regular fa-pen-to-square"></i>
-                        <i id={section.id} className="fa-solid fa-trash"></i>
+                        <i onClick={deleteSection} id={section.id} className="fa-solid fa-trash"></i>
                     </div>
                     {section.id !== Number(showTaskId) &&(
 
@@ -191,8 +197,8 @@ function Project(){
 
                         let deadline = task.deadline.split('-');
                         let date = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
-                        console.log('-----')
-                        console.log(task.sectionId, section.id)
+                        // console.log('-----')
+                        // console.log(task.sectionId, section.id)
                         if(task.projectId===Number(projectId) && task.sectionId === section.id){
                             return(
                                 <div className='task-List' key={task.id}>
@@ -200,14 +206,14 @@ function Project(){
                                         <p className='task-Name'>{task.taskName}</p>
                                         <div className='section-selector'>
                                             <i className="fa-solid fa-arrow-down" id={task.id} onClick={moveSection}></i>
-                                            <div className='section-tag'>move to other sections</div>
-                                            {changeSection && Number(taskId)===task.id && (
+                                            {/* <div className='section-tag'>move to other sections</div> */}
+
                                             <div className='section-dropdown'>
                                                 {sections.map(section=>(
                                                     <div id={`${section.id}-${task.id}`} key={section.id} onClick={onSection} className='section-name'>{section.name}</div>
                                                 ))}
                                             </div>
-                                            )}
+
                                         </div>
 
                                     </div>
@@ -345,6 +351,7 @@ function Project(){
             <div className='add-section-button' onClick={()=>setShowSection(true)}>+   Add section</div>
             {showSection && <AddSectionModal onClose={()=>setShowSection(false)} projectId={projectId} />}
             {showEditSection && <EditSectionModal onClose={()=>setShowEditSection(false)} projectId={projectId} id={sectionId} />}
+            {showDeleteSection && <DeleteSectionModal onClose={()=>setShowDeleteSection(false)} id={deleteSectionId} />}
         </div>
     )
 }
