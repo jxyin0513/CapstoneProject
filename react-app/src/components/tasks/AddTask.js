@@ -59,8 +59,9 @@ function AddTask({onClose}){
                 </label>
                 <label>
                     <select name='section' placeholder='section' onChange={e=>setSectionId(e.target.value)}>
+                        <option value={''}>Move to other sections</option>
                         {sections && sections.map(section=>(
-                            <option value={section.id}>{section.name}</option>
+                            <option key={section.id} value={section.id}>{section.name}</option>
                         ))}
 
                     </select>

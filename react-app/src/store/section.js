@@ -68,8 +68,8 @@ export const editSectionThunk = (section)=> async (dispatch)=>{
     }
 }
 
-export const deleteSectionThunk = (section) => async(dispatch)=>{
-    const response = await fetch(`/api/sections/${section.id}/delete`,{
+export const deleteSectionThunk = (id) => async(dispatch)=>{
+    const response = await fetch(`/api/sections/${id}/delete`,{
         method: 'DELETE',
         headers: {'Content-Type': 'application/json'},
     })
