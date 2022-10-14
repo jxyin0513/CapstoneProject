@@ -67,6 +67,10 @@ function MainPageStatus(){
         dispatch(GetAllTasks())
     },[dispatch])
 
+    function pastTask(e){
+        history.push(`/projects/${e.target.id}`)
+    }
+
     return (
         <div className='default-Page'>
             <h2 className='home-header'>Home</h2>
@@ -115,10 +119,10 @@ function MainPageStatus(){
                         </div>
                     ))}
                     {pastDue && pastTasks && pastTasks.map(task=>(
-                        <div key={task.id} className='past-Tasks'>
-                            <div>{task.assignee}</div>
-                            <div>{task.project.name}</div>
-                            <div>{task.deadline}</div>
+                        <div key={task.id} id={task.projectId} className='past-Tasks' onClick={pastTask}>
+                            <div id={task.projectId}>{task.assignee}</div>
+                            <div id={task.projectId}>{task.project.name}</div>
+                            <div id={task.projectId}>{task.deadline}</div>
                         </div>
                     ))}
                 </div>
