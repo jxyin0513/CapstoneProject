@@ -136,16 +136,23 @@
 }
 .upcoming-Tasks > div {
     margin: 5px 0;
-    cursor: pointer;
+
     width: 100px;
+}
+.upcoming-Tasks:hover{
+    cursor: pointer;
+    background-color: lightgray;
 }
 
 .past-Tasks{
     display: flex;
     justify-content: space-around;
 }
-.past-Tasks  div {
+.past-Tasks > div {
     margin: 5px 0;
+}
+.past-Tasks:hover{
+    background-color: lightgray;
     cursor: pointer;
 }
 .upcoming-Tasks-Bar{

@@ -6,14 +6,14 @@
 .signUp-inner-Container{
     position: absolute;
     width: 300px;
-    height: 300px;
-    top: 40%;
-    left: 25%;
+    height: 330px;
+    top: 30%;
+    left: 20%;
     border-radius: 15px;
     background-color:dimgray;
 }
 .errors-handle-Signup{
-    /* height: 80px; */
+    height: 70px;
     color:red;
 }
 .signup-Form{
@@ -23,8 +23,9 @@
     padding: 3px 0;
 }
 .signUp-Header{
-    padding: 10px 0 5px 15px;
+    padding: 10px 0 10px 15px;
     color: azure;
     font-size: 20px;
     border-bottom: 1px solid azure;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
