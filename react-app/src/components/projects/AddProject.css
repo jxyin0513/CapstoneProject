@@ -1,8 +1,11 @@
 .add-Project-Container{
     margin-left: 200px;
-    background-image: url('https://media.istockphoto.com/photos/to-do-list-text-on-notepad-picture-id1285308242');
-    height: 800px;
+    height: 700px;
     position: relative;
+}
+.add-Project-Container > img{
+    height: 100%;
+    width: 100%;
 }
 .errors-handler-Project{
     color: red;
@@ -16,10 +19,10 @@
 .add-Project-Form{
     width: 300px;
     height: 400px;
-    background-color:ghostwhite;
+    background-color:rgb(211, 211, 214);
     position: absolute;
-    top: 130px;
-    left: 70px;
+    top: 200px;
+    left: 150px;
     border-radius: 20px;
 }
 .add-Project-Form > label{

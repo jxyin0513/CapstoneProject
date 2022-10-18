@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {useHistory} from 'react-router-dom'
 import { CreateProjects } from '../../store/projects';
+import backgroundImage from '../image/new-project.jpg'
 import './AddProject.css';
 
 function NewProject(){
@@ -34,7 +35,7 @@ function NewProject(){
 
     return (
         <div className='add-Project-Container'>
-
+            <img src={backgroundImage} alt=''></img>
             <form className='add-Project-Form' onSubmit={onSubmit}>
                 <div className='new-Project-Header'>New Project</div>
                 <div className='errors-handler-Project'>

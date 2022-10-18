@@ -45,6 +45,7 @@ const SignUpForm = () => {
 
   return (
     <div className='signUp-Container'>
+      <img src='./sign-page.jpg' alt=''></img>
       <div className='signUp-inner-Container'>
         <div className='signUp-Header'>Sign up Form</div>
         <form className='signup-Form' onSubmit={onSignUp}>
