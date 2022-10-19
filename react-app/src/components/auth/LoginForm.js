@@ -39,7 +39,11 @@ const LoginForm = () => {
 
   return (
     <div className='login-Container'>
+      <img src='./sign-page.jpg' alt=''></img>
       <div className='login-inner-Container'>
+        <div className='login-header'>
+          <div>Sign In form</div>
+        </div>
         <form className='login-Form' onSubmit={onLogin}>
           <div className='errors-handler-Login'>
             {errors.map((error, ind) => (

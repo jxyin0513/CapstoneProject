@@ -10,7 +10,7 @@ function Page(){
         <>
         {!user &&
             <div className='home-Page'>
-                <img width='1400px' height='550px' alt='' src='https://images.unsplash.com/photo-1533628635777-112b2239b1c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHRvJTIwZG8lMjBsaXN0JTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60'></img>
+                <img width='1400px' height='600px' alt='' src='https://images.unsplash.com/photo-1533628635777-112b2239b1c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHRvJTIwZG8lMjBsaXN0JTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60'></img>
                 <div className='starter-Message'>
                     <p>Welcome to AsanaList Start managing your work with yourself and colleagues</p>
                 </div>
@@ -18,7 +18,7 @@ function Page(){
             </div>
         }
         {user && <MainPageStatus />}
-        <div></div>
+        {/* <div></div> */}
         </>
 
     )
