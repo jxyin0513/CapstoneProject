@@ -35,9 +35,8 @@ const deleteTasks = (tasks)=>({
     tasks
 })
 
-export const GetAllTasks = ()=> async(dispatch)=>{
-    const response = await fetch('/api/tasks/all')
-
+export const GetAllTasks = (id)=> async(dispatch)=>{
+    const response = await fetch(`/api/tasks/all/${id}`)
     if(response.ok){
         const data = await response.json();
         console.log('getAlltasksThunk', data.tasks)
