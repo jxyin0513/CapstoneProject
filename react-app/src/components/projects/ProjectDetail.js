@@ -52,7 +52,7 @@ function Project(){
     useEffect(()=>{
         // dispatch(GetProjectDetail(projectId))
         dispatch(GetAllProjects())
-        dispatch(GetAllTasks())
+        dispatch(GetAllTasks(projectId))
         dispatch(getSectionsThunk(projectId))
     }, [dispatch, projectId])
 
@@ -199,7 +199,7 @@ function Project(){
                         let date = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
                         // console.log('-----')
                         // console.log(task.sectionId, section.id)
-                        if(task.projectId===Number(projectId) && task.sectionId === section.id){
+                        if(task.sectionId === section.id){
                             return(
                                 <div className='task-List' key={task.id}>
                                     <div className='task-name-outer'>

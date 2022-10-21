@@ -14,9 +14,9 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f'{error}')
     return errorMessages
 
-@task_routes.route('/all')
-def get_tasks():
-    tasks = Task.query.all()
+@task_routes.route('/all/<id>')
+def get_tasks(id):
+    tasks = Task.query.filter_by(projectId=id).all()
     # print([task.to_dict() for task in tasks])
     return {'tasks': [task.to_dict() for task in tasks]}
 
