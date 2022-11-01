@@ -31,6 +31,7 @@ function Project(){
     // const projectTask = tasks.filter(task => task.projectId === Number(projectId))
     // const todoList = projectTask.filter(task=>task.status ==='incomplete')
     // const doneList = projectTask.filter(task=>task.status === 'complete')
+    console.log(project.deadline)
     const [showModal, setShowModal] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
     const [showEdit, setShowEdit] = useState(false)
@@ -163,7 +164,7 @@ function Project(){
                             </div>
                         </div>
                     </div>
-                    <div className='project-Deadline'>{`${months[new Date(`${pStartdate[1]}, ${pStartdate[2]}, ${pStartdate[0]}`).getMonth()]} ${pStartdate[2]} - ${months[new Date(`${pDeadline[1]}, ${pDeadline[2]}, ${pDeadline[0]}`).getMonth()]} ${pDeadline[2]}`}</div>
+                    <div className='project-Deadline'>{`${months[new Date(project.startdate).getMonth()]} ${new Date(project.startdate).getDate()} - ${months[new Date(project.deadline).getMonth()]} ${new Date(project.deadline).getDate()}`}</div>
                     <div className='project-Description'>Description: {project.description}</div>
                 </div>
 
@@ -195,8 +196,8 @@ function Project(){
                     </div>
                     {tasks && tasks.map(task=>{
 
-                        let deadline = task.deadline.split('-');
-                        let date = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
+                        // let deadline = task.deadline.split('-');
+                        let date = new Date(task.deadline)
                         // console.log('-----')
                         // console.log(task.sectionId, section.id)
                         if(task.sectionId === section.id){

@@ -1,13 +1,13 @@
 from app.models import db, Project
-from datetime import date
+from datetime import datetime, date
 
 def seed_projects():
 
-    demo_a = Project(userId=1, name='App Academy', description="It's about building program",deadline=date(2022, 9, 2), startdate=date.today())
-    demo_b = Project(userId=1, name='Building Products', description="It's about building a new app", deadline=date(2022, 9, 1), startdate=date.today())
-    demo_c = Project(userId=1, name='Management Consulting', description="Group project about new ideas",deadline=date(2022, 9, 13),  startdate=date.today())
-    demo_d = Project(userId=1, name='Software Development', description="It's about fixing bugs", deadline=date(2022, 9, 13), startdate=date.today())
-    demo_e = Project(userId=2, name='App Academy', description="It's about new program", deadline=date(2022, 8, 30), startdate=date.today())
+    demo_a = Project(userId=1, name='App Academy', description="It's about building program",deadline=datetime(2022, 9, 2), startdate=date.today())
+    demo_b = Project(userId=1, name='Building Products', description="It's about building a new app", deadline=datetime(2022, 9, 1), startdate=date.today())
+    demo_c = Project(userId=1, name='Management Consulting', description="Group project about new ideas",deadline=datetime(2022, 9, 13),  startdate=date.today())
+    demo_d = Project(userId=1, name='Software Development', description="It's about fixing bugs", deadline=datetime(2022, 9, 13), startdate=date.today())
+    demo_e = Project(userId=2, name='App Academy', description="It's about new program", deadline=datetime(2022, 8, 30), startdate=date.today())
 
     db.session.add(demo_a)
     db.session.add(demo_b)

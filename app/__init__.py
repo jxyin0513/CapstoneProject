@@ -15,6 +15,7 @@ from .seeds import seed_commands
 
 from .config import Config
 
+
 app = Flask(__name__)
 
 # Setup login manager
@@ -38,7 +39,8 @@ app.register_blueprint(task_routes, url_prefix='/api/tasks')
 app.register_blueprint(section_routes, url_prefix='/api/sections')
 
 db.init_app(app)
-Migrate(app, db)
+Migrate(app, db, compare_type=True)
+
 
 # Application Security
 CORS(app)
