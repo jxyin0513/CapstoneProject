@@ -59,7 +59,7 @@ function AddTask({onClose}){
                 </label>
                 <label>
                     <select name='section' placeholder='section' onChange={e=>setSectionId(e.target.value)}>
-                        <option value={''}>Move to other sections</option>
+                        <option value={''}>Section</option>
                         {sections && sections.map(section=>(
                             <option key={section.id} value={section.id}>{section.name}</option>
                         ))}
@@ -68,7 +68,7 @@ function AddTask({onClose}){
                 </label>
                 <label>
                     <select name='priority' placeholder='priority' onChange={e=>setPriority(e.target.value)}>
-                        <option value={''}>Please choose task priority</option>
+                        <option value={''}>Task Priority</option>
                         <option value={"Low"}>Low</option>
                         <option value={"Medium"}>Medium</option>
                         <option value={"High"}>High</option>
@@ -76,8 +76,9 @@ function AddTask({onClose}){
 
                     </select>
                 </label>
-                <label>
-                    <input type='datetime-local' name='deadline' placeholder='Due date' onChange={e=>setDeadline(e.target.value)}></input>
+                <label className='task-due-date'>
+                    <input type='date' name='deadline' placeholder='Due date' onChange={e=>setDeadline(e.target.value)}></input>
+                    <div>(Due date)</div>
                 </label>
                 {/* <label>
                 <input type='text' name='priority' placeholder='Priority' onChange={e=>setPriority(e.target.value)}></input>

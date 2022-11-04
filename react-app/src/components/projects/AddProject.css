@@ -29,6 +29,12 @@
     display: block;
     padding: 10px 10px 5px 10px;
 }
+.project-due-date > div{
+    display: inline;
+    font-size: 14px;
+    color: rgb(104, 102, 102);
+    padding: 0 0 0 5px;
+}
 .add-Project-Form > button{
     margin: 10px;
 }
