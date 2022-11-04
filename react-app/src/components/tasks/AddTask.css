@@ -10,7 +10,7 @@
 }
 .add-Tasks{
     width: 300px;
-    height: 300px;
+    height: 320px;
     margin-top: 10px;
     background-color: rgba(255, 255, 255, 0.957);
     border-radius: 15px;
@@ -25,6 +25,12 @@
 .add-Task-Form > button:hover{
     background-color:dimgray;
     color:azure;
+}
+.task-due-date > div{
+    /* display: inline; */
+    padding: 0px 0 0 0px;
+    font-size: 14px;
+    color: rgb(84, 86, 87);
 }
 .add-new-Task {
     padding: 5px 10px 15px 10px;

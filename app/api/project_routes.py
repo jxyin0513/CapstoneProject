@@ -27,8 +27,10 @@ def get_project(id):
 @project_routes.route('/new', methods=['POST'])
 def create_project():
     data = request.json
-    print(data)
     form = ProjectForm()
+    print(data)
+    print(data['startdate'])
+    print(form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
     if(form.validate_on_submit()):
         new_project = Project(**data)
@@ -42,6 +44,7 @@ def create_project():
 @project_routes.route('/<id>/edit', methods=['PUT'])
 def edit_project(id):
     form = ProjectForm()
+    print(form.data)
     project = Project.query.get(id)
     form['csrf_token'].data = request.cookies['csrf_token']
     if(form.validate_on_submit()):

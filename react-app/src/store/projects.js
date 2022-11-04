@@ -46,6 +46,7 @@ export const GetProjectDetail = (id) => async (dispatch)=>{
 }
 
 export const CreateProjects = (project) => async (dispatch)=>{
+    console.log(project)
     const response = await fetch('/api/projects/new',{
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
