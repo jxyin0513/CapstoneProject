@@ -39,7 +39,15 @@ export const GetAllTasks = (id)=> async(dispatch)=>{
     const response = await fetch(`/api/tasks/all/${id}`)
     if(response.ok){
         const data = await response.json();
-        console.log('getAlltasksThunk', data.tasks)
+        // console.log('getAlltasksThunk', data.tasks)
+        dispatch(getTasks(data.tasks))
+    }
+}
+export const GetEachTasks = (id)=> async(dispatch)=>{
+    const response = await fetch(`/api/tasks/each/${id}`)
+    if(response.ok){
+        const data = await response.json();
+        // console.log('getAlltasksThunk', data.tasks)
         dispatch(getTasks(data.tasks))
     }
 }
@@ -53,6 +61,7 @@ export const GetTaskDetail = (id)=> async(dispatch)=>{
 }
 
 export const CreateTask = (task)=> async(dispatch)=>{
+    console.log(task)
     const response = await fetch('/api/tasks/new',{
         method:'POST',
         headers: {'Content-Type': 'application/json'},

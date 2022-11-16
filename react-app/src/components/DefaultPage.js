@@ -2,6 +2,7 @@ import React, {useEffect, useState } from 'react';
 import {useHistory } from 'react-router-dom';
 import { GetAllProjects } from '../store/projects';
 import { GetAllTasks } from '../store/tasks';
+import { GetEachTasks } from '../store/tasks';
 import { useSelector, useDispatch } from 'react-redux';
 import './DefaultPage.css'
 
@@ -36,7 +37,7 @@ function MainPageStatus(){
 
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-    console.log(typeof((new Date('08, 30, 2022')-new Date('08, 14, 2022'))/(3600 *1000 * 24)), tasks, pastTasks, upcomingTasks)
+    // console.log(typeof((new Date('08, 30, 2022')-new Date('08, 14, 2022'))/(3600 *1000 * 24)), tasks, pastTasks, upcomingTasks)
     let message;
     // console.log(date.getHours())
     if(date.getHours()>=12 && date.getHours()<19){
@@ -64,7 +65,7 @@ function MainPageStatus(){
 
     useEffect(()=>{
         dispatch(GetAllProjects())
-        dispatch(GetAllTasks())
+        dispatch(GetEachTasks(user.id))
     },[dispatch])
 
     function pastTask(e){

@@ -20,6 +20,11 @@ def get_tasks(id):
     # print([task.to_dict() for task in tasks])
     return {'tasks': [task.to_dict() for task in tasks]}
 
+@task_routes.route('/each/<id>')
+def get_individual_tasks(id):
+    tasks = Task.query.filter_by(userId=id).all()
+    return {'tasks': [task.to_dict() for task in tasks]}
+
 @task_routes.route('/<id>')
 def get_task(id):
     task = Task.query.get(id)
