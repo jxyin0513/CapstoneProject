@@ -29,7 +29,6 @@ def create_project():
     data = request.json
     form = ProjectForm()
     print(data)
-    print(data['startdate'])
     print(form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
     if(form.validate_on_submit()):

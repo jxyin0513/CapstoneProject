@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { GetAllTasks } from '../../store/tasks';
+// import { GetAllTasks } from '../../store/tasks';
 import { GetEachTasks } from '../../store/tasks';
 import { GetAllProjects } from '../../store/projects';
 import './AllTasks.css'
@@ -37,7 +37,7 @@ function AllTasks(){
         const tdate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
         const nextWeek = date + (3600*1000*24)*(7-date.getDay())
 
-        console.log(tdate, nextWeek)
+        // console.log(tdate, nextWeek)
         if(new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`) < tdate && tdate < nextWeek){
             return true
             // if(date.getDay()< tdate.getDay()){
@@ -61,7 +61,7 @@ function AllTasks(){
     useEffect(()=>{
         dispatch(GetEachTasks(user.id))
         dispatch(GetAllProjects())
-    }, [dispatch])
+    }, [dispatch, user.id])
 
     return (
         <div className='all-Tasks'>
