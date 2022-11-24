@@ -23,15 +23,15 @@ function Project(){
     const {projectId} = useParams()
     const project = useSelector(state=>state.projects[projectId])
     const sections = Object.values(useSelector(state=>state.sections))
-    const pDeadline = project?.deadline.split('-')
-    const pStartdate = project?.startdate.split('-')
+    // const pDeadline = project?.deadline.split('-')
+    // const pStartdate = project?.startdate.split('-')
     const alltasks = useSelector(state=>state.tasks)
     const user = useSelector(state=>state.session.user)
     const tasks = Object.values(alltasks).filter(task=> task.userId === user.id)
     // const projectTask = tasks.filter(task => task.projectId === Number(projectId))
     // const todoList = projectTask.filter(task=>task.status ==='incomplete')
     // const doneList = projectTask.filter(task=>task.status === 'complete')
-    console.log(project?.deadline)
+    // console.log(project?.deadline)
     const [showModal, setShowModal] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
     const [showEdit, setShowEdit] = useState(false)
