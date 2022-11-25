@@ -21,7 +21,7 @@ function Page(){
             </div>
         }
         {user && <MainPageStatus />}
-        {/* <div></div> */}
+
         </>
 
     )
