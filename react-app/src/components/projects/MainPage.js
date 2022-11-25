@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom';
 import MainPageStatus from '../DefaultPage';
 // import {useParams} from 'react-router-dom'
 import './MainPage.css'
@@ -14,7 +15,9 @@ function Page(){
                 <div className='starter-Message'>
                     <p>Welcome to AsanaList Start managing your work with yourself and colleagues</p>
                 </div>
-                <div className='project-Starter'>Start here</div>
+                <NavLink to='/sign-up' exact={true}>
+                    <div className='project-Starter'>Start here</div>
+                </NavLink>
             </div>
         }
         {user && <MainPageStatus />}
