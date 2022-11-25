@@ -47,7 +47,7 @@ const SignUpForm = () => {
     <div className='signUp-Container'>
       <img src='./sign-page.jpg' alt=''></img>
       <div className='signUp-inner-Container'>
-        <div className='signUp-Header'>Sign up Form</div>
+        <div className='signUp-Header'>Sign up Here</div>
         <form className='signup-Form' onSubmit={onSignUp}>
           <div className='errors-handle-Signup'>
             {errors.map((error, ind) => (
