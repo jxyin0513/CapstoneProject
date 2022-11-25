@@ -16,12 +16,15 @@
 }
 .project-Starter{
     position: absolute;
+    text-align: center;
     top: 350px;
     left: 70px;
+    padding: 5px 0 0 0;
     font-size: 20px;
-    width: 90px;
-    height: 30px;
-    background-color: black;
+    box-sizing: border-box;
+    width: 100px;
+    height: 40px;
+    background-color: rgb(30, 29, 29);
     color: ghostwhite;
     border-radius: 5px;
     cursor: pointer;

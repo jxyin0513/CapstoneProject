@@ -14,7 +14,7 @@ function Page(){
                 <div className='starter-Message'>
                     <p>Welcome to AsanaList Start managing your work with yourself and colleagues</p>
                 </div>
-                {/* <div className='project-Starter'>Start here</div> */}
+                <div className='project-Starter'>Start here</div>
             </div>
         }
         {user && <MainPageStatus />}
