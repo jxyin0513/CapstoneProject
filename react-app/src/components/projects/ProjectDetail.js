@@ -22,6 +22,8 @@ function Project(){
     const dispatch = useDispatch();
     const {projectId} = useParams()
     const project = useSelector(state=>state.projects[projectId])
+    const startdate = project.startdate.split('-')
+    const deadline = project.deadline.split('-')
     const sections = Object.values(useSelector(state=>state.sections))
     // const pDeadline = project?.deadline.split('-')
     // const pStartdate = project?.startdate.split('-')
@@ -49,6 +51,7 @@ function Project(){
     const [sectionId, setSectionId] = useState(0)
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     // let editId = 0
+    console.log(new Date(`2022-12-20`), project.deadline, deadline)
 
     useEffect(()=>{
         // dispatch(GetProjectDetail(projectId))
@@ -164,7 +167,7 @@ function Project(){
                             </div>
                         </div>
                     </div>
-                    <div className='project-Deadline'>{`${months[new Date(project.startdate).getMonth()]} ${new Date(project.startdate).getDate()} - ${months[new Date(project.deadline).getMonth()]} ${new Date(project.deadline).getDate()}`}</div>
+                    <div className='project-Deadline'>{`${months[startdate[1]-1]} ${startdate[2]} - ${months[deadline[1]-1]} ${deadline[2]}`}</div>
                     <div className='project-Description'>Description: {project.description}</div>
                 </div>
 
@@ -197,7 +200,7 @@ function Project(){
                     {tasks && tasks.map(task=>{
 
                         // let deadline = task.deadline.split('-');
-                        let date = new Date(task.deadline)
+                        let deadline = task.deadline.split('-')
                         // console.log('-----')
                         // console.log(task.sectionId, section.id)
                         if(task.sectionId === section.id){
@@ -219,7 +222,7 @@ function Project(){
 
                                     </div>
                                     <p className='task-Assignee'>{task.assignee}</p>
-                                    <p className='task-Deadline'>{`${months[date.getMonth()]}  ${date.getDate()}`}</p>
+                                    <p className='task-Deadline'>{`${months[deadline[1]-1]}  ${deadline[2]}`}</p>
                                     <div className='dropdown'>
                                         <p className={`${task.priority}-priority`}>{task.priority}</p>
                                         <i className="fa-solid fa-angle-down" id='priority-setting'></i>
