@@ -50,7 +50,7 @@ function Project(){
     const [deleteSectionId, setDeleteSectionId] = useState(0)
     const [sectionId, setSectionId] = useState(0)
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    // let editId = 0
+
     console.log(new Date(`2022-12-20`), project.deadline, deadline)
 
     useEffect(()=>{
