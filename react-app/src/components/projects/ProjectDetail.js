@@ -22,8 +22,8 @@ function Project(){
     const dispatch = useDispatch();
     const {projectId} = useParams()
     const project = useSelector(state=>state.projects[projectId])
-    const startdate = project.startdate.split('-')
-    const deadline = project.deadline.split('-')
+    const startdate = project?.startdate.split('-')
+    const deadline = project?.deadline.split('-')
     const sections = Object.values(useSelector(state=>state.sections))
     // const pDeadline = project?.deadline.split('-')
     // const pStartdate = project?.startdate.split('-')
@@ -51,7 +51,7 @@ function Project(){
     const [sectionId, setSectionId] = useState(0)
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-    console.log(new Date(`2022-12-20`), project.deadline, deadline)
+    // console.log(new Date(`2022-12-20`), project.deadline, deadline)
 
     useEffect(()=>{
         // dispatch(GetProjectDetail(projectId))
