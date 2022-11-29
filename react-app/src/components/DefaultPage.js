@@ -1,5 +1,5 @@
 import React, {useEffect, useState } from 'react';
-import {useHistory } from 'react-router-dom';
+import {NavLink, useHistory } from 'react-router-dom';
 import { GetAllProjects } from '../store/projects';
 // import { GetAllTasks } from '../store/tasks';
 import { GetEachTasks } from '../store/tasks';
@@ -71,7 +71,9 @@ function MainPageStatus(){
     function pastTask(e){
         history.push(`/projects/${e.target.id}`)
     }
-
+    function upcomingTask(e){
+        history.push(`/projects/${e.target.id}`)
+    }
     return (
         <div className='default-Page'>
             <h2 className='home-header'>Home</h2>
@@ -112,12 +114,13 @@ function MainPageStatus(){
                         <div>Due date</div>
                     </div>
                     {upcoming && upcomingTasks && upcomingTasks.map(task=>(
-
-                        <div key={task.id} className='upcoming-Tasks'>
-                            <div>{task.assignee}</div>
-                            <div>{task.project.name}</div>
-                            <div>{task.deadline}</div>
+                        // <NavLink to={`/projects/${task.projectId}`}></NavLink>
+                        <div key={task.id} id={task.projectId} className='upcoming-Tasks' onClick={upcomingTask}>
+                            <div id={task.projectId}>{task.assignee}</div>
+                            <div id={task.projectId}>{task.project.name}</div>
+                            <div id={task.projectId}>{task.deadline}</div>
                         </div>
+
                     ))}
                     {pastDue && pastTasks && pastTasks.map(task=>(
                         <div key={task.id} id={task.projectId} className='past-Tasks' onClick={pastTask}>
