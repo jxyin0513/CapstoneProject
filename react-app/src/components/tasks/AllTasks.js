@@ -54,9 +54,7 @@ function AllTasks(){
     const [week, setWeek] = useState(true)
     // console.log(`${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`,'2022-07-10',date.getFullYear(),date.getDate(), date.getMonth())
     // console.log(date, new Date('August 10, 2022'))
-    // function checkRecent(){
-    //     if(recent)
-    // }
+
 
     useEffect(()=>{
         dispatch(GetEachTasks(user.id))
