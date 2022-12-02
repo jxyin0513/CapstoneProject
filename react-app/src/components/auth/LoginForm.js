@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import loginPage from '../image/sign-page.jpg'
 import './LoginForm.css';
 
 const LoginForm = () => {
@@ -39,7 +40,7 @@ const LoginForm = () => {
 
   return (
     <div className='login-Container'>
-      <img src='./sign-page.jpg' alt=''></img>
+      <img src={loginPage} alt=''></img>
       <div className='login-inner-Container'>
         <div className='login-header'>
           <div>Sign In Here</div>
