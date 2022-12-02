@@ -25,6 +25,11 @@ function Project(){
     const startdate = project?.startdate.split('-')
     const deadline = project?.deadline.split('-')
     const sections = Object.values(useSelector(state=>state.sections))
+    let section = {}
+    for(let i=0; i<sections.length; i++){
+        section[`${sections[i].id}`] = sections[i].id
+    }
+    // console.log(section)
     // const pDeadline = project?.deadline.split('-')
     // const pStartdate = project?.startdate.split('-')
     const alltasks = useSelector(state=>state.tasks)
@@ -33,7 +38,7 @@ function Project(){
     // const projectTask = tasks.filter(task => task.projectId === Number(projectId))
     // const todoList = projectTask.filter(task=>task.status ==='incomplete')
     // const doneList = projectTask.filter(task=>task.status === 'complete')
-
+    const [sectionBar, setSectionBar] = useState(section)
     const [showModal, setShowModal] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
     const [showEdit, setShowEdit] = useState(false)
@@ -43,6 +48,7 @@ function Project(){
     const [showEditSection, setShowEditSection] = useState(false);
     const [changeSection, setChangeSection] = useState(false)
     const [showTaskId, setShowTaskId] = useState(0);
+
     // const [toList, setToList] = useState(true);
     const [taskId, setTaskId] = useState(0)
     const [editId, setEditId] = useState(0)
@@ -131,14 +137,25 @@ function Project(){
         }))
     }
     function showTask(e){
-        // console.log(e.target.id)
-        //
         if(showTaskId === e.target.id){
             setShowTaskId(0)
             console.log(showTaskId)
         }else{
             setShowTaskId(e.target.id)
             console.log(showTaskId)
+        }
+
+        if(sectionBar[e.target.id]===0){
+            let newSection = sectionBar
+            console.log(newSection)
+            newSection[`${e.target.id}`] = Number(e.target.id)
+            console.log(newSection)
+            setSectionBar(newSection)
+        }else{
+            let newSection = sectionBar
+            newSection[e.target.id] = 0
+            console.log(newSection)
+            setSectionBar(newSection)
         }
     }
 
@@ -179,19 +196,19 @@ function Project(){
         {showDelete && (<DeleteProjectModal id={projectId} onClose={()=>setShowDelete(false)} />)}
         <AddTaskModal />
         {sections && sections.map(section=>{
+            // console.log(section.id, sectionBar[`${section.id}`])
             return (
                 <div key={section.id}>
                     <div className='section-Bar'>
                         <h2>
-                            <i id={section.id} onClick={showTask} className={Number(showTaskId)!==section.id ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> {section.name}
+                            <i id={section.id} onClick={showTask} className={sectionBar[`${section.id}`]!== 0 ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> {section.name}
                         </h2>
                         <i onClick={editSection} id={section.id} className="fa-regular fa-pen-to-square"></i>
                         <i onClick={deleteSection} id={section.id} className="fa-solid fa-trash"></i>
                     </div>
-                    {section.id !== Number(showTaskId) &&(
+                    {sectionBar[`${section.id}`]!==0 &&(
 
                     <div>
-
                     <div className='section-header'>
                         <div className='task-Name'>Task name</div>
                         <div className='task-Assignee'>Assignee</div>
