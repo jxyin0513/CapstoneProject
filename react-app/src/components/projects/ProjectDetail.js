@@ -147,7 +147,7 @@ function Project(){
 
         if(sectionBar[e.target.id]===0){
             let newSection = sectionBar
-            console.log(newSection)
+            // console.log(newSection)
             newSection[`${e.target.id}`] = Number(e.target.id)
             console.log(newSection)
             setSectionBar(newSection)
