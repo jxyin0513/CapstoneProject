@@ -122,6 +122,9 @@ function MainPageStatus(){
                         </div>
 
                     ))}
+                    {upcoming && upcomingTasks.length ===0 && (
+                        <div className='no-upcoming-Tasks'>(0) upcoming tasks.</div>
+                    )}
                     {pastDue && pastTasks && pastTasks.map(task=>(
                         <div key={task.id} id={task.projectId} className='past-Tasks' onClick={pastTask}>
                             <div id={task.projectId}>{task.assignee}</div>
@@ -129,6 +132,9 @@ function MainPageStatus(){
                             <div id={task.projectId}>{task.deadline}</div>
                         </div>
                     ))}
+                    {pastDue && pastTasks.length===0 &&(
+                        <div className='no-past-Tasks'>(0) past tasks.</div>
+                    )}
                 </div>
             </div>
         </div>
