@@ -173,3 +173,19 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
 }
+.no-upcoming-Tasks{
+    text-align: center;
+    padding: 10px 0 0 0px;
+    font-size: 18px;
+}
+.no-past-Tasks{
+    text-align: center;
+    padding: 10px 0 0 0px;
+    font-size: 18px;
+}
+.no-project{
+    text-align: center;
+    padding: 10px 0 0 0px;
+    font-size: 25px;
+    color:darkblue;
+}

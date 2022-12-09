@@ -139,23 +139,21 @@ function Project(){
     function showTask(e){
         if(showTaskId === e.target.id){
             setShowTaskId(0)
-            console.log(showTaskId)
         }else{
             setShowTaskId(e.target.id)
-            console.log(showTaskId)
         }
 
         if(sectionBar[e.target.id]===0){
             let newSection = sectionBar
             // console.log(newSection)
             newSection[`${e.target.id}`] = Number(e.target.id)
-            console.log(newSection)
             setSectionBar(newSection)
+            console.log(sectionBar)
         }else{
             let newSection = sectionBar
             newSection[e.target.id] = 0
-            console.log(newSection)
             setSectionBar(newSection)
+            console.log(sectionBar)
         }
     }
 
@@ -196,12 +194,12 @@ function Project(){
         {showDelete && (<DeleteProjectModal id={projectId} onClose={()=>setShowDelete(false)} />)}
         <AddTaskModal />
         {sections && sections.map(section=>{
-            // console.log(section.id, sectionBar[`${section.id}`])
+            console.log(sectionBar, sectionBar[`${section.id}`])
             return (
                 <div key={section.id}>
                     <div className='section-Bar'>
                         <h2>
-                            <i id={section.id} onClick={showTask} className={sectionBar[`${section.id}`]!== 0 ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> {section.name}
+                            <i id={section.id} onClick={showTask} className={sectionBar[`${section.id}`] !== 0 ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> {section.name}
                         </h2>
                         <i onClick={editSection} id={section.id} className="fa-regular fa-pen-to-square"></i>
                         <i onClick={deleteSection} id={section.id} className="fa-solid fa-trash"></i>
