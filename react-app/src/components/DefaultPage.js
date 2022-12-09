@@ -101,6 +101,9 @@ function MainPageStatus(){
                             <div id={project.id} onClick={onProject} className='create-Project-Name'>{project.name}</div>
                         </div>
                     )))}
+                    {projects.length===0 && (
+                        <div className='no-project'>None</div>
+                    )}
                 </div>
                 <div className='task-Home-Page'>
                     <div className='task-Home-Header'>Tasks</div>
