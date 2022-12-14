@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import {useParams} from 'react-router-dom'
-// import { GetProjectDetail } from '../../store/projects';
 import { GetAllProjects } from '../../store/projects';
 import { updateTask } from '../../store/tasks';
-// import EditTasks from '../tasks/EditTask';
 import { GetAllTasks } from '../../store/tasks';
 import { getSectionsThunk } from '../../store/section';
 import { DeleteTask } from '../../store/tasks';
-// import { DeleteProjects } from '../../store/projects';
 import AddTaskModal from '../tasks/TaskModal';
 import AddSectionModal from '../sections/AddSectionModal';
 import EditSectionModal from '../sections/EditSectionModal';
@@ -145,7 +142,7 @@ function Project(){
 
         if(sectionBar[e.target.id]===0){
             let newSection = sectionBar
-            // console.log(newSection)
+
             newSection[`${e.target.id}`] = Number(e.target.id)
             setSectionBar(newSection)
             console.log(sectionBar)
