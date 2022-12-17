@@ -52,6 +52,8 @@ h3{
 }
 .my-Detail-Project{
     width: 150px;
+    font-weight:bold;
+    color:crimson;
 }
 
 #today-Assigned{
