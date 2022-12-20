@@ -22,10 +22,13 @@ function Project(){
     const startdate = project?.startdate.split('-')
     const deadline = project?.deadline.split('-')
     const sections = Object.values(useSelector(state=>state.sections))
-    let section = {}
-    for(let i=0; i<sections.length; i++){
-        section[`${sections[i].id}`] = sections[i].id
-    }
+    let section = useSelector(state=>state.sections)
+
+    // console.log(section)
+
+    // for(let i=0; i<sections.length; i++){
+    //     section[`${sections[i].id}`] = sections[i].id
+    // }
     // console.log(section)
     // const pDeadline = project?.deadline.split('-')
     // const pStartdate = project?.startdate.split('-')
@@ -35,7 +38,7 @@ function Project(){
     // const projectTask = tasks.filter(task => task.projectId === Number(projectId))
     // const todoList = projectTask.filter(task=>task.status ==='incomplete')
     // const doneList = projectTask.filter(task=>task.status === 'complete')
-    const [sectionBar, setSectionBar] = useState(section)
+    const [sectionBar, setSectionBar] = useState({})
     const [showModal, setShowModal] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
     const [showEdit, setShowEdit] = useState(false)
@@ -45,7 +48,6 @@ function Project(){
     const [showEditSection, setShowEditSection] = useState(false);
     const [changeSection, setChangeSection] = useState(false)
     const [showTaskId, setShowTaskId] = useState(0);
-
     // const [toList, setToList] = useState(true);
     const [taskId, setTaskId] = useState(0)
     const [editId, setEditId] = useState(0)
@@ -53,10 +55,10 @@ function Project(){
     const [deleteSectionId, setDeleteSectionId] = useState(0)
     const [sectionId, setSectionId] = useState(0)
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-
-
     // console.log(new Date(`2022-12-20`), deadline)
-
+    // if(section){
+    //     setSectionBar(section)
+    // }
 
     useEffect(()=>{
         // dispatch(GetProjectDetail(projectId))
