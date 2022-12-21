@@ -7,6 +7,7 @@ const Search = () => {
     const [search, setSearch] = useState('');
     const [projectsResult, setProjectsResult] = useState([])
     const [taskResults, setTaskResults] = useState([])
+    const [result, setResult] = useState(false)
     // const [keystroke, setKeystroke] = useState('');
     const user = useSelector(state=>state.session.user)
     const tasks = Object.values(useSelector(state=>state.tasks)).filter(task => task.userId === user.id)
@@ -33,7 +34,11 @@ const Search = () => {
       // console.log(projectSearch)
       setProjectsResult(projectSearch)
       setTaskResults(taskSearch)
+      if(taskResults.length>0 || projectsResult.length>0){
+      setSearch(true)
     }
+    }
+
     return (
         <div className='search-container'>
           <form className='search-form'>

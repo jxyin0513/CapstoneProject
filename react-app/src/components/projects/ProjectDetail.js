@@ -56,7 +56,7 @@ function Project(){
     const [sectionId, setSectionId] = useState(0)
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     // console.log(new Date(`2022-12-20`), deadline)
-    // if(section){
+    // if(section!=={}){
     //     setSectionBar(section)
     // }
 
