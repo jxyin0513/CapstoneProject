@@ -52,6 +52,12 @@
 .project-outer, .task-outer{
     border-bottom: 0.5px solid black;;
 }
+.project-outer:hover{
+    background-color: rgb(230, 226, 226);
+}
+.task-outer:hover{
+    background-color: rgb(230, 226, 226);
+}
 .project-search, .task-search{
     text-decoration: none;
 }
