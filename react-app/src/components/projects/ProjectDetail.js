@@ -141,10 +141,8 @@ function Project(){
         }else{
             setShowTaskId(e.target.id)
         }
-
         if(sectionBar[e.target.id]===0){
             let newSection = sectionBar
-
             newSection[`${e.target.id}`] = Number(e.target.id)
             setSectionBar(newSection)
             console.log(sectionBar)
