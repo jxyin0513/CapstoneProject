@@ -15,7 +15,7 @@ function EditProject({onClose}){
     const [startdate, setStartDate] = useState(project.startdate)
     const [deadline, setDeadline] = useState(project.deadline)
     const [errors, setErrors] = useState([])
-    console.log(project)
+    // console.log(project)
 
     async function onSubmit(e){
         e.preventDefault();
@@ -54,6 +54,9 @@ function EditProject({onClose}){
                 </div>
                 <label>
                     <input type='text' name='name' value={name} onChange={e=>setName(e.target.value)}></input>
+                </label>
+                <label>
+                    <input type='date' name='startdate' value={startdate} onChange={e=>setStartDate(e.target.value)} ></input>
                 </label>
                 <label>
                     <input type='date' name='deadline' value={deadline} onChange={e=>setDeadline(e.target.value)} ></input>

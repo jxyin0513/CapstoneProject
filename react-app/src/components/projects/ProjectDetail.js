@@ -24,12 +24,9 @@ function Project(){
     const sections = Object.values(useSelector(state=>state.sections))
     let section = useSelector(state=>state.sections)
 
-    // console.log(section)
-
     // for(let i=0; i<sections.length; i++){
     //     section[`${sections[i].id}`] = sections[i].id
     // }
-    // console.log(section)
     // const pDeadline = project?.deadline.split('-')
     // const pStartdate = project?.startdate.split('-')
     const alltasks = useSelector(state=>state.tasks)

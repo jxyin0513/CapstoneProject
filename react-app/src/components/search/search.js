@@ -7,7 +7,7 @@ const Search = () => {
     const [search, setSearch] = useState('');
     const [projectsResult, setProjectsResult] = useState([])
     const [taskResults, setTaskResults] = useState([])
-    const [result, setResult] = useState(false)
+    // const [result, setResult] = useState(false)
     // const [keystroke, setKeystroke] = useState('');
     const user = useSelector(state=>state.session.user)
     const tasks = Object.values(useSelector(state=>state.tasks)).filter(task => task.userId === user.id)
@@ -63,7 +63,7 @@ const Search = () => {
               <div className='project-bar'>Projects</div>
               {projectsResult.map(project => (
                 <div className='project-outer' key={project.id}>
-                  <NavLink className='project-search' to={`/projects/${project.id}`}>
+                  <NavLink className='project-search'  to={`/projects/${project.id}`}>
                     <div className='project-result'>
                       <i className="fa-regular fa-circle-check"></i>
                       <div className='search-name'>{project.name}</div>
