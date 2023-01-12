@@ -22,7 +22,7 @@ function Project(){
     const startdate = project?.startdate.split('-')
     const deadline = project?.deadline.split('-')
     const sections = Object.values(useSelector(state=>state.sections))
-    let section = useSelector(state=>state.sections)
+    // let section = useSelector(state=>state.sections)
 
     // for(let i=0; i<sections.length; i++){
     //     section[`${sections[i].id}`] = sections[i].id
@@ -60,9 +60,9 @@ function Project(){
     useEffect(()=>{
         // dispatch(GetProjectDetail(projectId))
         dispatch(GetAllProjects())
-        dispatch(GetAllTasks(projectId))
+        dispatch(GetAllTasks(user.id))
         dispatch(getSectionsThunk(projectId))
-    }, [dispatch, projectId])
+    }, [dispatch, projectId, user.id])
 
     function openMenu(e){
         if(showMenu) return;
@@ -188,7 +188,7 @@ function Project(){
         {showDelete && (<DeleteProjectModal id={projectId} onClose={()=>setShowDelete(false)} />)}
         <AddTaskModal />
         {sections && sections.map(section=>{
-            console.log(sectionBar, sectionBar[`${section.id}`])
+            // console.log(sectionBar, sectionBar[`${section.id}`])
             return (
                 <div key={section.id}>
                     <div className='section-Bar'>
