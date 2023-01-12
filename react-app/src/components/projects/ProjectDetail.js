@@ -22,14 +22,11 @@ function Project(){
     const startdate = project?.startdate.split('-')
     const deadline = project?.deadline.split('-')
     const sections = Object.values(useSelector(state=>state.sections))
-    let section = useSelector(state=>state.sections)
-
-    // console.log(section)
+    // let section = useSelector(state=>state.sections)
 
     // for(let i=0; i<sections.length; i++){
     //     section[`${sections[i].id}`] = sections[i].id
     // }
-    // console.log(section)
     // const pDeadline = project?.deadline.split('-')
     // const pStartdate = project?.startdate.split('-')
     const alltasks = useSelector(state=>state.tasks)
@@ -56,16 +53,16 @@ function Project(){
     const [sectionId, setSectionId] = useState(0)
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     // console.log(new Date(`2022-12-20`), deadline)
-    // if(section){
+    // if(section!=={}){
     //     setSectionBar(section)
     // }
 
     useEffect(()=>{
         // dispatch(GetProjectDetail(projectId))
         dispatch(GetAllProjects())
-        dispatch(GetAllTasks(projectId))
+        dispatch(GetAllTasks(user.id))
         dispatch(getSectionsThunk(projectId))
-    }, [dispatch, projectId])
+    }, [dispatch, projectId, user.id])
 
     function openMenu(e){
         if(showMenu) return;
@@ -191,7 +188,7 @@ function Project(){
         {showDelete && (<DeleteProjectModal id={projectId} onClose={()=>setShowDelete(false)} />)}
         <AddTaskModal />
         {sections && sections.map(section=>{
-            console.log(sectionBar, sectionBar[`${section.id}`])
+            // console.log(sectionBar, sectionBar[`${section.id}`])
             return (
                 <div key={section.id}>
                     <div className='section-Bar'>

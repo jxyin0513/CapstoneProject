@@ -16,7 +16,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 @task_routes.route('/all/<id>')
 def get_tasks(id):
-    tasks = Task.query.filter_by(projectId=id).all()
+    tasks = Task.query.filter_by(userId=id).all()
     # print([task.to_dict() for task in tasks])
     return {'tasks': [task.to_dict() for task in tasks]}
 

@@ -56,6 +56,9 @@ function EditProject({onClose}){
                     <input type='text' name='name' value={name} onChange={e=>setName(e.target.value)}></input>
                 </label>
                 <label>
+                    <input type='date' name='startdate' value={startdate} onChange={e=>setStartDate(e.target.value)} ></input>
+                </label>
+                <label>
                     <input type='date' name='deadline' value={deadline} onChange={e=>setDeadline(e.target.value)} ></input>
                 </label>
                 <label>
