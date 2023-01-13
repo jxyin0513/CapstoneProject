@@ -14,7 +14,7 @@ function AddTask({onClose}){
     const [taskName, setTaskName] = useState('')
     const [priority, setPriority] = useState('')
     const [sectionId, setSectionId] = useState('')
-    const [startdate, setStartdate] = useState(new Date());
+    const startdate = new Date();
     const [deadline, setDeadline] = useState('')
     // const [priority, setPriority] = useState('')
     const [errors, setErrors] = useState([])
