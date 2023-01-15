@@ -363,7 +363,11 @@ function Project(){
             }
             ))
             } */}
+            {tasks.length===0 &&(
+                <div className='no-Tasks'>(0) tasks added</div>
+            )}
             <div className='add-section-button' onClick={()=>setShowSection(true)}>+   Add section</div>
+
             {showSection && <AddSectionModal onClose={()=>setShowSection(false)} projectId={projectId} />}
             {showEditSection && <EditSectionModal onClose={()=>setShowEditSection(false)} projectId={projectId} id={sectionId} />}
             {showDeleteSection && <DeleteSectionModal onClose={()=>setShowDeleteSection(false)} id={deleteSectionId} />}
