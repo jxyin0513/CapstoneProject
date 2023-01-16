@@ -23,11 +23,15 @@ const Search = () => {
         projectSearch = projects.filter(project=>{
           if(project.name.toLowerCase().startsWith(e.target.value.toLowerCase())){
             return true;
+          }else{
+            return false;
           }
         })
         taskSearch = tasks.filter(task=>{
           if(task.taskName.toLowerCase().startsWith(e.target.value.toLowerCase())){
             return true;
+          }else{
+            return false
           }
         })
       }
