@@ -382,6 +382,13 @@ p.task-Deadline{
     cursor: pointer;
     margin: 10px 0 20px 5px;
 }
+.no-Tasks{
+    padding: 20px 0px 10px 20px;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-style: italic; */
+    font-weight: 700;
+}
 .add-section-button:hover{
     border-radius: 2px;
     background-color: rgb(237, 232, 232);

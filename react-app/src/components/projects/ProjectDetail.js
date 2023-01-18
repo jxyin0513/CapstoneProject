@@ -31,7 +31,7 @@ function Project(){
     // const pStartdate = project?.startdate.split('-')
     const alltasks = useSelector(state=>state.tasks)
     const user = useSelector(state=>state.session.user)
-    const tasks = Object.values(alltasks).filter(task=> task.userId === user.id)
+    const tasks = Object.values(alltasks).filter(task=> task.projectId === Number(projectId))
     // const projectTask = tasks.filter(task => task.projectId === Number(projectId))
     // const todoList = projectTask.filter(task=>task.status ==='incomplete')
     // const doneList = projectTask.filter(task=>task.status === 'complete')
@@ -44,7 +44,9 @@ function Project(){
     const [showSection, setShowSection] = useState(false);
     const [showEditSection, setShowEditSection] = useState(false);
     const [changeSection, setChangeSection] = useState(false)
+    const [showTaskModal, setShowTaskModal] = useState(false)
     const [showTaskId, setShowTaskId] = useState(0);
+    // const [task, setTask] = useState(false)
     // const [toList, setToList] = useState(true);
     const [taskId, setTaskId] = useState(0)
     const [editId, setEditId] = useState(0)
@@ -155,6 +157,12 @@ function Project(){
         setChangeSection(true)
         setTaskId(e.target.id)
     }
+    function newSection(e){
+            setShowSection(true)
+    }
+    function newTask(e){
+        setShowTaskModal(true)
+    }
     function deleteSection(e){
         setShowDeleteSection(true)
         setDeleteSectionId(e.target.id)
@@ -186,7 +194,13 @@ function Project(){
         }
         {showModal && (<EditProjectModal onClose={()=>setShowModal(false)}/>)}
         {showDelete && (<DeleteProjectModal id={projectId} onClose={()=>setShowDelete(false)} />)}
-        <AddTaskModal />
+        <button className='add-Task' onClick={newTask}>
+               + Add task
+        </button>
+        {showTaskModal && (<AddTaskModal onClose={()=>setShowTaskModal(false)} />)}
+        {/* {task && (
+            <div>add section first</div>
+        )} */}
         {sections && sections.map(section=>{
             // console.log(sectionBar, sectionBar[`${section.id}`])
             return (
@@ -268,6 +282,8 @@ function Project(){
                                     {Number(task.id)===Number(editId) && showEdit && <EditTaskModal onEdit={()=>setEditId(0)} onClose={()=>setShowEdit(false)} id={task.id}/>}
                                 </div>
                             )
+                        }else{
+                            return false
                         }
                     })}
                     </div>
@@ -363,7 +379,11 @@ function Project(){
             }
             ))
             } */}
-            <div className='add-section-button' onClick={()=>setShowSection(true)}>+   Add section</div>
+            {tasks.length===0 &&(
+                <div className='no-Tasks'>(0) tasks added</div>
+            )}
+            <div className='add-section-button' onClick={newSection}>+   Add section</div>
+
             {showSection && <AddSectionModal onClose={()=>setShowSection(false)} projectId={projectId} />}
             {showEditSection && <EditSectionModal onClose={()=>setShowEditSection(false)} projectId={projectId} id={sectionId} />}
             {showDeleteSection && <DeleteSectionModal onClose={()=>setShowDeleteSection(false)} id={deleteSectionId} />}

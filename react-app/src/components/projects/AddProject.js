@@ -11,7 +11,8 @@ function NewProject(){
     const user = useSelector(state=>state.session.user)
     const [name, setName] = useState('')
     const [description, setDescription] = useState('');
-    const [startdate, setStartdate] = useState(new Date());
+    const startdate = new Date();
+
     const [deadline, setDeadline] = useState('')
     const [errors, setErrors] = useState([])
     async function onSubmit(e){

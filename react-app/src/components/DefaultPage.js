@@ -15,7 +15,7 @@ function MainPageStatus(){
     const tasks = Object.values(useSelector(state=>state.tasks)).filter(task => task.userId === user.id)
     const [upcoming, setUpcoming] = useState(true);
     const [pastDue, setPastDue] = useState(false);
-    const [date, setDate] = useState(new Date())
+    const date = new Date()
     const upcomingTasks = tasks.filter(task=>{
         const tdate = task.deadline.split('-');
         if(((new Date(`${tdate[1]}, ${tdate[2]}, ${tdate[0]}`)-new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`))/(3600 * 1000 * 24))<5 && ((new Date(`${tdate[1]}, ${tdate[2]}, ${tdate[0]}`)-new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`))/(3600 * 1000 * 24))>0){
