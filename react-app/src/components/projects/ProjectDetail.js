@@ -44,6 +44,7 @@ function Project(){
     const [showSection, setShowSection] = useState(false);
     const [showEditSection, setShowEditSection] = useState(false);
     const [changeSection, setChangeSection] = useState(false)
+    const [showTaskModal, setShowTaskModal] = useState(false)
     const [showTaskId, setShowTaskId] = useState(0);
     // const [task, setTask] = useState(false)
     // const [toList, setToList] = useState(true);
@@ -157,10 +158,10 @@ function Project(){
         setTaskId(e.target.id)
     }
     function newSection(e){
-
             setShowSection(true)
-
-
+    }
+    function newTask(e){
+        setShowTaskModal(true)
     }
     function deleteSection(e){
         setShowDeleteSection(true)
@@ -193,7 +194,10 @@ function Project(){
         }
         {showModal && (<EditProjectModal onClose={()=>setShowModal(false)}/>)}
         {showDelete && (<DeleteProjectModal id={projectId} onClose={()=>setShowDelete(false)} />)}
-        <AddTaskModal />
+        <button className='add-Task' onClick={newTask}>
+               + Add task
+        </button>
+        {showTaskModal && (<AddTaskModal onClose={()=>setShowTaskModal(false)} />)}
         {/* {task && (
             <div>add section first</div>
         )} */}

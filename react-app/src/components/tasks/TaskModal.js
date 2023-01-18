@@ -3,20 +3,20 @@ import { Modal } from "../context/Modal";
 import AddTask from './AddTask';
 import './TaskModal.css'
 
-function AddTaskModal(){
-    const [showModal, setShowModal] = useState(false);
+function AddTaskModal({onClose}){
+    // const [showModal, setShowModal] = useState(false);
     // const [demoUser, setDemoUser] = useState(false)
     return (
         <>
-            <button className='add-Task' onClick={()=>setShowModal(true)}>
+            {/* <button className='add-Task' onClick={()=>setShowModal(true)}>
                + Add task
-            </button>
+            </button> */}
 
-            {showModal&&(
-                <Modal onClose={() => setShowModal(false)}>
-                    <AddTask onClose={() => setShowModal(false)} />
+
+                <Modal onClose={onClose}>
+                    <AddTask onClose={onClose} />
                 </Modal>
-      )}
+
         </>
     )
 }

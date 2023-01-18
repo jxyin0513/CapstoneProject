@@ -3,6 +3,9 @@ nav.noUser-Nav-Bar > .nav-Bar-container {
     justify-content: space-between;
     align-items: center;
 }
+.noUser-Nav-Bar{
+    background-color:rgb(75, 74, 74);
+}
 .nav-Bar-container{
     height: 70px;
 }
