@@ -46,6 +46,7 @@ function Project(){
     const [changeSection, setChangeSection] = useState(false)
     const [showTaskModal, setShowTaskModal] = useState(false)
     const [showTaskId, setShowTaskId] = useState(0);
+    const [task, setTask] = useState(false)
     // const [task, setTask] = useState(false)
     // const [toList, setToList] = useState(true);
     const [taskId, setTaskId] = useState(0)
@@ -54,10 +55,8 @@ function Project(){
     const [deleteSectionId, setDeleteSectionId] = useState(0)
     const [sectionId, setSectionId] = useState(0)
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    // console.log(new Date(`2022-12-20`), deadline)
-    // if(section!=={}){
-    //     setSectionBar(section)
-    // }
+
+    console.log(tasks)
 
     useEffect(()=>{
         // dispatch(GetProjectDetail(projectId))
@@ -65,6 +64,10 @@ function Project(){
         dispatch(GetAllTasks(user.id))
         dispatch(getSectionsThunk(projectId))
     }, [dispatch, projectId, user.id])
+
+    useEffect(()=>{
+        setTimeout(()=>{setTask(false)}, 3000)
+    }, [task])
 
     function openMenu(e){
         if(showMenu) return;
@@ -136,6 +139,7 @@ function Project(){
     }
     function showTask(e){
         if(showTaskId === e.target.id){
+            console.log('----')
             setShowTaskId(0)
         }else{
             setShowTaskId(e.target.id)
@@ -161,7 +165,11 @@ function Project(){
             setShowSection(true)
     }
     function newTask(e){
-        setShowTaskModal(true)
+        if(tasks.length === 0){
+            setTask(true)
+        }else{
+            setShowTaskModal(true)
+        }
     }
     function deleteSection(e){
         setShowDeleteSection(true)
@@ -197,6 +205,9 @@ function Project(){
         <button className='add-Task' onClick={newTask}>
                + Add task
         </button>
+        {task &&(
+            <div>add section first</div>
+        )}
         {showTaskModal && (<AddTaskModal onClose={()=>setShowTaskModal(false)} />)}
         {/* {task && (
             <div>add section first</div>
