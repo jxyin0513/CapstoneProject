@@ -44,8 +44,6 @@ function Project(){
     const [showTaskModal, setShowTaskModal] = useState(false)
     const [showTaskId, setShowTaskId] = useState(0);
     const [task, setTask] = useState(false)
-    // const [task, setTask] = useState(false)
-    // const [toList, setToList] = useState(true);
     const [taskId, setTaskId] = useState(0)
     const [editId, setEditId] = useState(0)
     const [menuId, setMenuId] = useState(0)
