@@ -32,9 +32,6 @@ function Project(){
     const alltasks = useSelector(state=>state.tasks)
     const user = useSelector(state=>state.session.user)
     const tasks = Object.values(alltasks).filter(task=> task.projectId === Number(projectId))
-    // const projectTask = tasks.filter(task => task.projectId === Number(projectId))
-    // const todoList = projectTask.filter(task=>task.status ==='incomplete')
-    // const doneList = projectTask.filter(task=>task.status === 'complete')
     const [sectionBar, setSectionBar] = useState({})
     const [showModal, setShowModal] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
