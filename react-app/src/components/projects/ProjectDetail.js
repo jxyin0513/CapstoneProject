@@ -56,7 +56,7 @@ function Project(){
     const [sectionId, setSectionId] = useState(0)
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-    console.log(tasks)
+    // console.log(tasks)
 
     useEffect(()=>{
         // dispatch(GetProjectDetail(projectId))
@@ -139,7 +139,7 @@ function Project(){
     }
     function showTask(e){
         if(showTaskId === e.target.id){
-            console.log('----')
+            // console.log('----')
             setShowTaskId(0)
         }else{
             setShowTaskId(e.target.id)
@@ -148,12 +148,12 @@ function Project(){
             let newSection = sectionBar
             newSection[`${e.target.id}`] = Number(e.target.id)
             setSectionBar(newSection)
-            console.log(sectionBar)
+            // console.log(sectionBar)
         }else{
             let newSection = sectionBar
             newSection[e.target.id] = 0
             setSectionBar(newSection)
-            console.log(sectionBar)
+            // console.log(sectionBar)
         }
     }
 
