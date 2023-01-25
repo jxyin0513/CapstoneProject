@@ -32,9 +32,6 @@ function Project(){
     const alltasks = useSelector(state=>state.tasks)
     const user = useSelector(state=>state.session.user)
     const tasks = Object.values(alltasks).filter(task=> task.projectId === Number(projectId))
-    // const projectTask = tasks.filter(task => task.projectId === Number(projectId))
-    // const todoList = projectTask.filter(task=>task.status ==='incomplete')
-    // const doneList = projectTask.filter(task=>task.status === 'complete')
     const [sectionBar, setSectionBar] = useState({})
     const [showModal, setShowModal] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
@@ -46,18 +43,15 @@ function Project(){
     const [changeSection, setChangeSection] = useState(false)
     const [showTaskModal, setShowTaskModal] = useState(false)
     const [showTaskId, setShowTaskId] = useState(0);
-    // const [task, setTask] = useState(false)
-    // const [toList, setToList] = useState(true);
+    const [task, setTask] = useState(false)
     const [taskId, setTaskId] = useState(0)
     const [editId, setEditId] = useState(0)
     const [menuId, setMenuId] = useState(0)
     const [deleteSectionId, setDeleteSectionId] = useState(0)
     const [sectionId, setSectionId] = useState(0)
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    // console.log(new Date(`2022-12-20`), deadline)
-    // if(section!=={}){
-    //     setSectionBar(section)
-    // }
+
+    // console.log(tasks)
 
     useEffect(()=>{
         // dispatch(GetProjectDetail(projectId))
@@ -65,6 +59,10 @@ function Project(){
         dispatch(GetAllTasks(user.id))
         dispatch(getSectionsThunk(projectId))
     }, [dispatch, projectId, user.id])
+
+    useEffect(()=>{
+        setTimeout(()=>{setTask(false)}, 3000)
+    }, [task])
 
     function openMenu(e){
         if(showMenu) return;
@@ -136,6 +134,7 @@ function Project(){
     }
     function showTask(e){
         if(showTaskId === e.target.id){
+            // console.log('----')
             setShowTaskId(0)
         }else{
             setShowTaskId(e.target.id)
@@ -144,12 +143,12 @@ function Project(){
             let newSection = sectionBar
             newSection[`${e.target.id}`] = Number(e.target.id)
             setSectionBar(newSection)
-            console.log(sectionBar)
+            // console.log(sectionBar)
         }else{
             let newSection = sectionBar
             newSection[e.target.id] = 0
             setSectionBar(newSection)
-            console.log(sectionBar)
+            // console.log(sectionBar)
         }
     }
 
@@ -161,7 +160,11 @@ function Project(){
             setShowSection(true)
     }
     function newTask(e){
-        setShowTaskModal(true)
+        if(tasks.length === 0){
+            setTask(true)
+        }else{
+            setShowTaskModal(true)
+        }
     }
     function deleteSection(e){
         setShowDeleteSection(true)
@@ -197,6 +200,9 @@ function Project(){
         <button className='add-Task' onClick={newTask}>
                + Add task
         </button>
+        {task &&(
+            <div>add section first</div>
+        )}
         {showTaskModal && (<AddTaskModal onClose={()=>setShowTaskModal(false)} />)}
         {/* {task && (
             <div>add section first</div>
