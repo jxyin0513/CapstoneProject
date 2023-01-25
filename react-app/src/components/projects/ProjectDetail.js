@@ -197,11 +197,12 @@ function Project(){
         }
         {showModal && (<EditProjectModal onClose={()=>setShowModal(false)}/>)}
         {showDelete && (<DeleteProjectModal id={projectId} onClose={()=>setShowDelete(false)} />)}
+        <div></div>
         <button className='add-Task' onClick={newTask}>
                + Add task
         </button>
         {task &&(
-            <div>add section first</div>
+            <div className="no-Section">add section first!!!</div>
         )}
         {showTaskModal && (<AddTaskModal onClose={()=>setShowTaskModal(false)} />)}
         {/* {task && (
