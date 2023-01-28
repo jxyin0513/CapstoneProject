@@ -60,9 +60,9 @@ function Project(){
         dispatch(getSectionsThunk(projectId))
     }, [dispatch, projectId, user.id])
 
-    useEffect(()=>{
-        setTimeout(()=>{setTask(false)}, 3000)
-    }, [task])
+    // useEffect(()=>{
+    //     setTimeout(()=>{setTask(false)}, 1500)
+    // }, [task])
 
     function openMenu(e){
         if(showMenu) return;
@@ -162,6 +162,7 @@ function Project(){
     function newTask(e){
         if(tasks.length === 0){
             setTask(true)
+            setTimeout(()=>{setTask(false)}, 1500)
         }else{
             setShowTaskModal(true)
         }
@@ -202,7 +203,7 @@ function Project(){
                + Add task
         </button>
         {task &&(
-            <div className="no-Section">add section first!!!</div>
+            <div className="no-Section">Add section first!!!</div>
         )}
         {showTaskModal && (<AddTaskModal onClose={()=>setShowTaskModal(false)} />)}
         {/* {task && (
