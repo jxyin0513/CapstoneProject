@@ -16,8 +16,7 @@ function NewProject(){
     const [deadline, setDeadline] = useState('')
     const [errors, setErrors] = useState([])
     async function onSubmit(e){
-        // setStartdate(new Date())
-        // const newDeadline = new Date(deadline)
+
         e.preventDefault();
         const project = {
             userId: user.id,

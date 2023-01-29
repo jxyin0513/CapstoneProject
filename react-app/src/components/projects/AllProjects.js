@@ -10,8 +10,7 @@ function AllProjects(){
     const user = useSelector(state=>state.session.user)
     const projects = useSelector(state=>state.projects)
     const allProjects = Object.values(projects).filter(project=> project.userId === user.id)
-    // const [click, setClick] = useState(false)
-    // console.log(allProjects)
+
     useEffect(()=>{
         dispatch(GetAllProjects())
     }, [dispatch])

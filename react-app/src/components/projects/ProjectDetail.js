@@ -22,13 +22,6 @@ function Project(){
     const startdate = project?.startdate.split('-')
     const deadline = project?.deadline.split('-')
     const sections = Object.values(useSelector(state=>state.sections))
-    // let section = useSelector(state=>state.sections)
-
-    // for(let i=0; i<sections.length; i++){
-    //     section[`${sections[i].id}`] = sections[i].id
-    // }
-    // const pDeadline = project?.deadline.split('-')
-    // const pStartdate = project?.startdate.split('-')
     const alltasks = useSelector(state=>state.tasks)
     const user = useSelector(state=>state.session.user)
     const tasks = Object.values(alltasks).filter(task=> task.projectId === Number(projectId))
@@ -134,7 +127,7 @@ function Project(){
     }
     function showTask(e){
         if(showTaskId === e.target.id){
-            // console.log('----')
+            console.log('----')
             setShowTaskId(0)
         }else{
             setShowTaskId(e.target.id)
@@ -143,12 +136,12 @@ function Project(){
             let newSection = sectionBar
             newSection[`${e.target.id}`] = Number(e.target.id)
             setSectionBar(newSection)
-            // console.log(sectionBar)
+            console.log(sectionBar)
         }else{
             let newSection = sectionBar
             newSection[e.target.id] = 0
             setSectionBar(newSection)
-            // console.log(sectionBar)
+            console.log(sectionBar)
         }
     }
 

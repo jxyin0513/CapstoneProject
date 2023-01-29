@@ -3,7 +3,6 @@ import {  useDispatch } from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import { Modal } from '../context/Modal';
 import { DeleteProjects } from '../../store/projects';
-// import { DeleteRelatedTask } from '../../store/tasks';
 import './DeleteProjectModal.css'
 
 function DeleteProjectModal({id, onClose}){
@@ -11,8 +10,6 @@ function DeleteProjectModal({id, onClose}){
     const history = useHistory();
     async function onDelete(e){
         e.preventDefault();
-        // const deletedTask = await dispatch(DeleteRelatedTask(id))
-        // if(!deletedTask){}
         const deleted =  await dispatch(DeleteProjects(id))
         if(!deleted){
             history.push('/')
