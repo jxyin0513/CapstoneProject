@@ -199,11 +199,7 @@ function Project(){
             <div className="no-Section">Add section first!!!</div>
         )}
         {showTaskModal && (<AddTaskModal onClose={()=>setShowTaskModal(false)} />)}
-        {/* {task && (
-            <div>add section first</div>
-        )} */}
         {sections && sections.map(section=>{
-            // console.log(sectionBar, sectionBar[`${section.id}`])
             return (
                 <div key={section.id}>
                     <div className='section-Bar'>
