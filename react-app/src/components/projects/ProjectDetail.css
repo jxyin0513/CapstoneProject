@@ -123,6 +123,11 @@ p.task-Name{
     display: none;
     /* margin: 0 30px 0 0; */
 }
+.add-Task{
+    background-color: white;
+    border-radius: 5px;
+    margin: 5px 0 0 20px;
+}
 
 .task-name-outer:hover > .section-selector > i{
     display: inline;
