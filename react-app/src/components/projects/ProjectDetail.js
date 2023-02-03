@@ -85,12 +85,7 @@ function Project(){
 
         return () => document.removeEventListener("click", closeMenu);
     }, [changeSection]);
-    // useEffect(()=>{
 
-    //     document.addEventListener('click',)
-
-    //     return ()=> document.removeEventListener('click')
-    // },[edit])
     function onEdit(e){
         setEditId(e.target.id)
         setShowEdit(true)
