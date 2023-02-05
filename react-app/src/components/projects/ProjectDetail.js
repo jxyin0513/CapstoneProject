@@ -53,9 +53,6 @@ function Project(){
         dispatch(getSectionsThunk(projectId))
     }, [dispatch, projectId, user.id])
 
-    // useEffect(()=>{
-    //     setTimeout(()=>{setTask(false)}, 1500)
-    // }, [task])
 
     function openMenu(e){
         if(showMenu) return;
@@ -97,16 +94,12 @@ function Project(){
     }
     async function onSection(e){
         const task = e.target.id.split('-');
-        // console.log(task)
         await dispatch(updateTask({
             id: task[1],
             sectionId: task[0]
         }))
     }
-    // async function onDeleteProject(e){
-    //     e.preventDefault();
-    //     await dispatch(DeleteProjects(project.id))
-    // }
+
     function editSection(e){
         setSectionId(e.target.id)
         setShowEditSection(true)
