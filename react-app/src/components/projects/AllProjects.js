@@ -25,10 +25,6 @@ function AllProjects(){
                 <div className='project-detail-Name'>{project.name}
                 </div>
             </NavLink>
-
-
-            // <li key={project.id}>{project.name}</li>
-            // <div ></div>
         )))}
         </>
     )

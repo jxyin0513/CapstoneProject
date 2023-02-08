@@ -86,7 +86,7 @@ function Project(){
     function onEdit(e){
         setEditId(e.target.id)
         setShowEdit(true)
-        // setEdit(true);
+
     }
     async function onDelete(e){
         e.preventDefault();
