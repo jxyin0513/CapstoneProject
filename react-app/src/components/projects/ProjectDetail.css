@@ -123,6 +123,11 @@ p.task-Name{
     display: none;
     /* margin: 0 30px 0 0; */
 }
+.add-Task{
+    background-color: white;
+    border-radius: 5px;
+    margin: 5px 0 0 20px;
+}
 
 .task-name-outer:hover > .section-selector > i{
     display: inline;
@@ -383,11 +388,22 @@ p.task-Deadline{
     margin: 10px 0 20px 5px;
 }
 .no-Tasks{
-    padding: 20px 0px 10px 20px;
+    margin: 25px 0px 10px 20px;
+    padding: 10px 0px 0px 0px;
     font-size: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* font-style: italic; */
     font-weight: 700;
+}
+.no-Section{
+    /* position: absolute; */
+    text-align: center;
+    margin: 10px 0 0 30px;
+    padding: 2px 0;
+    background-color:bisque;
+    color:darkslateblue;
+    border: 0.5px rgba(80, 79, 79, 0.926) solid;
+    width: 130px;
+    border-radius: 5px;
 }
 .add-section-button:hover{
     border-radius: 2px;

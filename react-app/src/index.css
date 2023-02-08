@@ -28,20 +28,25 @@ html, body{
     color: azure;
 }
 .github-Icon{
-    padding: 0 1px;
+    padding: 3px;
+    margin: 2px 0;
 }
 .github-Icon:hover{
+    border-radius: 2px;
     background-color: lightgray;
 }
 .linkedIn-Icon{
-    padding: 0 2px;
+    padding: 3px;
+    margin: 2px 0;
 }
 .linkedIn-Icon:hover{
+    border-radius: 2px;
     background-color: lightgray;
 }
 .footer-col > h4{
     color: azure;
 }
 .profile-Name{
-    padding: 0 3px;
+
+    padding: 2px 10px;
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './search.css';
@@ -7,6 +7,7 @@ const Search = () => {
     const [search, setSearch] = useState('');
     const [projectsResult, setProjectsResult] = useState([])
     const [taskResults, setTaskResults] = useState([])
+    const [showResults, setShowResults] = useState(false)
     // const [result, setResult] = useState(false)
     // const [keystroke, setKeystroke] = useState('');
     const user = useSelector(state=>state.session.user)
@@ -17,8 +18,21 @@ const Search = () => {
     // const cleanup = () => {
     //   setEnhancedSearch([])
     // }
+    useEffect(() => {
+      if (!showResults) return;
+
+      const closeMenu = () => {
+        setShowResults(false);
+      };
+
+      document.addEventListener('click', closeMenu);
+
+      return () => document.removeEventListener("click", closeMenu);
+  }, [showResults]);
+
     const filteredProjects = (e)=>{
       setSearch(e.target.value)
+      setShowResults(true)
       if(e.target.value){
         projectSearch = projects.filter(project=>{
           if(project.name.toLowerCase().startsWith(e.target.value.toLowerCase())){
@@ -40,6 +54,7 @@ const Search = () => {
       setTaskResults(taskSearch)
       if(taskResults.length>0 || projectsResult.length>0){
       setSearch(true)
+
     }
     }
 
@@ -56,7 +71,7 @@ const Search = () => {
                 filteredProjects
                 }></input>
            </form>
-          {search.length>0 && (
+          {showResults && search.length>0 && (
           <div className='results-container'>
             <div className='search-monitor'>
               <i className="fa-solid fa-magnifying-glass"></i>

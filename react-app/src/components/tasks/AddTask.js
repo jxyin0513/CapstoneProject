@@ -6,7 +6,6 @@ import './AddTask.css';
 
 function AddTask({onClose}){
     const dispatch = useDispatch()
-    // const history = useHistory()
     const {projectId} = useParams()
     const user = useSelector(state=>state.session.user)
     const sections = Object.values(useSelector(state=>state.sections))
@@ -16,7 +15,6 @@ function AddTask({onClose}){
     const [sectionId, setSectionId] = useState('')
     const startdate = new Date();
     const [deadline, setDeadline] = useState('')
-    // const [priority, setPriority] = useState('')
     const [errors, setErrors] = useState([])
 
     async function onSubmit(e){

@@ -22,13 +22,6 @@ function Project(){
     const startdate = project?.startdate.split('-')
     const deadline = project?.deadline.split('-')
     const sections = Object.values(useSelector(state=>state.sections))
-    // let section = useSelector(state=>state.sections)
-
-    // for(let i=0; i<sections.length; i++){
-    //     section[`${sections[i].id}`] = sections[i].id
-    // }
-    // const pDeadline = project?.deadline.split('-')
-    // const pStartdate = project?.startdate.split('-')
     const alltasks = useSelector(state=>state.tasks)
     const user = useSelector(state=>state.session.user)
     const tasks = Object.values(alltasks).filter(task=> task.projectId === Number(projectId))
@@ -60,9 +53,6 @@ function Project(){
         dispatch(getSectionsThunk(projectId))
     }, [dispatch, projectId, user.id])
 
-    useEffect(()=>{
-        setTimeout(()=>{setTask(false)}, 3000)
-    }, [task])
 
     function openMenu(e){
         if(showMenu) return;
@@ -92,16 +82,11 @@ function Project(){
 
         return () => document.removeEventListener("click", closeMenu);
     }, [changeSection]);
-    // useEffect(()=>{
 
-    //     document.addEventListener('click',)
-
-    //     return ()=> document.removeEventListener('click')
-    // },[edit])
     function onEdit(e){
         setEditId(e.target.id)
         setShowEdit(true)
-        // setEdit(true);
+
     }
     async function onDelete(e){
         e.preventDefault();
@@ -109,16 +94,12 @@ function Project(){
     }
     async function onSection(e){
         const task = e.target.id.split('-');
-        // console.log(task)
         await dispatch(updateTask({
             id: task[1],
             sectionId: task[0]
         }))
     }
-    // async function onDeleteProject(e){
-    //     e.preventDefault();
-    //     await dispatch(DeleteProjects(project.id))
-    // }
+
     function editSection(e){
         setSectionId(e.target.id)
         setShowEditSection(true)
@@ -134,7 +115,7 @@ function Project(){
     }
     function showTask(e){
         if(showTaskId === e.target.id){
-            // console.log('----')
+            console.log('----')
             setShowTaskId(0)
         }else{
             setShowTaskId(e.target.id)
@@ -143,12 +124,12 @@ function Project(){
             let newSection = sectionBar
             newSection[`${e.target.id}`] = Number(e.target.id)
             setSectionBar(newSection)
-            // console.log(sectionBar)
+            console.log(sectionBar)
         }else{
             let newSection = sectionBar
             newSection[e.target.id] = 0
             setSectionBar(newSection)
-            // console.log(sectionBar)
+            console.log(sectionBar)
         }
     }
 
@@ -162,6 +143,7 @@ function Project(){
     function newTask(e){
         if(tasks.length === 0){
             setTask(true)
+            setTimeout(()=>{setTask(false)}, 1500)
         }else{
             setShowTaskModal(true)
         }
@@ -197,18 +179,15 @@ function Project(){
         }
         {showModal && (<EditProjectModal onClose={()=>setShowModal(false)}/>)}
         {showDelete && (<DeleteProjectModal id={projectId} onClose={()=>setShowDelete(false)} />)}
+        <div></div>
         <button className='add-Task' onClick={newTask}>
                + Add task
         </button>
         {task &&(
-            <div>add section first</div>
+            <div className="no-Section">Add section first!!!</div>
         )}
         {showTaskModal && (<AddTaskModal onClose={()=>setShowTaskModal(false)} />)}
-        {/* {task && (
-            <div>add section first</div>
-        )} */}
         {sections && sections.map(section=>{
-            // console.log(sectionBar, sectionBar[`${section.id}`])
             return (
                 <div key={section.id}>
                     <div className='section-Bar'>
