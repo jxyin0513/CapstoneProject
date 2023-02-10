@@ -10,7 +10,7 @@ function AllTasks(){
     const user = useSelector(state=>state.session.user)
     const tasks = Object.values(useSelector(state=>state.tasks))
     const allTasks = tasks.filter(task=>task.userId = user.id)
-    // console.log(allTasks)
+
     const date = new Date()
     const recentlyAssigned = allTasks.filter(task=>{
         const startdate = task.startdate.split('-')
@@ -21,11 +21,10 @@ function AllTasks(){
             return false;
         }
     })
-    // console.log(recentlyAssigned)
+    // console.log(allTasks)
     const todayTasks = allTasks.filter(task=>{
         const deadline = task.deadline.split('-')
         const tdate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
-        // console.log(tdate.getMonth()+1, date.getMonth()+1)
         if(tdate.getMonth() === date.getMonth() && tdate.getDate() === date.getDate() && tdate.getFullYear() === date.getFullYear()){
             return true;
         }else{
@@ -37,13 +36,8 @@ function AllTasks(){
         const tdate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
         const nextWeek = date + (3600*1000*24)*(7-date.getDay())
 
-        // console.log(tdate, nextWeek)
         if(new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`) < tdate && tdate < nextWeek){
             return true
-            // if(date.getDay()< tdate.getDay()){
-            //     // console.log('--')
-
-            // }
         }else{
             return false
         }
@@ -52,8 +46,6 @@ function AllTasks(){
     const [recent, setRecent] = useState(true)
     const [today, setToday] = useState(true)
     const [week, setWeek] = useState(true)
-    // console.log(`${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`,'2022-07-10',date.getFullYear(),date.getDate(), date.getMonth())
-    // console.log(date, new Date('August 10, 2022'))
 
 
     useEffect(()=>{

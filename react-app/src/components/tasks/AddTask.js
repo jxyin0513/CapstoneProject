@@ -78,9 +78,7 @@ function AddTask({onClose}){
                     <input type='date' name='deadline' placeholder='Due date' onChange={e=>setDeadline(e.target.value)}></input>
                     <div>(Due date)</div>
                 </label>
-                {/* <label>
-                <input type='text' name='priority' placeholder='Priority' onChange={e=>setPriority(e.target.value)}></input>
-                </label> */}
+
                 <button onClick={onClose}>Cancel</button>
                 <button type='submit'>Add Task</button>
 

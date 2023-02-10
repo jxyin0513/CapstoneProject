@@ -6,7 +6,6 @@ import './EditTask.css'
 
 function EditTasks({onEdit, id, onClose}){
     const dispatch = useDispatch()
-    // const history = useHistory()
     const {projectId} = useParams()
     const user = useSelector(state=>state.session.user)
     const task = useSelector(state=>state.tasks[id])
