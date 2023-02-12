@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-// import { GetAllTasks } from '../../store/tasks';
 import { GetEachTasks } from '../../store/tasks';
 import { GetAllProjects } from '../../store/projects';
 import './AllTasks.css'

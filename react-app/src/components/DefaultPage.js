@@ -10,7 +10,6 @@ function MainPageStatus(){
     const dispatch = useDispatch()
     const user = useSelector(state=>state.session.user)
     const history = useHistory()
-    // let allProjects, allTasks;
     const projects = Object.values(useSelector(state=>state.projects)).filter(project=>project.userId===user.id)
     const tasks = Object.values(useSelector(state=>state.tasks)).filter(task => task.userId === user.id)
     const [upcoming, setUpcoming] = useState(true);

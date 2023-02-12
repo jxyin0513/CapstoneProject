@@ -15,9 +15,6 @@ const Search = () => {
     const projects = Object.values(useSelector(state=>state.projects)).filter(project=>project.userId === user.id)
     let projectSearch = []
     let taskSearch = []
-    // const cleanup = () => {
-    //   setEnhancedSearch([])
-    // }
     useEffect(() => {
       if (!showResults) return;
 

@@ -35,7 +35,7 @@ function EditTasks({onEdit, id, onClose}){
         if(!editTask){
             onClose()
             onEdit()
-            // history.push(`/projects/${projectId}`)
+
         }else{
             setErrors(editTask)
         }
@@ -68,7 +68,6 @@ function EditTasks({onEdit, id, onClose}){
                 {/* <label>
                 <input type='text' name='priority' value={priority} onChange={e=>setPriority(e.target.value)}></input>
                 </label> */}
-                {/* <button onClick={onClose}>Cancel</button> */}
                 <button type='submit'>Edit Task</button>
             </form>
         </div>
