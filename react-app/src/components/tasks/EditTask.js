@@ -13,7 +13,6 @@ function EditTasks({onEdit, id, onClose}){
     const [assignee, setAssignee] = useState(task.assignee)
     const [taskName, setTaskName] = useState(task.taskName)
     const [deadline, setDeadline] = useState(task.deadline)
-    // const [status, setStatus] = useState(task.status)
     // const [priority, setPriority] = useState(task.priority)
     const [errors, setErrors] = useState([])
 

@@ -8,8 +8,6 @@ const Search = () => {
     const [projectsResult, setProjectsResult] = useState([])
     const [taskResults, setTaskResults] = useState([])
     const [showResults, setShowResults] = useState(false)
-    // const [result, setResult] = useState(false)
-    // const [keystroke, setKeystroke] = useState('');
     const user = useSelector(state=>state.session.user)
     const tasks = Object.values(useSelector(state=>state.tasks)).filter(task => task.userId === user.id)
     const projects = Object.values(useSelector(state=>state.projects)).filter(project=>project.userId === user.id)
