@@ -55,11 +55,13 @@ function EditProject({onClose}){
                 <label>
                     <input type='text' name='name' value={name} onChange={e=>setName(e.target.value)}></input>
                 </label>
-                <label>
+                <label className='startdate-Outer'>
                     <input type='date' name='startdate' value={startdate} onChange={e=>setStartDate(e.target.value)} ></input>
+                    <div>(Start Date)</div>
                 </label>
-                <label>
+                <label className='duedate-Outer'>
                     <input type='date' name='deadline' value={deadline} onChange={e=>setDeadline(e.target.value)} ></input>
+                    <div>(Due Date)</div>
                 </label>
                 <label>
                     <textarea name='description' placeholder='Description' value={description} rows='5' cols='25' onChange={e=>setDescription(e.target.value)}></textarea>

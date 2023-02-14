@@ -27,10 +27,11 @@
     color:azure;
 }
 .task-due-date > div{
-    /* display: inline; */
-    padding: 0px 0 0 0px;
-    font-size: 14px;
-    color: rgb(84, 86, 87);
+    display: inline-block;
+    padding: 0px 0 0 3px;
+    font-size: 15px;
+    color: rgba(106, 106, 106, 0.833);
+
 }
 .add-new-Task {
     padding: 5px 10px 15px 10px;

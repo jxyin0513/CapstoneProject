@@ -33,10 +33,21 @@ button:hover{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     padding: 5px 0px 10px 10px;
     border-bottom: 1px solid lightgrey;
     margin-bottom: 15px;
+}
+.startdate-Outer > div{
+    display: inline-block;
+    color: rgba(162, 159, 159, 0.902);
+    font-size: 13px;
+    padding: 0 5px;
+}
+.duedate-Outer > div{
+    display: inline-block;
+    color: rgba(162, 159, 159, 0.902);
+    font-size: 13px;
+    padding: 0 5px;
 }
 #close-Icon{
     padding-right: 10px;

@@ -55,8 +55,9 @@ function EditTasks({onEdit, id, onClose}){
                 <label>
                     <input type='text' name='assignee' value={assignee} onChange={e=>setAssignee(e.target.value)}></input>
                 </label>
-                <label>
+                <label className='task-due-date'>
                     <input type='date' name='deadline' value={deadline} onChange={e=>setDeadline(e.target.value)} ></input>
+                    <div>(Due date)</div>
                 </label>
                 {/* <label>
                     <select name='status' value={status} onChange={e=>setStatus(e.target.value)}>
