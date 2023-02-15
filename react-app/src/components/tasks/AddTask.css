@@ -1,6 +1,7 @@
 .add-Task-Form > label{
     display: block;
     padding-bottom: 5px;
+    margin: 0 10px;
 }
 .errors-handler-task{
     color: red;
@@ -20,7 +21,7 @@
 }
 .add-Task-Form > button{
     border-radius: 5px;
-    margin: 5px 5px 0 0;
+    margin: 5px 5px 0 10px;
 }
 .add-Task-Form > button:hover{
     background-color:dimgray;
@@ -34,9 +35,9 @@
 
 }
 .add-new-Task {
-    padding: 5px 10px 15px 10px;
+    padding: 10px;
     margin-bottom: 15px;
     font-size: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid rgb(184, 182, 182);
 }

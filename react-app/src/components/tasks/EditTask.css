@@ -3,14 +3,14 @@
 }
 .edit-Task-Form > label{
     display: block;
-    padding: 3px 5px;
+    padding: 3px 10px;
 }
 .errors-handler-edit-task{
     color: red;
     height: 70px;
 }
 .edit-Task-Form > button {
-    margin: 10px 5px 5px 5px;
+    margin: 10px 5px 5px 10px;
 }
 .edit-Task-Outer{
     height: 300px;
@@ -22,5 +22,5 @@
     font-size: 23px;
     padding: 15px 0 15px 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid rgb(135, 133, 133);
 }
