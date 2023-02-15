@@ -12,7 +12,6 @@ function NewProject(){
     const [name, setName] = useState('')
     const [description, setDescription] = useState('');
     const startdate = new Date();
-
     const [deadline, setDeadline] = useState('')
     const [errors, setErrors] = useState([])
     async function onSubmit(e){

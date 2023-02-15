@@ -1,6 +1,6 @@
 .edit-Project-Form > label{
     display: block;
-    padding: 5px 0;
+    padding: 5px 7px;
 }
 .edit-project-container{
     background-color: rgb(242, 242, 242);
@@ -8,7 +8,7 @@
 }
 .edit-Project-Form{
     width: 300px;
-    height: 250px;
+    height: 300px;
     padding-left: 10px;
 }
 button{
@@ -16,6 +16,7 @@ button{
     cursor: pointer;
     background-color:ivory;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 5px;
 }
 button:hover{
     background-color: darkgrey;
@@ -25,7 +26,7 @@ button:hover{
     font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
     /* font-weight: bold; */
-    /* padding: 5px 0px 10px 10px; */
+    padding: 5px 0px 0px 7px;
 
 
 }
@@ -33,10 +34,21 @@ button:hover{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     padding: 5px 0px 10px 10px;
     border-bottom: 1px solid lightgrey;
     margin-bottom: 15px;
+}
+.startdate-Outer > div{
+    display: inline-block;
+    color: rgba(162, 159, 159, 0.902);
+    font-size: 14px;
+    padding: 0 5px;
+}
+.duedate-Outer > div{
+    display: inline-block;
+    color: rgba(162, 159, 159, 0.902);
+    font-size: 14px;
+    padding: 0 5px;
 }
 #close-Icon{
     padding-right: 10px;

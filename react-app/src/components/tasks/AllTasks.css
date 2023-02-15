@@ -67,6 +67,7 @@ h3{
     cursor: pointer;
     padding: 3px 5px;
 }
+
 #this-week-Assigned:hover{
     background-color: lightgrey;
 }
