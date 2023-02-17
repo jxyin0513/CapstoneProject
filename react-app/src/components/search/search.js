@@ -47,10 +47,10 @@ const Search = () => {
       // console.log(projectSearch)
       setProjectsResult(projectSearch)
       setTaskResults(taskSearch)
-      if(taskResults.length>0 || projectsResult.length>0){
-      setSearch(true)
-
-    }
+    //   if(taskResults.length>0 || projectsResult.length>0){
+    //   // setSearch(true)
+    //   console.log(search)
+    // }
     }
 
     return (
