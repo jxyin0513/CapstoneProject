@@ -1,34 +1,37 @@
-import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useState, useEffect,  } from 'react';
+import { NavLink, useHistory } from 'react-router-dom';
+import { useSelector, } from 'react-redux';
 import './search.css';
 
 const Search = () => {
+    const history = useHistory()
     const [search, setSearch] = useState('');
     const [projectsResult, setProjectsResult] = useState([])
     const [taskResults, setTaskResults] = useState([])
     const [showResults, setShowResults] = useState(false)
+    const [searchBoard, setSearchBoard] = useState(false)
     const user = useSelector(state=>state.session.user)
     const tasks = Object.values(useSelector(state=>state.tasks)).filter(task => task.userId === user.id)
     const projects = Object.values(useSelector(state=>state.projects)).filter(project=>project.userId === user.id)
     let projectSearch = []
     let taskSearch = []
     useEffect(() => {
-      if (!showResults) return;
+      if (!searchBoard) return;
 
       const closeMenu = () => {
-        setShowResults(false);
+        setSearchBoard(false);
       };
 
       document.addEventListener('click', closeMenu);
 
       return () => document.removeEventListener("click", closeMenu);
-  }, [showResults]);
+  }, [searchBoard]);
 
     const filteredProjects = (e)=>{
       setSearch(e.target.value)
-      setShowResults(true)
+      setSearchBoard(true)
       if(e.target.value){
+        setShowResults(true)
         projectSearch = projects.filter(project=>{
           if(project.name.toLowerCase().startsWith(e.target.value.toLowerCase())){
             return true;
@@ -47,10 +50,11 @@ const Search = () => {
       // console.log(projectSearch)
       setProjectsResult(projectSearch)
       setTaskResults(taskSearch)
-    //   if(taskResults.length>0 || projectsResult.length>0){
-    //   // setSearch(true)
-    //   console.log(search)
-    // }
+
+    }
+    function newProject(e){
+      setShowResults(false)
+      history.push(`/projects/${e.target.id}`)
     }
 
     return (
@@ -66,7 +70,7 @@ const Search = () => {
                 filteredProjects
                 }></input>
            </form>
-          {showResults && search.length>0 && (
+          {showResults && searchBoard && search.length>0 && (
           <div className='results-container'>
             <div className='search-monitor'>
               <i className="fa-solid fa-magnifying-glass"></i>
@@ -77,13 +81,13 @@ const Search = () => {
               <div className='project-bar'>Projects</div>
               {projectsResult.map(project => (
                 <div className='project-outer' key={project.id}>
-                  <NavLink className='project-search'  to={`/projects/${project.id}`}>
-                    <div className='project-result'>
-                      <i className="fa-regular fa-circle-check"></i>
-                      <div className='search-name'>{project.name}</div>
-                      <div className='search-deadline'>Deadline: {project.deadline}</div>
+                  {/* <NavLink className='project-search'  to={`/projects/${project.id}`}></NavLink> */}
+                    <div className='project-result' id={project.id} onClick={newProject}>
+                      <i className="fa-regular fa-circle-check" id={project.id}></i>
+                      <div className='search-name' id={project.id}>{project.name}</div>
+                      <div className='search-deadline' id={project.id}>Deadline: {project.deadline}</div>
                     </div>
-                  </NavLink>
+
                 </div>
               ))}
             </div>)}
