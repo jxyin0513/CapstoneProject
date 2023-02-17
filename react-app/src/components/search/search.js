@@ -21,9 +21,7 @@ const Search = () => {
       const closeMenu = () => {
         setSearchBoard(false);
       };
-
       document.addEventListener('click', closeMenu);
-
       return () => document.removeEventListener("click", closeMenu);
   }, [searchBoard]);
 
@@ -47,11 +45,10 @@ const Search = () => {
           }
         })
       }
-      // console.log(projectSearch)
       setProjectsResult(projectSearch)
       setTaskResults(taskSearch)
-
     }
+
     function newProject(e){
       setShowResults(false)
       history.push(`/projects/${e.target.id}`)
