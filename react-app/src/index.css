@@ -5,7 +5,7 @@ html, body{
 }
 .footer-container {
     display: flex;
-    background-color:slategray;
+    background-color:rgb(101, 109, 115);
 }
 #root{
     min-height: 100%;
