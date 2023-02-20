@@ -1,10 +1,12 @@
 .home-Page{
     position: relative;
+    height: 700px;
 }
-/* .home-Page > img{
-    width: max-content;
-    height: max-content;
-} */
+.home-Page > img{
+    width: 100%;
+    height: 100%;
+}
+
 .starter-Message{
     position: absolute;
     /* background-color: white; */
