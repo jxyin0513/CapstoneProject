@@ -28,7 +28,7 @@ function EditSection({onClose, projectId, id}){
     return (
         <div className='edit-section-outer'>
             <div className='edit-section-bar'>
-                <div>Edit section</div>
+                <div>Edit Section</div>
             </div>
             <form onSubmit={onSubmit} className='edit-section-form'>
                 <div className='errors-handler-section'>
