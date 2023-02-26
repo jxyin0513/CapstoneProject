@@ -47,7 +47,7 @@ function EditProject({onClose}){
                 <i id='close-Icon' onClick={onclosePage} className="fa-solid fa-xmark"></i>
             </div>
             <form className='edit-Project-Form' onSubmit={onSubmit}>
-                <div className='errors-handler-Project'>
+                <div className='errors-edit-Project'>
                     {errors.map((error, ind) => (
                     <div key={ind}>*{error}</div>
                     ))}
