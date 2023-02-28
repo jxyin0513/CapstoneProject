@@ -5,7 +5,6 @@ import './addSection.css'
 
 function AddSection({onClose, projectId}){
     const dispatch = useDispatch()
-    // const history = useHistory()
     const [name, setName] = useState('')
     const [errors, setErrors] = useState([])
 

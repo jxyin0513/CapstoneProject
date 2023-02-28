@@ -1,11 +1,11 @@
 .add-section-form{
-    height: 200px;
+    height: 230px;
     width: 250px;
     background-color: rgba(255, 255, 255, 0.976);
     border-radius: 15px;
 }
 .errors-handler-section{
-    padding: 10px 0 0px 0px;
+    padding: 0px 0 0px 0px;
     height: 40px;
     color: red;
     /* box-sizing: border-box; */
@@ -20,7 +20,7 @@
     display: block;
 }
 .section-form{
-    padding: 0 0 0 20px;
+    padding: 30px 0 0 20px;
 }
 .section-form  input{
     margin: 0 0 10px 0;
