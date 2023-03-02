@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-// import LogoutButton from './auth/LogoutButton';
 import AllProjects from './projects/AllProjects';
 import logo from './image/Asanalist-logos.jpeg';
 import './NavBar.css'

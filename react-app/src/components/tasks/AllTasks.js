@@ -41,7 +41,6 @@ function AllTasks(){
             return false
         }
     })
-    // console.log(weekTasks)
     const [recent, setRecent] = useState(true)
     const [today, setToday] = useState(true)
     const [week, setWeek] = useState(true)
