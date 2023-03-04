@@ -9,7 +9,8 @@
 .col-Bar{
     display: flex;
     justify-content: space-between;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 21px;
     padding: 30px 0px 10px 15px;
 }
 h3{
@@ -29,13 +30,13 @@ h3{
 .my-Tasks-Assigned{
     display: flex;
     justify-content: space-between;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 530;
     padding: 7px 0;
     margin: 0 0 0 20px;
 }
 .my-Detail-Name{
     width: 300px;
+    font-family:Georgia, 'Times New Roman', Times, serif
 }
 #recently-Assigned{
     cursor: pointer;
@@ -46,6 +47,7 @@ h3{
 }
 .my-Detail-Deadline{
     width: 150px;
+    font-family:Georgia, 'Times New Roman', Times, serif
 }
 .all-Tasks-Header{
     border-bottom: 1px lightgray solid;
@@ -54,6 +56,7 @@ h3{
     width: 150px;
     font-weight:bold;
     color:crimson;
+    font-family:Georgia, 'Times New Roman', Times, serif
 }
 
 #today-Assigned{
