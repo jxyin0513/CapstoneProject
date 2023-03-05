@@ -9,8 +9,10 @@
 .col-Bar{
     display: flex;
     justify-content: space-between;
+}
+.col-Bar > div{
     font-family:'Times New Roman', Times, serif;
-    font-size: 21px;
+    font-size: 22px;
     padding: 30px 0px 10px 15px;
 }
 h3{
