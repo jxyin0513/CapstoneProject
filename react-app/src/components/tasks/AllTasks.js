@@ -20,7 +20,7 @@ function AllTasks(){
             return false;
         }
     })
-    // console.log(allTasks)
+
     const todayTasks = allTasks.filter(task=>{
         const deadline = task.deadline.split('-')
         const tdate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)

@@ -15,7 +15,7 @@ function EditProject({onClose}){
     const [startdate, setStartDate] = useState(project.startdate)
     const [deadline, setDeadline] = useState(project.deadline)
     const [errors, setErrors] = useState([])
-    // console.log(project)
+
 
     async function onSubmit(e){
         e.preventDefault();

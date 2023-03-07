@@ -5,7 +5,6 @@ import './editSection.css'
 
 function EditSection({onClose, projectId, id}){
     const dispatch = useDispatch()
-    // const history = useHistory()
     const section = useSelector(state=>state.sections[id])
     const [name, setName] = useState(section.name)
     const [errors, setErrors] = useState([])
