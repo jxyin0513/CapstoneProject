@@ -11,7 +11,6 @@ function DeleteSectionModal({id, onClose}){
     async function onDelete(e){
         e.preventDefault();
         // const deletedTask = await dispatch(DeleteRelatedTask(id))
-        // if(!deletedTask){}
         const deleted =  await dispatch(deleteSectionThunk(id))
         if(!deleted){
             onClose()

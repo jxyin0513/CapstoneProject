@@ -1,7 +1,6 @@
 import React, {useEffect, useState } from 'react';
 import {useHistory } from 'react-router-dom';
 import { GetAllProjects } from '../store/projects';
-// import { GetAllTasks } from '../store/tasks';
 import { GetEachTasks } from '../store/tasks';
 import { useSelector, useDispatch } from 'react-redux';
 import './DefaultPage.css'

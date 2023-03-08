@@ -6,9 +6,14 @@
     background-color: rgb(242, 242, 242);
     border-radius: 15px;
 }
+.errors-edit-Project{
+    color: red;
+    margin: 12px;
+    height: 60px;
+}
 .edit-Project-Form{
     width: 300px;
-    height: 300px;
+    height: 340px;
     padding-left: 10px;
 }
 button{

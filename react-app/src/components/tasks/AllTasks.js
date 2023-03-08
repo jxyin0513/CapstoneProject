@@ -20,7 +20,7 @@ function AllTasks(){
             return false;
         }
     })
-    // console.log(allTasks)
+
     const todayTasks = allTasks.filter(task=>{
         const deadline = task.deadline.split('-')
         const tdate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
@@ -41,7 +41,6 @@ function AllTasks(){
             return false
         }
     })
-    // console.log(weekTasks)
     const [recent, setRecent] = useState(true)
     const [today, setToday] = useState(true)
     const [week, setWeek] = useState(true)

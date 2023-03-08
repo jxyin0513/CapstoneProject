@@ -34,7 +34,6 @@ function AddTask({onClose}){
         const newTask = await dispatch(CreateTask(task))
         if(!newTask){
             onClose()
-            // history.push(`/projects/${projectId}`)
         }else{
             setErrors(newTask)
         }

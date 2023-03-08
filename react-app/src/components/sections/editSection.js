@@ -5,7 +5,6 @@ import './editSection.css'
 
 function EditSection({onClose, projectId, id}){
     const dispatch = useDispatch()
-    // const history = useHistory()
     const section = useSelector(state=>state.sections[id])
     const [name, setName] = useState(section.name)
     const [errors, setErrors] = useState([])
@@ -28,7 +27,7 @@ function EditSection({onClose, projectId, id}){
     return (
         <div className='edit-section-outer'>
             <div className='edit-section-bar'>
-                <div>Edit section</div>
+                <div>Edit Section</div>
             </div>
             <form onSubmit={onSubmit} className='edit-section-form'>
                 <div className='errors-handler-section'>
@@ -36,6 +35,7 @@ function EditSection({onClose, projectId, id}){
                         <div key={ind}>* {error}</div>
                     ))}
                 </div>
+                <div className='section-Intro'>change section name here!</div>
                 <label>
                     <input type='text' name='name' value={name} onChange={e=>setName(e.target.value)}></input>
                 </label>
