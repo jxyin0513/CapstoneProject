@@ -32,10 +32,10 @@ function AllTasks(){
     })
     const weekTasks = allTasks.filter(task=>{
         const deadline = task.deadline.split('-')
-        const tdate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
+        const ddate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
         const nextWeek = date + (3600*1000*24)*(7-date.getDay())
-
-        if(new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`) < tdate && tdate < nextWeek){
+        console.log((ddate - date)+(3600*1000*24)*(7-date.getDay()), ddate)
+        if(new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`) < ddate && (ddate-date)+((3600*1000*24)*(6-date.getDay()))>0){
             return true
         }else{
             return false

@@ -202,6 +202,7 @@ p.task-Deadline{
 }
 .dropdown{
     width: 150px;
+    transition-timing-function: ease-in;
 }
 .dropdown > p{
     border: none;
@@ -216,18 +217,21 @@ p.task-Deadline{
     border-radius: 10px;
     background-color:rgb(222, 146, 5);
     width: fit-content;
+    transition: 0.6s ease-in-out;
 }
 .High-priority{
     padding: 2px 8px;
     border-radius: 10px;
     background-color:rgb(212, 115, 209);
     width: fit-content;
+    transition: 0.6s ease-in-out;
 }
 .Low-priority{
     padding: 2px 8px;
     border-radius: 10px;
     background-color: rgb(23, 227, 227);
     width: fit-content;
+    transition: 0.6s ease-in-out;
 }
 .task-List p.task-Status{
     color: red;
