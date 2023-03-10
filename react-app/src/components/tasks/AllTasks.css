@@ -36,9 +36,19 @@ h3{
     padding: 7px 0;
     margin: 0 0 0 20px;
 }
-.my-Detail-Name{
+.my-Detail-Outer{
     width: 300px;
     font-family:Georgia, 'Times New Roman', Times, serif
+}
+.my-Detail-Name{
+    display: inline-block;
+}
+#due-today-check{
+    margin: 2px 10px 0 0;
+    cursor: pointer;
+}
+#due-today-check:hover{
+    color:rgba(162, 158, 158, 0.874);
 }
 #recently-Assigned{
     cursor: pointer;

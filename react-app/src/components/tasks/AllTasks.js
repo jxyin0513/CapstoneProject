@@ -64,7 +64,10 @@ function AllTasks(){
             <h3><i id='recently-Assigned' onClick={()=>setRecent(!recent)} className={recent ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> Recently assigned</h3>
             {recent && recentlyAssigned && recentlyAssigned.map(task=>(
                 <div className='my-Tasks-Assigned' key={task.id}>
-                    <div className='my-Detail-Name'>{task.taskName}</div>
+                    <div className='my-Detail-Outer'>
+                        <i className="fa-regular fa-circle-check"></i>
+                        <div className='my-Detail-Name'>{task.taskName}</div>
+                    </div>
                     <div className='my-Detail-Deadline'>{task.deadline}</div>
                     <div className='my-Detail-Project'>{task.project.name}</div>
                 </div>
@@ -72,7 +75,10 @@ function AllTasks(){
             <h3><i id='today-Assigned' onClick={()=>setToday(!today)}  className={today ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> Due today</h3>
             {today && todayTasks && todayTasks.map(task=>(
                 <div className='my-Tasks-Assigned' key={task.id}>
-                    <div className='my-Detail-Name'>{task.taskName}</div>
+                    <div className='my-Detail-Outer'>
+                        <i className="fa-regular fa-circle-check" id='due-today-check'></i>
+                        <div className='my-Detail-Name'>{task.taskName}</div>
+                    </div>
                     <div className='my-Detail-Deadline'>{task.deadline}</div>
                     <div className='my-Detail-Project'>{task.project.name}</div>
                 </div>
@@ -80,7 +86,10 @@ function AllTasks(){
             <h3><i id='this-week-Assigned' onClick={()=>setWeek(!week)}  className={week ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> Due this week</h3>
             {week && weekTasks && weekTasks.map(task=>(
                 <div className='my-Tasks-Assigned' key={task.id}>
-                    <div className='my-Detail-Name'>{task.taskName}</div>
+                    <div className='my-Detail-Outer'>
+                        <i className="fa-regular fa-circle-check"></i>
+                        <div className='my-Detail-Name'>{task.taskName}</div>
+                    </div>
                     <div className='my-Detail-Deadline'>{task.deadline}</div>
                     <div className='my-Detail-Project'>{task.project.name}</div>
                 </div>
