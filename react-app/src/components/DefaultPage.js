@@ -80,7 +80,8 @@ function MainPageStatus(){
             <div className='weekly-Status'>
                 <div className='weekly-Display'>
                     <i id='status-Icon' className="fa-solid fa-circle-check"></i>
-                    {`${completed.length} tasks completed`}
+                    <div className='complete-Tasks-Num'>{completed.length}</div>
+                    tasks completed
                 </div>
             </div>
             <div className='project-Tasks'>

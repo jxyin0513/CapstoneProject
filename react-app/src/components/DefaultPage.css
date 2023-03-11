@@ -17,9 +17,14 @@
 .weekly-Status{
     display: flex;
     justify-content: center;
-    text-align: center;
+    /* text-align: center; */
     padding: 15px 0;
-
+}
+.complete-Tasks-Num{
+    display: inline;
+    padding: 0 3px;
+    transition: 0.6s ease;
+    transform: rotateY(360deg);
 }
 .weekly-Display{
     width: 170px;
@@ -27,6 +32,7 @@
     background-color: lightgray;
     border-radius: 13px;
     /* cursor: pointer; */
+    text-align: center;
 }
 #status-Icon{
     padding: 0 5px;
