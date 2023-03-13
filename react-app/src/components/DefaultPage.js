@@ -10,7 +10,7 @@ function MainPageStatus(){
     const user = useSelector(state=>state.session.user)
     const history = useHistory()
     const projects = Object.values(useSelector(state=>state.projects)).filter(project=>project.userId===user.id)
-    const tasks = Object.values(useSelector(state=>state.tasks)).filter(task => task.userId === user.id)
+    const tasks = Object.values(useSelector(state=>state.tasks)).filter(task => task.userId === user.id && task.status==='incomplete')
     const [upcoming, setUpcoming] = useState(true);
     const [pastDue, setPastDue] = useState(false);
     const date = new Date()

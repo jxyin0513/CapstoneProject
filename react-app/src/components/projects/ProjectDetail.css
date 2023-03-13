@@ -207,7 +207,7 @@ p.task-Deadline{
 .dropdown > p{
     border: none;
     cursor: pointer;
-    transition: 0.6s ease-in;
+    transition: 0.6s ease-out;
     /* margin-bottom: 0px; */
     /* display: inline-block; */
     /* margin-right: -10px;

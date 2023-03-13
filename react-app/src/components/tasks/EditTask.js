@@ -34,7 +34,6 @@ function EditTasks({onEdit, id, onClose}){
         if(!editTask){
             onClose()
             onEdit()
-
         }else{
             setErrors(editTask)
         }

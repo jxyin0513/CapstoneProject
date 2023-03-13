@@ -43,11 +43,11 @@ h3{
 .my-Detail-Name{
     display: inline-block;
 }
-#due-today-check{
+.my-Detail-Outer > i{
     margin: 2px 10px 0 0;
     cursor: pointer;
 }
-#due-today-check:hover{
+.my-Detail-Outer > i:hover{
     color:rgba(162, 158, 158, 0.874);
 }
 #recently-Assigned{

@@ -24,7 +24,7 @@ function Project(){
     const sections = Object.values(useSelector(state=>state.sections))
     const alltasks = useSelector(state=>state.tasks)
     const user = useSelector(state=>state.session.user)
-    const tasks = Object.values(alltasks).filter(task=> task.projectId === Number(projectId))
+    const tasks = Object.values(alltasks).filter(task=> task.projectId === Number(projectId) && task.status==='incomplete')
     const [sectionBar, setSectionBar] = useState({})
     const [showModal, setShowModal] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
