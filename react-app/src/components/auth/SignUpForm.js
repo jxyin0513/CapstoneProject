@@ -15,6 +15,7 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
   let signUpSlides = [];
 
+
   const onSignUp = async (e) => {
     e.preventDefault();
 
