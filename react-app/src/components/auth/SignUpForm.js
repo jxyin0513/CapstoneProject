@@ -13,6 +13,7 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  let signUpSlides = [];
 
   const onSignUp = async (e) => {
     e.preventDefault();

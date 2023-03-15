@@ -10,9 +10,11 @@ function MainPageStatus(){
     const user = useSelector(state=>state.session.user)
     const history = useHistory()
     const projects = Object.values(useSelector(state=>state.projects)).filter(project=>project.userId===user.id)
-    const tasks = Object.values(useSelector(state=>state.tasks)).filter(task => task.userId === user.id && task.status==='incomplete')
+    const allTasks = Object.values(useSelector(state=>state.tasks))
+    const tasks = allTasks.filter(task => task.userId === user.id && task.status==='incomplete')
     const [upcoming, setUpcoming] = useState(true);
     const [pastDue, setPastDue] = useState(false);
+    const [complete, setCompleted] = useState(false);
     const date = new Date()
     const upcomingTasks = tasks.filter(task=>{
         const tdate = task.deadline.split('-');
@@ -31,7 +33,8 @@ function MainPageStatus(){
             return false;
         }
     })
-    const completed = tasks.filter(task=>task.status === 'complete')
+
+    const completedTasks = allTasks.filter(task=>task.status === 'complete')
 
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -53,12 +56,19 @@ function MainPageStatus(){
     }
     function onUpcoming(e){
         setPastDue(false)
+        setCompleted(false)
         setUpcoming(true)
     }
 
     function onPast(e){
         setUpcoming(false)
+        setCompleted(false)
         setPastDue(true)
+    }
+    function onComplete(e){
+        setUpcoming(false)
+        setPastDue(false)
+        setCompleted(true)
     }
 
     useEffect(()=>{
@@ -72,6 +82,9 @@ function MainPageStatus(){
     function upcomingTask(e){
         history.push(`/projects/${e.target.id}`)
     }
+    function completedTask(e){
+        history.push(`/projects/${e.target.id}`)
+    }
     return (
         <div className='default-Page'>
             <h2 className='home-header'>Home</h2>
@@ -80,7 +93,7 @@ function MainPageStatus(){
             <div className='weekly-Status'>
                 <div className='weekly-Display'>
                     <i id='status-Icon' className="fa-solid fa-circle-check"></i>
-                    <div className='complete-Tasks-Num'>{completed.length}</div>
+                    <div className='complete-Tasks-Num'>{completedTasks.length}</div>
                     tasks completed
                 </div>
             </div>
@@ -109,6 +122,7 @@ function MainPageStatus(){
                     <div className='task-Home-Bar'>
                         <div onClick={onUpcoming} className={upcoming ? 'upcoming-Tasks-Bar' : ''}>Upcoming</div>
                         <div onClick={onPast} className={pastDue ? 'overdue-Tasks-Bar' : ''}>Overdue</div>
+                        <div onClick={onComplete} className={complete? 'completed-Tasks-Bar' : ''}>Completed</div>
                     </div>
                     <div className='task-header-Names'>
                         <div>Assignee</div>
@@ -136,6 +150,18 @@ function MainPageStatus(){
                     ))}
                     {pastDue && pastTasks.length===0 &&(
                         <div className='no-past-Tasks'>(0) past tasks.</div>
+                    )}
+                    {
+                        complete && completedTasks && completedTasks.map(task=>(
+                            <div key={task.id} id={task.projectId} className='completed-Tasks' onClick={completedTask}>
+                                <div id={task.projectId}>{task.assignee}</div>
+                                <div id={task.projectId}>{task.project.name}</div>
+                                <div id={task.projectId}>{task.deadline}</div>
+                            </div>
+                        ))
+                    }
+                    {complete && completedTasks.length===0 &&(
+                        <div className='no-completed-Tasks'>(0) completed tasks.</div>
                     )}
                 </div>
             </div>
