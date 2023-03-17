@@ -16,6 +16,7 @@ function EditSection({onClose, projectId, id}){
             projectId,
             name
         }
+
         const newSection = await dispatch(editSectionThunk(section))
         if(!newSection){
             onClose()
