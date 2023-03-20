@@ -7,8 +7,8 @@ import './AllProjects.css'
 function AllProjects(){
     const dispatch = useDispatch()
     const user = useSelector(state=>state.session.user)
-    const projects = useSelector(state=>state.projects)
-    const allProjects = Object.values(projects).filter(project=> project.userId === user.id)
+    const projects = Object.values(useSelector(state=>state.projects))
+    const allProjects = projects.filter(project=> project.userId === user.id)
 
     useEffect(()=>{
         dispatch(GetAllProjects())

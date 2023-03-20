@@ -36,7 +36,6 @@ function EditProject({onClose}){
         }
     }
     function onclosePage(e){
-        // e.preventDefault();
         onClose()
     }
 
