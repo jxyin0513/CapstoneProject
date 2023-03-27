@@ -16,8 +16,7 @@ function AllTasks(){
         }else{
             return false
         }
-    }
-    )
+    })
 
     const date = new Date()
     const recentlyAssigned = allTasks.filter(task=>{
@@ -39,6 +38,7 @@ function AllTasks(){
             return false;
         }
     })
+
     const weekTasks = allTasks.filter(task=>{
         const deadline = task.deadline.split('-')
         const ddate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
@@ -63,7 +63,7 @@ function AllTasks(){
     async function changeTask(e){
         e.preventDefault();
         let task = alltasks[e.target.id]
-        console.log(alltasks, e.target.id)
+        // console.log(alltasks, e.target.id)
         task['status'] = 'complete'
         const editStatus = await dispatch(EditTask(task))
     }

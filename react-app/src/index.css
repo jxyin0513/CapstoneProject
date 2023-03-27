@@ -29,7 +29,7 @@ html, body{
 }
 .github-Icon{
     padding: 3px;
-    margin: 2px 0;
+    margin: 2px;
 }
 .github-Icon:hover{
     border-radius: 2px;
@@ -37,7 +37,7 @@ html, body{
 }
 .linkedIn-Icon{
     padding: 3px;
-    margin: 2px 0;
+    margin: 2px;
 }
 .linkedIn-Icon:hover{
     border-radius: 2px;

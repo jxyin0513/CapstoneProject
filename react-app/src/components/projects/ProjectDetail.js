@@ -208,10 +208,7 @@ function Project(){
                         <div className='edit-Bar'></div>
                     </div>
                     {tasks && tasks.map(task=>{
-
-                        // let deadline = task.deadline.split('-');
                         let deadline = task.deadline.split('-')
-                        // console.log('-----')
                         // console.log(task.sectionId, section.id)
                         if(task.sectionId === section.id){
                             return(
