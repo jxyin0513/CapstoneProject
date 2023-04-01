@@ -217,12 +217,18 @@ function Project(){
                                         <p className='task-Name'>{task.taskName}</p>
                                         <div className='section-selector'>
                                             <i className="fa-solid fa-arrow-down" id={task.id} onClick={moveSection}></i>
-                                            {/* <div className='section-tag'>move to other sections</div> */}
 
                                             <div className='section-dropdown'>
-                                                {sections.map(section=>(
-                                                    <div id={`${section.id}-${task.id}`} key={section.id} onClick={onSection} className='section-name'>{section.name}</div>
-                                                ))}
+                                                <div className='section-tag'>Move to other sections</div>
+                                                {sections.map(section=>{
+                                                    if(section.id!==task.sectionId){
+                                                        return (
+                                                            <div id={`${section.id}-${task.id}`} key={section.id} onClick={onSection} className='section-name'>{section.name}</div>
+                                                        )
+                                                    }else{
+                                                        return false
+                                                    }
+                                                })}
                                             </div>
 
                                         </div>
