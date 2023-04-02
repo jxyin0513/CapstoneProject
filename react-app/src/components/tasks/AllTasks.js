@@ -11,7 +11,7 @@ function AllTasks(){
     const alltasks = useSelector(state=>state.tasks)
     const tasks = Object.values(alltasks)
     const allTasks = tasks.filter(task=>{
-        if(task.userId = user.id && task.status==='incomplete'){
+        if(task.userId === user.id && task.status==='incomplete'){
             return true
         }else{
             return false
@@ -42,7 +42,7 @@ function AllTasks(){
     const weekTasks = allTasks.filter(task=>{
         const deadline = task.deadline.split('-')
         const ddate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
-        const nextWeek = date + (3600*1000*24)*(7-date.getDay())
+        // const nextWeek = date + (3600*1000*24)*(7-date.getDay())
         // console.log((ddate - date)+(3600*1000*24)*(7-date.getDay()), ddate)
         if(new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`) < ddate && (ddate-date)+((3600*1000*24)*(6-date.getDay()))>0){
             return true
@@ -65,7 +65,7 @@ function AllTasks(){
         let task = alltasks[e.target.id]
         // console.log(alltasks, e.target.id)
         task['status'] = 'complete'
-        const editStatus = await dispatch(EditTask(task))
+        await dispatch(EditTask(task))
     }
 
     return (

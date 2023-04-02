@@ -217,9 +217,8 @@ function Project(){
                                         <p className='task-Name'>{task.taskName}</p>
                                         <div className='section-selector'>
                                             <i className="fa-solid fa-arrow-down" id={task.id} onClick={moveSection}></i>
-
                                             <div className='section-dropdown'>
-                                                <div className='section-tag'>Move to other sections</div>
+                                                <div className='section-tag'>Move to sections</div>
                                                 {sections.map(section=>{
                                                     if(section.id!==task.sectionId){
                                                         return (
