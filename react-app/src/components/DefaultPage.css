@@ -17,16 +17,20 @@
 .weekly-Status{
     display: flex;
     justify-content: center;
-    text-align: center;
     padding: 15px 0;
-
+}
+.complete-Tasks-Num{
+    display: inline;
+    padding: 0 3px;
+    transition: 0.6s ease;
+    transform: rotateY(360deg);
 }
 .weekly-Display{
     width: 170px;
     padding: 10px 0;
     background-color: lightgray;
     border-radius: 13px;
-    /* cursor: pointer; */
+    text-align: center;
 }
 #status-Icon{
     padding: 0 5px;
@@ -138,7 +142,6 @@
 }
 .upcoming-Tasks > div {
     margin: 5px 0;
-
     width: 100px;
 }
 .upcoming-Tasks:hover{
@@ -157,11 +160,25 @@
     background-color: lightgray;
     cursor: pointer;
 }
+.completed-Tasks{
+    display: flex;
+    justify-content: space-around;
+}
+.completed-Tasks >div{
+    margin: 5px 0;
+}
+.completed-Tasks:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
 .upcoming-Tasks-Bar{
     border-bottom: 3px solid black;
 }
 
 .overdue-Tasks-Bar{
+    border-bottom: 3px solid black;
+}
+.completed-Tasks-Bar{
     border-bottom: 3px solid black;
 }
 .task-header-Names{
@@ -181,6 +198,11 @@
     font-size: 18px;
 }
 .no-past-Tasks{
+    text-align: center;
+    padding: 10px 0 0 0px;
+    font-size: 18px;
+}
+.no-completed-Tasks{
     text-align: center;
     padding: 10px 0 0 0px;
     font-size: 18px;

@@ -2,13 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { GetEachTasks } from '../../store/tasks';
 import { GetAllProjects } from '../../store/projects';
+import { EditTask } from '../../store/tasks';
 import './AllTasks.css'
 
 function AllTasks(){
     const dispatch = useDispatch()
     const user = useSelector(state=>state.session.user)
-    const tasks = Object.values(useSelector(state=>state.tasks))
-    const allTasks = tasks.filter(task=>task.userId = user.id)
+    const alltasks = useSelector(state=>state.tasks)
+    const tasks = Object.values(alltasks)
+    const allTasks = tasks.filter(task=>{
+        if(task.userId === user.id && task.status==='incomplete'){
+            return true
+        }else{
+            return false
+        }
+    })
 
     const date = new Date()
     const recentlyAssigned = allTasks.filter(task=>{
@@ -30,12 +38,13 @@ function AllTasks(){
             return false;
         }
     })
+
     const weekTasks = allTasks.filter(task=>{
         const deadline = task.deadline.split('-')
-        const tdate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
-        const nextWeek = date + (3600*1000*24)*(7-date.getDay())
-
-        if(new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`) < tdate && tdate < nextWeek){
+        const ddate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
+        // const nextWeek = date + (3600*1000*24)*(7-date.getDay())
+        // console.log((ddate - date)+(3600*1000*24)*(7-date.getDay()), ddate)
+        if(new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`) < ddate && (ddate-date)+((3600*1000*24)*(6-date.getDay()))>0){
             return true
         }else{
             return false
@@ -51,6 +60,14 @@ function AllTasks(){
         dispatch(GetAllProjects())
     }, [dispatch, user.id])
 
+    async function changeTask(e){
+        e.preventDefault();
+        let task = alltasks[e.target.id]
+        // console.log(alltasks, e.target.id)
+        task['status'] = 'complete'
+        await dispatch(EditTask(task))
+    }
+
     return (
         <div className='all-Tasks'>
             <div className='all-Tasks-Header'>
@@ -64,7 +81,10 @@ function AllTasks(){
             <h3><i id='recently-Assigned' onClick={()=>setRecent(!recent)} className={recent ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> Recently assigned</h3>
             {recent && recentlyAssigned && recentlyAssigned.map(task=>(
                 <div className='my-Tasks-Assigned' key={task.id}>
-                    <div className='my-Detail-Name'>{task.taskName}</div>
+                    <div className='my-Detail-Outer'>
+                        <i className="fa-regular fa-circle-check" id={task.id} onClick={changeTask}></i>
+                        <div className='my-Detail-Name'>{task.taskName}</div>
+                    </div>
                     <div className='my-Detail-Deadline'>{task.deadline}</div>
                     <div className='my-Detail-Project'>{task.project.name}</div>
                 </div>
@@ -72,7 +92,10 @@ function AllTasks(){
             <h3><i id='today-Assigned' onClick={()=>setToday(!today)}  className={today ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> Due today</h3>
             {today && todayTasks && todayTasks.map(task=>(
                 <div className='my-Tasks-Assigned' key={task.id}>
-                    <div className='my-Detail-Name'>{task.taskName}</div>
+                    <div className='my-Detail-Outer'>
+                        <i className="fa-regular fa-circle-check" id={task.id} onClick={changeTask}></i>
+                        <div className='my-Detail-Name'>{task.taskName}</div>
+                    </div>
                     <div className='my-Detail-Deadline'>{task.deadline}</div>
                     <div className='my-Detail-Project'>{task.project.name}</div>
                 </div>
@@ -80,7 +103,10 @@ function AllTasks(){
             <h3><i id='this-week-Assigned' onClick={()=>setWeek(!week)}  className={week ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> Due this week</h3>
             {week && weekTasks && weekTasks.map(task=>(
                 <div className='my-Tasks-Assigned' key={task.id}>
-                    <div className='my-Detail-Name'>{task.taskName}</div>
+                    <div className='my-Detail-Outer'>
+                        <i className="fa-regular fa-circle-check" id={task.id} onClick={changeTask}></i>
+                        <div className='my-Detail-Name'>{task.taskName}</div>
+                    </div>
                     <div className='my-Detail-Deadline'>{task.deadline}</div>
                     <div className='my-Detail-Project'>{task.project.name}</div>
                 </div>

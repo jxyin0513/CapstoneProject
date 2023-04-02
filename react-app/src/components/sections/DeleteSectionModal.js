@@ -1,6 +1,5 @@
 import React from 'react';
 import {  useDispatch } from 'react-redux';
-// import {useHistory} from 'react-router-dom';
 import { Modal } from '../context/Modal';
 import { deleteSectionThunk } from '../../store/section';
 import './DeleteSectionModal.css'
@@ -10,7 +9,6 @@ function DeleteSectionModal({id, onClose}){
     // const history = useHistory();
     async function onDelete(e){
         e.preventDefault();
-        // const deletedTask = await dispatch(DeleteRelatedTask(id))
         const deleted =  await dispatch(deleteSectionThunk(id))
         if(!deleted){
             onClose()

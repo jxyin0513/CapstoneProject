@@ -45,9 +45,7 @@ function NewProject(){
                 <label>
                     <input type='text' name='name' placeholder='Project name' onChange={e=>setName(e.target.value)}></input>
                 </label>
-                {/* <label>
-                    <input type='datetime-local' name='startdate' placeholder='Start Date' onChange={e=>setStartdate(e.target.value)}></input>
-                </label> */}
+
                 <label className='project-due-date'>
                     <input type='date' name='deadline' placeholder='Deadline' onChange={e=>setDeadline(e.target.value)}></input>
                     <div>(Due date)</div>

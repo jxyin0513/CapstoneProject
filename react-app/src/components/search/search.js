@@ -80,11 +80,11 @@ const Search = () => {
               {projectsResult.map(project => (
                 <div className='project-outer' key={project.id}>
                   {/* <NavLink className='project-search'  to={`/projects/${project.id}`}></NavLink> */}
-                    <div className='project-result' id={project.id} onClick={newProject}>
-                      <i className="fa-regular fa-circle-check" id={project.id}></i>
-                      <div className='search-name' id={project.id}>{project.name}</div>
-                      <div className='search-deadline' id={project.id}>Deadline: {project.deadline}</div>
-                    </div>
+                  <div className='project-result' id={project.id} onClick={newProject}>
+                    <i className="fa-regular fa-circle-check" id={project.id}></i>
+                    <div className='search-name' id={project.id}>{project.name}</div>
+                    <div className='search-deadline' id={project.id}>Deadline: {project.deadline}</div>
+                  </div>
 
                 </div>
               ))}

@@ -157,7 +157,7 @@ p.task-Name{
 .section-selector:hover > .section-dropdown{
     display: block;
     position: absolute;
-    width: 120px;
+    width: 150px;
     padding: 5px 0 0 0;
     border: 0.5px solid rgb(227, 215, 215);
     border-radius: 3px;
@@ -165,12 +165,18 @@ p.task-Name{
     z-index: 3;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
-/* .section-tag{
-    display: none;
-} */
+.section-tag{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    color:rgba(121, 120, 120, 0.614);
+    padding: 0 0 0 5px;
+    margin: 0 0 10px 0;
+}
 .section-name{
     cursor: pointer;
     padding: 5px 10px;
+    border-top: 0.7px dotted black;
+    /* border-bottom: 0.7px dotted black; */
 }
 .section-name:hover{
     background-color: rgb(209, 208, 208);
@@ -202,10 +208,12 @@ p.task-Deadline{
 }
 .dropdown{
     width: 150px;
+    transition-timing-function: ease-in;
 }
 .dropdown > p{
     border: none;
     cursor: pointer;
+    transition: 0.6s ease-in;
     /* margin-bottom: 0px; */
     /* display: inline-block; */
     /* margin-right: -10px;
