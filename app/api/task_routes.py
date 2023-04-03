@@ -37,7 +37,7 @@ def create_task():
     form = TaskForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if(form.validate_on_submit()):
-        print(form.data['deadline'])
+        print(form.data)
         new_task = Task(**data)
         db.session.add(new_task)
         db.session.commit()

@@ -8,11 +8,10 @@ def date_check(form, field):
     project=Project.query.get(form.data['projectId'])
     print(field.data)
     if(field.data < date.today()):
-        raise ValidationError('Task deadline must be before project deadline.')
-    # if(field.data >= project.deadline):
-    #     raise ValidationError('Task deadline must be before project deadline')
+        raise ValidationError('Task deadline must be in future date.')
+    if(field.data >= project.deadline):
+        raise ValidationError('Task deadline must be before project deadline')
     print(form.data['projectId'])
-
     print(field.data)
 
 class TaskForm(FlaskForm):
@@ -23,4 +22,5 @@ class TaskForm(FlaskForm):
     status = StringField('status', validators=[DataRequired(message='Please provide current status of your task')])
     startdate = DateField('startdate', validators=[DataRequired(message='Start date must be provided')])
     deadline = DateField('deadline', validators=[DataRequired(message='Deadline must be provided'), date_check])
-    # priority = StringField('priority', validators=[DataRequired(message='Please provide your priority')])
+    priority = StringField('priority', validators=[DataRequired(message='Please provide your priority'), Length(min=1, message="Please choose your priority")])
+    sectionId = IntegerField('sectionId', validators=[DataRequired(message='Please choose your section.')])

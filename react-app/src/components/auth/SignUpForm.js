@@ -13,7 +13,7 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-  let signUpSlides = [];
+  // let signUpSlides = [];
 
 
   const onSignUp = async (e) => {
@@ -51,6 +51,8 @@ const SignUpForm = () => {
       <img src={image} alt=''></img>
       <div className='signUp-inner-Container'>
         <div className='signUp-Header'>Sign up Here</div>
+        {/* <i class="fa-solid fa-arrow-left"></i>
+        <i class="fa-solid fa-arrow-right"></i> */}
         <form className='signup-Form' onSubmit={onSignUp}>
           <div className='errors-handle-Signup'>
             {errors.map((error, ind) => (

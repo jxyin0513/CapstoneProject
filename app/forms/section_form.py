@@ -6,4 +6,4 @@ from datetime import date
 class SectionForm(FlaskForm):
 
     projectId = IntegerField('projectId', validators=[DataRequired(message="Please provide the project Id.")])
-    name = StringField('name', validators=[DataRequired(message='Please provide section name.')])
+    name = StringField('name', validators=[DataRequired(message='Please provide section name.'),Length(min=1, message="Please choose your section.")])
