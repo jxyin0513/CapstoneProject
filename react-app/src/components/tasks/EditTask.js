@@ -59,12 +59,6 @@ function EditTasks({onEdit, id, onClose}){
                     <div>(Due date)</div>
                 </label>
                 {/* <label>
-                    <select name='status' value={status} onChange={e=>setStatus(e.target.value)}>
-                        <option value='incomplete'>Incomplete</option>
-                        <option value='complete'>Complete</option>
-                    </select>
-                </label> */}
-                {/* <label>
                 <input type='text' name='priority' value={priority} onChange={e=>setPriority(e.target.value)}></input>
                 </label> */}
                 <button type='submit'>Edit Task</button>
