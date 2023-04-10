@@ -84,8 +84,6 @@ def delete_task(id):
 @task_routes.route('/<id>/delete/relate', methods=['DELETE'])
 def delete_task_related(id):
     tasks = Task.query.filter_by(projectId = id).all()
-    print(tasks)
-
     for task in tasks:
         db.session.delete(task)
     db.session.commit()
