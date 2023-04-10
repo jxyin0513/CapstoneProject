@@ -65,7 +65,7 @@ def update_task(id):
 @task_routes.route('/<id>/update', methods=['PUT'])
 def update_status(id):
     data = request.json
-    print(data, '---')
+
     task = Task.query.get(id)
     if(data.get('priority')):
         task.priority = data['priority']
@@ -77,7 +77,6 @@ def update_status(id):
 @task_routes.route('/<id>/delete', methods=['DELETE'])
 def delete_task(id):
     task = Task.query.get(id)
-    print(task)
     db.session.delete(task)
     db.session.commit()
     return {'task': task.to_dict()}
