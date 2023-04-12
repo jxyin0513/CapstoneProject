@@ -79,7 +79,6 @@ const Search = () => {
               <div className='project-bar'>Projects</div>
               {projectsResult.map(project => (
                 <div className='project-outer' key={project.id}>
-                  {/* <NavLink className='project-search'  to={`/projects/${project.id}`}></NavLink> */}
                   <div className='project-result' id={project.id} onClick={newProject}>
                     <i className="fa-regular fa-circle-check" id={project.id}></i>
                     <div className='search-name' id={project.id}>{project.name}</div>

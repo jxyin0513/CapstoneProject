@@ -8,6 +8,7 @@
 .delete-Message{
     padding: 15px 0 15px 15px;
     border-bottom: 1px solid lightgray;
+    font-size: 18px;
 }
 .delete-project-Intro{
     padding: 15px 10px 5px 10px;
@@ -15,6 +16,9 @@
 .delete-Project-Container > button{
     margin: 10px 0 0 10px;
     border-radius: 5px;
+}
+.delete-Project-Container li {
+    margin: 5px 0;
 }
 .delete-Project-Container > button:hover{
     background-color: slategrey;

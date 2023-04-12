@@ -5,6 +5,7 @@
     width: 350px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .delete-Section-Container > ul, .delete-Section-Container > button, .delete-section-header{
-    margin: 5px 0 10px 10px;
+    margin: 15px 0 10px 10px;
 }
