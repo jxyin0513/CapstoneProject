@@ -171,9 +171,10 @@ p.task-Name{
 .section-tag{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 12px;
-    color:rgba(121, 120, 120, 0.614);
-    padding: 0 0 0 5px;
+    color:rgba(52, 50, 50, 0.614);
+    padding: 0 0 0 15px;
     margin: 0 0 10px 0;
+    font-style: italic;
 }
 .section-name{
     cursor: pointer;
