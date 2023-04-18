@@ -49,6 +49,7 @@ def edit_project(id):
         project.userId = form.data['userId']
         project.name = form.data['name']
         project.description = form.data['description']
+        project.startdate = form.data['startdate']
         project.deadline = form.data['deadline']
         db.session.commit()
         return {'project': project.to_dict()}

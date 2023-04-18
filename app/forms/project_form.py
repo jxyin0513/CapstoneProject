@@ -7,6 +7,8 @@ from zoneinfo import ZoneInfo
 def date_check(form, field):
     if(field.data < date.today()):
         raise ValidationError('Please provide proper deadline.')
+    if(field.data < form.data['startdate']):
+        raise ValidationError('Deadline must be later than start date.')
 
 class ProjectForm(FlaskForm):
 
