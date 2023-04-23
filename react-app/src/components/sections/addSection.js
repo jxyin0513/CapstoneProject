@@ -31,7 +31,7 @@ function AddSection({onClose, projectId}){
                     ))}
                 </div>
                 <label>
-                    <input type='text' name='name' placeholder='section name' onChange={e=>setName(e.target.value)}></input>
+                    <input type='text' name='name' placeholder='section name' size={21} onChange={e=>setName(e.target.value)}></input>
                 </label>
                 <button className='section-button' type='submit'>Submit</button>
             </form>

@@ -11,9 +11,9 @@
     border-bottom: 1px rgb(199, 195, 195) solid;
 }
 .section-Intro{
-    font-size: 13px;
+    font-size: 15px;
     color:rgba(0, 0, 255, 0.737);
-    /* padding: 0 0 15px 15px; */
+    padding: 0 0 0px 20px;
 }
 .edit-section-form{
     padding: 20px 0 0 20px;

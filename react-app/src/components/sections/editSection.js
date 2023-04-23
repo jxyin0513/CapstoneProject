@@ -36,7 +36,7 @@ function EditSection({onClose, projectId, id}){
                         <div key={ind}>* {error}</div>
                     ))}
                 </div>
-                <div className='section-Intro'>(change section name)</div>
+                <div className='section-Intro'>( change section name! )</div>
                 <label>
                     <input type='text' name='name' value={name} onChange={e=>setName(e.target.value)}></input>
                 </label>
