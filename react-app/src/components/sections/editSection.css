@@ -13,11 +13,16 @@
 .section-Intro{
     font-size: 15px;
     color:rgba(0, 0, 255, 0.737);
-    padding: 0 0 0px 20px;
+    padding: 0 0 5px 20px;
 }
 .edit-section-form{
     padding: 20px 0 0 20px;
 }
+.edit-section-form > button{
+    display: block;
+}
 .edit-section-form input{
-    margin: 0 0 10px 0;
+    margin: 0 0 5px 0;
+    height: 18px;
+    border-radius: 3px;
 }

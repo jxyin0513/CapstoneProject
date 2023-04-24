@@ -38,7 +38,7 @@ function EditSection({onClose, projectId, id}){
                 </div>
                 <div className='section-Intro'>( change section name! )</div>
                 <label>
-                    <input type='text' name='name' value={name} onChange={e=>setName(e.target.value)}></input>
+                    <input type='text' name='name' value={name} size={21} onChange={e=>setName(e.target.value)}></input>
                 </label>
                 <button type='submit'>Submit</button>
             </form>
