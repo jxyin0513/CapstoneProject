@@ -22,6 +22,7 @@ function EditTasks({onEdit, id, onClose}){
             id,
             userId: user.id,
             projectId: projectId,
+            sectionId: task.sectionId,
             assignee,
             taskName,
             status: task.status,
