@@ -51,10 +51,9 @@ def update_task(id):
     task = Task.query.get(id)
     form['csrf_token'].data = request.cookies['csrf_token']
     if(form.validate_on_submit()):
-        print('val')
         task.assignee = form.data['assignee']
         task.taskName = form.data['taskName']
-        task.status = form.data['status']
+        # task.status = form.data['status']
         task.deadline = form.data['deadline']
         # task.priority = form.data['priority']
         db.session.commit()
