@@ -28,7 +28,6 @@ def get_individual_tasks(id):
 @task_routes.route('/<id>')
 def get_task(id):
     task = Task.query.get(id)
-    print(task)
     return {'task': task.to_dict()}
 
 @task_routes.route('/new', methods=['POST'])
@@ -64,7 +63,6 @@ def update_task(id):
 @task_routes.route('/<id>/update', methods=['PUT'])
 def update_status(id):
     data = request.json
-
     task = Task.query.get(id)
     if(data.get('priority')):
         task.priority = data['priority']

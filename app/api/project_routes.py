@@ -28,7 +28,6 @@ def get_project(id):
 def create_project():
     data = request.json
     form = ProjectForm()
-    print(data)
     form['csrf_token'].data = request.cookies['csrf_token']
     if(form.validate_on_submit()):
         new_project = Project(**data)
