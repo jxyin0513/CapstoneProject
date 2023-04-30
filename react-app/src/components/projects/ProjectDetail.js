@@ -115,7 +115,7 @@ function Project(){
     }
     function showTask(e){
         if(showTaskId === e.target.id){
-            console.log('----')
+            // console.log('----')
             setShowTaskId(0)
         }else{
             setShowTaskId(e.target.id)

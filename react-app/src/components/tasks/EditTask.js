@@ -16,7 +16,7 @@ function EditTasks({onEdit, id, onClose}){
     const [errors, setErrors] = useState([])
 
     async function onSubmit(e){
-        console.log(deadline)
+        // console.log(deadline)
         e.preventDefault()
         const eTask = {
             id,

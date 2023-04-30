@@ -18,7 +18,6 @@ function AddTask({onClose}){
     const [errors, setErrors] = useState([])
 
     async function onSubmit(e){
-
         e.preventDefault()
         const task = {
             userId: user.id,

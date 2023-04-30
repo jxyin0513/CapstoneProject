@@ -41,7 +41,7 @@ function MainPageStatus(){
 
     if(date.getHours()>=12 && date.getHours()<19){
         message='Good afternoon'
-    }else if(date.getHours()<12){
+    }else if(date.getHours()<12 && date.getHours()>=5){
         message='Good morning'
     }else{
         message='Good night'
