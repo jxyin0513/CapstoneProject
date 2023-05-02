@@ -41,7 +41,7 @@ def create_project():
 @project_routes.route('/<id>/edit', methods=['PUT'])
 def edit_project(id):
     form = ProjectForm()
-    print(form.data)
+    # print(form.data)
     project = Project.query.get(id)
     form['csrf_token'].data = request.cookies['csrf_token']
     if(form.validate_on_submit()):
