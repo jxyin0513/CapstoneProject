@@ -51,7 +51,7 @@
 }
 .edit-Project > div, .delete-Project>div{
     font-size: 18px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding-left: 5px;
 }
 .edit-delete-Project:hover .edit-Icon{
