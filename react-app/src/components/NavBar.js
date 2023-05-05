@@ -36,11 +36,11 @@ const NavBar = () => {
           <div>
             <div className='home-nav-Page'>
               <NavLink to='/' exact={true} className='home-Button' activeClassName='home-page-act-Button'>
-                <i className="fa-solid fa-house"></i>  Home
+                <i className="fa-solid fa-house"></i>Home
               </NavLink>
             </div>
             <div className='my-tasks-outer'>
-              <NavLink to='/tasks' exact={true} id='my-tasks-Button' activeClassName='my-tasks-Button'>
+              <NavLink to='/tasks' exact={true} id='my-tasks-Button' activeClassName='my-tasks-act-Button'>
                 <i className="fa-solid fa-list-ul"></i>  My Tasks
               </NavLink>
             </div>
