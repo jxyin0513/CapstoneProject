@@ -32,12 +32,12 @@ img.logo{
 } */
 .home-page-act-Button{
     /* display: inline-block; */
-    background-color: rgb(112, 107, 107);
+    background-color: rgba(189, 177, 177, 0.467);
     /* width: 200px; */
 }
 .my-tasks-act-Button{
     /* display: inline-block; */
-    background-color: rgb(112, 107, 107);
+    background-color: rgba(189, 177, 177, 0.467);
     /* width: 200px; */
 }
 .login-Button, .signup-Button{
