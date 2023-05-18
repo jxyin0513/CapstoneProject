@@ -45,7 +45,7 @@ def create_task():
 @task_routes.route('/<id>/edit', methods=['PUT'])
 def update_task(id):
     form = TaskForm()
-    print(form.data)
+    # print(form.data)
     task = Task.query.get(id)
     form['csrf_token'].data = request.cookies['csrf_token']
     if(form.validate_on_submit()):

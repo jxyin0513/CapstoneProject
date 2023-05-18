@@ -26,7 +26,7 @@ def new_section():
     form = SectionForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if(form.validate_on_submit()):
-        print(form.data['projectId'])
+        # print(form.data['projectId'])
         new_section = Section(**data)
         db.session.add(new_section)
         db.session.commit()
