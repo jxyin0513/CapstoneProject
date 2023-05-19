@@ -54,6 +54,11 @@ const Search = () => {
       setShowResults(false)
       history.push(`/projects/${e.target.id}`)
     }
+    function newTask(e){
+      setShowResults(false)
+      console.log(e.target.id)
+      history.push(`/projects/${e.target.id}`)
+    }
 
     return (
         <div className='search-container'>
@@ -93,14 +98,12 @@ const Search = () => {
               <div className='task-bar'>Tasks</div>
               {taskResults.map(task=>(
                 <div className='task-outer' key={task.id}>
-                  <NavLink  className='task-search' to={`/projects/${task.project.id}`}>
-                    <div className='task-result'>
-                      <i className="fa-regular fa-circle-check"></i>
-                      <div className='search-name'>{task.taskName}</div>
-                      <div className='search-project'>{task.project.name}</div>
-                      <div className='search-deadline'>Deadline: {task.deadline} </div>
+                    <div className='task-result' id={task.project.id} onClick={newTask}>
+                      <i className="fa-regular fa-circle-check" id={task.project.id}></i>
+                      <div className='search-name' id={task.project.id}>{task.taskName}</div>
+                      <div className='search-project' id={task.project.id}>{task.project.name}</div>
+                      <div className='search-deadline' id={task.project.id}>Deadline: {task.deadline} </div>
                     </div>
-                  </NavLink>
                 </div>
               ))}
             </div>}

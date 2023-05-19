@@ -33,11 +33,11 @@ function Project(){
     const [showDeleteSection, setShowDeleteSection] = useState(false)
     const [showSection, setShowSection] = useState(false);
     const [showEditSection, setShowEditSection] = useState(false);
-    const [changeSection, setChangeSection] = useState(false)
+    // const [changeSection, setChangeSection] = useState(false)
     const [showTaskModal, setShowTaskModal] = useState(false)
     const [showTaskId, setShowTaskId] = useState(0);
     const [task, setTask] = useState(false)
-    const [taskId, setTaskId] = useState(0)
+    // const [taskId, setTaskId] = useState(0)
     const [editId, setEditId] = useState(0)
     const [menuId, setMenuId] = useState(0)
     const [deleteSectionId, setDeleteSectionId] = useState(0)
@@ -71,17 +71,17 @@ function Project(){
         return () => document.removeEventListener("click", closeMenu);
     }, [showMenu]);
 
-    useEffect(() => {
-        if (!changeSection) return;
+    // useEffect(() => {
+    //     if (!changeSection) return;
 
-        const closeMenu = () => {
-          setChangeSection(false);
-        };
+    //     const closeMenu = () => {
+    //       setChangeSection(false);
+    //     };
 
-        document.addEventListener('click', closeMenu);
+    //     document.addEventListener('click', closeMenu);
 
-        return () => document.removeEventListener("click", closeMenu);
-    }, [changeSection]);
+    //     return () => document.removeEventListener("click", closeMenu);
+    // }, [changeSection]);
 
     function onEdit(e){
         setEditId(e.target.id)
@@ -133,10 +133,10 @@ function Project(){
         }
     }
 
-    function moveSection(e){
-        setChangeSection(true)
-        setTaskId(e.target.id)
-    }
+    // function moveSection(e){
+    //     setChangeSection(true)
+    //     setTaskId(e.target.id)
+    // }
     function newSection(e){
             setShowSection(true)
     }
@@ -216,7 +216,7 @@ function Project(){
                                     <div className='task-name-outer'>
                                         <p className='task-Name'>{task.taskName}</p>
                                         <div className='section-selector'>
-                                            <i className="fa-solid fa-arrow-down" id={task.id} onClick={moveSection}></i>
+                                            <i className="fa-solid fa-arrow-down" id={task.id} ></i>
                                             <div className='section-dropdown'>
                                                 <div className='section-tag'>Move to sections ...</div>
                                                 {sections.map(section=>{
