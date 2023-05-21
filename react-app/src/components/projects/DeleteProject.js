@@ -25,7 +25,6 @@ function DeleteProjectModal({id, onClose}){
                         <li>Tasks that assigned in this project</li>
                         <li>Members of this projects</li>
                     </ul>
-
                     <button onClick={onClose}>Cancel</button>
                     <button onClick={onDelete}>Delete</button>
                 </div>
