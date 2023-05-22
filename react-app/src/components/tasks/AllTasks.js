@@ -63,7 +63,6 @@ function AllTasks(){
     async function changeTask(e){
         e.preventDefault();
         let task = alltasks[e.target.id]
-        // console.log(alltasks, e.target.id)
         task['status'] = 'complete'
         await dispatch(EditTask(task))
     }

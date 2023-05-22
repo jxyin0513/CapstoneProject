@@ -44,10 +44,8 @@ function Project(){
     const [sectionId, setSectionId] = useState(0)
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-    // console.log(tasks)
 
     useEffect(()=>{
-        // dispatch(GetProjectDetail(projectId))
         dispatch(GetAllProjects())
         dispatch(GetAllTasks(user.id))
         dispatch(getSectionsThunk(projectId))
@@ -187,6 +185,7 @@ function Project(){
         )}
         {showTaskModal && (<AddTaskModal onClose={()=>setShowTaskModal(false)} />)}
         {sections && sections.map(section=>{
+
             return (
                 <div key={section.id}>
                     <div className='section-Bar'>
@@ -275,8 +274,8 @@ function Project(){
                     </div>
                     )}
                 </div>
-            )
-        })}
+            )}
+        )}
         {/* {
             toList && todoList && todoList.map(task=>{
                 let deadline = task.deadline.split('-');
