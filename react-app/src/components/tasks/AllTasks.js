@@ -42,6 +42,7 @@ function AllTasks(){
     const weekTasks = allTasks.filter(task=>{
         const deadline = task.deadline.split('-')
         const ddate = new Date(`${deadline[1]}, ${deadline[2]}, ${deadline[0]}`)
+
         if(new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`) < ddate && (date-ddate)+((3600*1000*24)*(6-date.getDay()))>0){
             return true
         }else{

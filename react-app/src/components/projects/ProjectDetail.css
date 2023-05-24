@@ -143,9 +143,6 @@ p.task-Name{
     padding: 2px 5px;
     cursor: pointer;
 }
-/* .section-Bar > h2{
-    margin: 0 0 3px 0;
-} */
 .section-Bar  i:hover{
     background-color: rgb(213, 199, 199);
     border-radius: 3px;
