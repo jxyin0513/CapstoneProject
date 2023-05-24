@@ -57,7 +57,6 @@ function EditTasks({onEdit, id, onClose}){
                     <input type='date' name='deadline' value={deadline} onChange={e=>setDeadline(e.target.value)} ></input>
                     <div>(Due date)</div>
                 </label>
-
                 <button type='submit'>Edit Task</button>
             </form>
         </div>

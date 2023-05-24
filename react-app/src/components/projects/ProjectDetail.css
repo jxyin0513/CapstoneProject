@@ -108,9 +108,6 @@ div.task-Status{
 div.edit-Bar{
     width: 150px;
 }
-/* .todo-List > p, .done-List > p{
-    display: inline-block;
-} */
 .task-name-outer{
     width: 250px;
     display: flex;
