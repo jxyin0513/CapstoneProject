@@ -16,7 +16,6 @@ function EditTasks({onEdit, id, onClose}){
     const [errors, setErrors] = useState([])
 
     async function onSubmit(e){
-        // console.log(deadline)
         e.preventDefault()
         const eTask = {
             id,
@@ -58,9 +57,6 @@ function EditTasks({onEdit, id, onClose}){
                     <input type='date' name='deadline' value={deadline} onChange={e=>setDeadline(e.target.value)} ></input>
                     <div>(Due date)</div>
                 </label>
-                {/* <label>
-                <input type='text' name='priority' value={priority} onChange={e=>setPriority(e.target.value)}></input>
-                </label> */}
                 <button type='submit'>Edit Task</button>
             </form>
         </div>

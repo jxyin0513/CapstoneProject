@@ -190,7 +190,7 @@ function Project(){
                 <div key={section.id}>
                     <div className='section-Bar'>
                         <h2>
-                            <i id={section.id} onClick={showTask} className={sectionBar[`${section.id}`] !== 0 ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i> {section.name}
+                            <i id={section.id} onClick={showTask} className={sectionBar[`${section.id}`] !== 0 ? "fa-solid fa-caret-down" : "fa-solid fa-caret-right"}></i>{section.name}
                         </h2>
                         <i onClick={editSection} id={section.id} className="fa-regular fa-pen-to-square"></i>
                         <i onClick={deleteSection} id={section.id} className="fa-solid fa-trash"></i>

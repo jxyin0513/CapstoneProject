@@ -138,17 +138,17 @@ p.task-Name{
     display: flex;
     align-items: center;
 }
-.section-Bar > i{
-    margin: 3px;
-    padding: 5px;
+.section-Bar  i{
+    margin:  3px;
+    padding: 2px 5px;
     cursor: pointer;
 }
 /* .section-Bar > h2{
     margin: 0 0 3px 0;
 } */
-.section-Bar > i:hover{
+.section-Bar  i:hover{
     background-color: rgb(213, 199, 199);
-    border-radius: 2px;
+    border-radius: 3px;
 }
 .section-selector{
     position: relative;
@@ -364,15 +364,15 @@ p.task-Deadline{
     border-radius: 3px;
   }
 
-.section-Bar > h2 > i {
+/* .section-Bar > h2 > i {
     cursor: pointer;
     padding: 0 5px;
     margin: 0 0 0 3px;
-}
+} */
 
-.section-Bar > h2 > i:hover{
+/* .section-Bar > h2 > i:hover{
     background-color: gainsboro;
-}
+} */
 #done-Lists-Bar {
     cursor: pointer;
     padding: 0 5px;

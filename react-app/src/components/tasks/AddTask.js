@@ -69,7 +69,6 @@ function AddTask({onClose}){
                         <option value={"Medium"}>Medium</option>
                         <option value={"High"}>High</option>
 
-
                     </select>
                 </label>
                 <label className='task-due-date'>
