@@ -78,7 +78,6 @@ function AddTask({onClose}){
 
                 <button onClick={onClose}>Cancel</button>
                 <button type='submit'>Add Task</button>
-
             </form>
         </div>
     )

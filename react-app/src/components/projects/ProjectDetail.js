@@ -35,7 +35,6 @@ function Project(){
     const [showEditSection, setShowEditSection] = useState(false);
     // const [changeSection, setChangeSection] = useState(false)
     const [showTaskModal, setShowTaskModal] = useState(false)
-    const [showTaskId, setShowTaskId] = useState(0);
     const [task, setTask] = useState(false)
     // const [taskId, setTaskId] = useState(0)
     const [editId, setEditId] = useState(0)
@@ -84,7 +83,6 @@ function Project(){
     function onEdit(e){
         setEditId(e.target.id)
         setShowEdit(true)
-
     }
     async function onDelete(e){
         e.preventDefault();
@@ -104,7 +102,6 @@ function Project(){
     }
 
     async function changeStatus(e){
-
         const task = e.target.id.split('-')
         await dispatch(updateTask({
             id: task[0],
@@ -112,21 +109,14 @@ function Project(){
         }))
     }
     function showTask(e){
-        if(showTaskId === e.target.id){
-            setShowTaskId(0)
-        }else{
-            setShowTaskId(e.target.id)
-        }
         if(sectionBar[e.target.id]===0){
-            let newSection = sectionBar
-            newSection[`${e.target.id}`] = Number(e.target.id)
+            let newSection = {...sectionBar}
+            newSection[e.target.id] = Number(e.target.id)
             setSectionBar(newSection)
-            console.log(sectionBar)
         }else{
-            let newSection = sectionBar
+            let newSection = {...sectionBar}
             newSection[e.target.id] = 0
             setSectionBar(newSection)
-            console.log(sectionBar)
         }
     }
 
@@ -185,7 +175,6 @@ function Project(){
         )}
         {showTaskModal && (<AddTaskModal onClose={()=>setShowTaskModal(false)} />)}
         {sections && sections.map(section=>{
-
             return (
                 <div key={section.id}>
                     <div className='section-Bar'>
@@ -198,16 +187,16 @@ function Project(){
                     {sectionBar[`${section.id}`]!==0 &&(
 
                     <div>
-                    <div className='section-header'>
-                        <div className='task-Name'>Task name</div>
-                        <div className='task-Assignee'>Assignee</div>
-                        <div className='task-Deadline'>Due date</div>
-                        <div className='task-Status'>Priority</div>
-                        <div className='edit-Bar'></div>
-                    </div>
+                        <div className='section-header'>
+                            <div className='task-Name'>Task name</div>
+                            <div className='task-Assignee'>Assignee</div>
+                            <div className='task-Deadline'>Due date</div>
+                            <div className='task-Status'>Priority</div>
+                            <div className='edit-Bar'></div>
+                        </div>
                     {tasks && tasks.map(task=>{
                         let deadline = task.deadline.split('-')
-                        // console.log(task.sectionId, section.id)
+                        console.log(task.sectionId, section.id)
                         if(task.sectionId === section.id){
                             return(
                                 <div className='task-List' key={task.id}>
