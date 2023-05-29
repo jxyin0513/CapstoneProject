@@ -61,7 +61,6 @@ export const GetTaskDetail = (id)=> async(dispatch)=>{
 }
 
 export const CreateTask = (task)=> async(dispatch)=>{
-    console.log(task)
     const response = await fetch('/api/tasks/new',{
         method:'POST',
         headers: {'Content-Type': 'application/json'},
@@ -127,7 +126,6 @@ export const DeleteTask = (id) =>async (dispatch)=>{
     }
 }
 export const DeleteRelatedTask = (id) =>async (dispatch)=>{
-    console.log(id)
     const response = await fetch(`/api/tasks/${id}/delete/relate`,{
         method:'DELETE',
         headers: {'Content-Type': 'application/json'}
@@ -150,7 +148,6 @@ const taskReducer = (state=initialState, action) =>{
     let newState = {...state}
     switch(action.type){
         case GET_TASKS:
-            newState={}
             action.tasks.forEach(task=>{
                 newState[task.id] = task
             })

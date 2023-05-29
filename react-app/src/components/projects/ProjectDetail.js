@@ -36,7 +36,6 @@ function Project(){
     // const [changeSection, setChangeSection] = useState(false)
     const [showTaskModal, setShowTaskModal] = useState(false)
     const [task, setTask] = useState(false)
-    // const [taskId, setTaskId] = useState(0)
     const [editId, setEditId] = useState(0)
     const [menuId, setMenuId] = useState(0)
     const [deleteSectionId, setDeleteSectionId] = useState(0)
@@ -95,7 +94,6 @@ function Project(){
             sectionId: task[0]
         }))
     }
-
     function editSection(e){
         setSectionId(e.target.id)
         setShowEditSection(true)
@@ -185,7 +183,6 @@ function Project(){
                         <i onClick={deleteSection} id={section.id} className="fa-solid fa-trash"></i>
                     </div>
                     {sectionBar[`${section.id}`]!==0 &&(
-
                     <div>
                         <div className='section-header'>
                             <div className='task-Name'>Task name</div>
@@ -196,7 +193,6 @@ function Project(){
                         </div>
                     {tasks && tasks.map(task=>{
                         let deadline = task.deadline.split('-')
-                        console.log(task.sectionId, section.id)
                         if(task.sectionId === section.id){
                             return(
                                 <div className='task-List' key={task.id}>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { GetEachTasks } from '../../store/tasks';
+import { GetAllTasks } from '../../store/tasks';
 import { GetAllProjects } from '../../store/projects';
 import { EditTask } from '../../store/tasks';
 import './AllTasks.css'
@@ -54,8 +54,9 @@ function AllTasks(){
 
 
     useEffect(()=>{
-        dispatch(GetEachTasks(user.id))
+        // dispatch(GetEachTasks(user.id))
         dispatch(GetAllProjects())
+        dispatch(GetAllTasks(user.id))
     }, [dispatch, user.id])
 
     async function changeTask(e){
