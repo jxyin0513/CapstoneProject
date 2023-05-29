@@ -148,6 +148,7 @@ const taskReducer = (state=initialState, action) =>{
     let newState = {...state}
     switch(action.type){
         case GET_TASKS:
+
             action.tasks.forEach(task=>{
                 newState[task.id] = task
             })

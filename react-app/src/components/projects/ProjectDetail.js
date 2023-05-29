@@ -42,7 +42,6 @@ function Project(){
     const [sectionId, setSectionId] = useState(0)
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-
     useEffect(()=>{
         dispatch(GetAllProjects())
         dispatch(GetAllTasks(user.id))
