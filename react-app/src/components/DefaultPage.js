@@ -1,7 +1,7 @@
 import React, {useEffect, useState } from 'react';
 import {useHistory } from 'react-router-dom';
 import { GetAllProjects } from '../store/projects';
-import { GetEachTasks } from '../store/tasks';
+import {GetAllTasks } from '../store/tasks';
 import { useSelector, useDispatch } from 'react-redux';
 import './DefaultPage.css'
 
@@ -71,7 +71,8 @@ function MainPageStatus(){
 
     useEffect(()=>{
         dispatch(GetAllProjects())
-        dispatch(GetEachTasks(user.id))
+        // dispatch(GetEachTasks(user.id))
+        dispatch(GetAllTasks(user.id))
     },[dispatch, user.id])
 
     function pastTask(e){
