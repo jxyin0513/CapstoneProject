@@ -54,6 +54,7 @@ function AllTasks(){
 
 
     useEffect(()=>{
+
         dispatch(GetAllProjects())
         dispatch(GetAllTasks(user.id))
     }, [dispatch, user.id])

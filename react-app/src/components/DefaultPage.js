@@ -71,7 +71,6 @@ function MainPageStatus(){
 
     useEffect(()=>{
         dispatch(GetAllProjects())
-        // dispatch(GetEachTasks(user.id))
         dispatch(GetAllTasks(user.id))
     },[dispatch, user.id])
 

@@ -47,6 +47,7 @@ export const GetEachTasks = (id)=> async(dispatch)=>{
     if(response.ok){
         const data = await response.json();
         dispatch(getTasks(data.tasks))
+
     }
 }
 
