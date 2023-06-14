@@ -21,7 +21,6 @@ const NavBar = () => {
             <NavLink to='/login' exact={true} activeClassName='active'>
               <button className='login-Button'>Login</button>
             </NavLink>
-
             <NavLink to='/sign-up' exact={true} activeClassName='active'>
               <button className='signup-Button'>Sign Up</button>
             </NavLink>
@@ -45,7 +44,6 @@ const NavBar = () => {
             </div>
           </div>
         )}
-
       </div>
     </nav>
 

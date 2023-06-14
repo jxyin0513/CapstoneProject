@@ -50,7 +50,6 @@ export const GetEachTasks = (id)=> async(dispatch)=>{
 
     }
 }
-
 export const GetTaskDetail = (id)=> async(dispatch)=>{
     const response = await fetch(`/api/tasks/${id}`)
     if(response.ok){

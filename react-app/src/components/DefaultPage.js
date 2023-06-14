@@ -102,7 +102,6 @@ function MainPageStatus(){
                         <div onClick={addProject} className='create-Project'>+</div>
                         <div onClick={addProject} className='create-Project-T'>Create Project</div>
                     </div>
-
                     {projects && (projects.map(project=>(
                         <div key={project.id} id={project.id} onClick={onProject} className='project-Specific'>
                             <div className='create-Project'>

@@ -59,7 +59,6 @@ function AddTask({onClose}){
                         {sections && sections.map(section=>(
                             <option key={section.id} value={section.id}>{section.name}</option>
                         ))}
-
                     </select>
                 </label>
                 <label>
