@@ -17,7 +17,6 @@ function AllProjects(){
     return(
         <>
             <h3 className='user-Name'>@{user.username}</h3>
-
             {allProjects && (allProjects.map(project=>(
                 <NavLink activeClassName={'project-detail'} className='project-detail-nav-Bar' key={project.id} to={`/projects/${project.id}`}>
                     <div className='project-detail-Name'>{project.name}</div>
