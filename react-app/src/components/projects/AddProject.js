@@ -11,9 +11,10 @@ function NewProject(){
     const user = useSelector(state=>state.session.user)
     const [name, setName] = useState('')
     const [description, setDescription] = useState('');
-    const startdate = new Date();
+    const [startdate, setStartdate] = useState('')
     const [deadline, setDeadline] = useState('')
     const [errors, setErrors] = useState([])
+
     async function onSubmit(e){
 
         e.preventDefault();
@@ -21,7 +22,7 @@ function NewProject(){
             userId: user.id,
             name,
             description,
-            startdate: `${startdate.getFullYear()}-${startdate.getMonth()+1}-${startdate.getDate()}`,
+            startdate,
             deadline
         }
         const newProject = await dispatch(CreateProjects(project))
@@ -45,7 +46,10 @@ function NewProject(){
                 <label>
                     <input type='text' name='name' placeholder='Project name' onChange={e=>setName(e.target.value)}></input>
                 </label>
-
+                <label>
+                    <input type='date' name='startdate' placeholder='Startdate' onChange={e=>setStartdate(e.target.value)}></input>
+                    <div className='start-date-Project'>(Start date)</div>
+                </label>
                 <label className='project-due-date'>
                     <input type='date' name='deadline' placeholder='Deadline' onChange={e=>setDeadline(e.target.value)}></input>
                     <div>(Due date)</div>

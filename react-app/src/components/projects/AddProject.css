@@ -11,11 +11,10 @@
     color: red;
     margin: 12px;
     height: 70px;
-    max-height: 100px;
 }
-.errors-handler-Project > div{
+/* .errors-handler-Project > div{
     padding-bottom: 3px;
-}
+} */
 .add-Project-Form{
     width: 320px;
     height: 400px;
@@ -27,7 +26,13 @@
 }
 .add-Project-Form > label{
     display: block;
-    padding: 10px 10px 5px 25px;
+    padding: 10px 10px 0px 25px;
+}
+.start-date-Project{
+    display: inline;
+    font-size: 14px;
+    color: rgb(104, 102, 102);
+    padding: 0 0 0 5px;
 }
 .project-due-date > div{
     display: inline;

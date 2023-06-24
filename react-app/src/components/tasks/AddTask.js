@@ -13,8 +13,8 @@ function AddTask({onClose}){
     const [taskName, setTaskName] = useState('')
     const [priority, setPriority] = useState('')
     const [sectionId, setSectionId] = useState('')
-    const startdate = new Date();
     const [deadline, setDeadline] = useState('')
+    const [startdate, setStartdate] = useState('')
     const [errors, setErrors] = useState([])
 
     async function onSubmit(e){
@@ -27,7 +27,7 @@ function AddTask({onClose}){
             sectionId,
             priority,
             status: 'incomplete',
-            startdate:`${startdate.getFullYear()}-${startdate.getMonth()+1}-${startdate.getDate()}`,
+            startdate,
             deadline,
         }
         const newTask = await dispatch(CreateTask(task))
@@ -69,6 +69,10 @@ function AddTask({onClose}){
                         <option value={"High"}>High</option>
 
                     </select>
+                </label>
+                <label>
+                    <input type='date' name='startdate' placeholder='Start date' onChange={e=>setStartdate(e.target.value)}></input>
+                    <div className='start-date-Tag'>(Start date)</div>
                 </label>
                 <label className='task-due-date'>
                     <input type='date' name='deadline' placeholder='Due date' onChange={e=>setDeadline(e.target.value)}></input>

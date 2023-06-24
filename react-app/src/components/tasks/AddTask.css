@@ -5,18 +5,18 @@
 }
 .errors-handler-task{
     color: red;
-    /* padding: 0 0 10px 0; */
-    height: 100px;
+    padding: 5px 0 5px 0;
+    height: 110px;
 }
 .add-Tasks{
-    width: 300px;
-    height: 350px;
+    width: 320px;
+    height: 370px;
     margin-top: 10px;
     background-color: rgba(255, 255, 255, 0.957);
     border-radius: 15px;
 }
 .add-Task-Form {
-    padding-left: 10px;
+    padding-left: 20px;
 }
 .add-Task-Form > button{
     border-radius: 5px;
@@ -31,11 +31,16 @@
     padding: 0px 0 0 3px;
     font-size: 15px;
     color: rgba(106, 106, 106, 0.833);
-
+}
+.start-date-Tag{
+    display: inline-block;
+    padding: 0px 0 0 3px;
+    font-size: 15px;
+    color: rgba(106, 106, 106, 0.833);
 }
 .add-new-Task {
-    padding: 10px 15px;
-    margin-bottom: 15px;
+    padding: 10px 20px;
+    /* margin-bottom: 5px; */
     font-size: 22px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-bottom: 1px solid rgb(184, 182, 182);

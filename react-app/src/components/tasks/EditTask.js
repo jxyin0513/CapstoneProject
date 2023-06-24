@@ -9,9 +9,9 @@ function EditTasks({onEdit, id, onClose}){
     const {projectId} = useParams()
     const user = useSelector(state=>state.session.user)
     const task = useSelector(state=>state.tasks[id])
-    const startdate = task.startdate
     const [assignee, setAssignee] = useState(task.assignee)
     const [taskName, setTaskName] = useState(task.taskName)
+    const [startdate, setStartdate] = useState(task.startdate)
     const [deadline, setDeadline] = useState(task.deadline)
     const [errors, setErrors] = useState([])
 
@@ -52,6 +52,10 @@ function EditTasks({onEdit, id, onClose}){
                 </label>
                 <label>
                     <input type='text' name='assignee' value={assignee} onChange={e=>setAssignee(e.target.value)}></input>
+                </label>
+                <label>
+                    <input type='date' name='startdate' value={startdate} onChange={e=>setStartdate(e.target.value)}></input>
+                    <div className='start-date-Tag'>(Start date)</div>
                 </label>
                 <label className='task-due-date'>
                     <input type='date' name='deadline' value={deadline} onChange={e=>setDeadline(e.target.value)} ></input>
