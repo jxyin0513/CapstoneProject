@@ -1,5 +1,5 @@
 .edit-Task-Form{
-    padding: 15px 0 5px 5px;
+    padding: 5px 0 5px 10px;
 }
 .edit-Task-Form > label{
     display: block;
@@ -8,6 +8,7 @@
 .errors-handler-edit-task{
     color: red;
     height: 80px;
+    margin: 5px 0;
 }
 .edit-Task-Form > button {
     margin: 10px 5px 5px 10px;
