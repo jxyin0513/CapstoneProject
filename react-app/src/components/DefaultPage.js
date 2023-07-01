@@ -83,6 +83,7 @@ function MainPageStatus(){
     function completedTask(e){
         history.push(`/projects/${e.target.id}`)
     }
+
     return (
         <div className='default-Page'>
             <h2 className='home-header'>Home</h2>

@@ -117,10 +117,6 @@ function Project(){
         }
     }
 
-    // function moveSection(e){
-    //     setChangeSection(true)
-    //     setTaskId(e.target.id)
-    // }
     function newSection(e){
             setShowSection(true)
     }
