@@ -16,7 +16,8 @@ function EditTasks({onEdit, id, onClose}){
     const [errors, setErrors] = useState([])
 
     async function onSubmit(e){
-        e.preventDefault()
+        e.preventDefault();
+
         const eTask = {
             id,
             userId: user.id,

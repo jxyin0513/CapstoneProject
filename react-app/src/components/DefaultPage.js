@@ -26,14 +26,21 @@ function MainPageStatus(){
     })
     const pastTasks = tasks.filter(task=>{
         const tdate = task.deadline.split('-');
-        if(((new Date(`${tdate[1]}, ${tdate[2]}, ${tdate[0]}`)-new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`))/(3600 * 1000 * 24)) <0 ){
+        if(((new Date(`${tdate[1]}, ${tdate[2]}, ${tdate[0]}`)-new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`))/(3600 * 1000 * 24)) <0 && (new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`) - new Date(`${tdate[1]}, ${tdate[2]}, ${tdate[0]}`))/(3600 * 1000 * 24)<30 ){
             return true;
         }else{
             return false;
         }
     })
 
-    const completedTasks = allTasks.filter(task=>task.status === 'complete')
+    const completedTasks = allTasks.filter(task=>{
+        const tdate = task.deadline.split('-');
+        if(task.status === 'complete' && (new Date(`${date.getMonth()+1}, ${date.getDate()}, ${date.getFullYear()}`) - new Date(`${tdate[1]}, ${tdate[2]}, ${tdate[0]}`))/(3600 * 1000 * 24) < 30){
+            return true;
+        }else{
+            return false;
+        }
+    })
 
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
