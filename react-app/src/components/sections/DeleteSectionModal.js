@@ -1,12 +1,13 @@
-import React from 'react';
+import {React} from 'react';
 import {  useDispatch } from 'react-redux';
 import { Modal } from '../context/Modal';
 import { deleteSectionThunk } from '../../store/section';
+// import { DeleteTask } from '../../store/tasks';
 import './DeleteSectionModal.css'
 
 function DeleteSectionModal({id, onClose}){
     const dispatch = useDispatch();
-    // const history = useHistory();
+
     async function onDelete(e){
         e.preventDefault();
         const deleted =  await dispatch(deleteSectionThunk(id))
