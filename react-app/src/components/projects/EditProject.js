@@ -17,6 +17,7 @@ function EditProject({onClose}){
     const [errors, setErrors] = useState([])
 
     async function onSubmit(e){
+
         e.preventDefault();
         const project = {
             id: projectId,

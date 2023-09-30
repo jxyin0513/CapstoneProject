@@ -79,7 +79,10 @@ function AllTasks(){
             {recent && recentlyAssigned && recentlyAssigned.map(task=>(
                 <div className='my-Tasks-Assigned' key={task.id}>
                     <div className='my-Detail-Outer'>
-                        <i className="fa-regular fa-circle-check" id={task.id} onClick={changeTask}></i>
+                        <div className='completed-Outer'>
+                            <i className="fa-regular fa-circle-check" id={task.id} onClick={changeTask}></i>
+                            <div >click to complete</div>
+                        </div>
                         <div className='my-Detail-Name'>{task.taskName}</div>
                     </div>
                     <div className='my-Detail-Deadline'>{task.deadline}</div>
@@ -90,7 +93,10 @@ function AllTasks(){
             {today && todayTasks && todayTasks.map(task=>(
                 <div className='my-Tasks-Assigned' key={task.id}>
                     <div className='my-Detail-Outer'>
-                        <i className="fa-regular fa-circle-check" id={task.id} onClick={changeTask}></i>
+                        <div className='completed-Outer'>
+                            <i className="fa-regular fa-circle-check" id={task.id} onClick={changeTask}></i>
+                            <div >click to complete</div>
+                        </div>
                         <div className='my-Detail-Name'>{task.taskName}</div>
                     </div>
                     <div className='my-Detail-Deadline'>{task.deadline}</div>
@@ -101,7 +107,10 @@ function AllTasks(){
             {week && weekTasks && weekTasks.map(task=>(
                 <div className='my-Tasks-Assigned' key={task.id}>
                     <div className='my-Detail-Outer'>
-                        <i className="fa-regular fa-circle-check" id={task.id} onClick={changeTask}></i>
+                        <div className='completed-Outer'>
+                            <i className="fa-regular fa-circle-check" id={task.id} onClick={changeTask}></i>
+                            <div >click to complete</div>
+                        </div>
                         <div className='my-Detail-Name'>{task.taskName}</div>
                     </div>
                     <div className='my-Detail-Deadline'>{task.deadline}</div>
