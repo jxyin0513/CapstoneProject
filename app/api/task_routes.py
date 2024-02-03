@@ -52,6 +52,7 @@ def update_task(id):
         task.assignee = form.data['assignee']
         task.taskName = form.data['taskName']
         # task.status = form.data['status']
+        task.startdate = form.data['startdate']
         task.deadline = form.data['deadline']
         # task.priority = form.data['priority']
         db.session.commit()
