@@ -13,7 +13,7 @@ import Project from './components/projects/ProjectDetail';
 import Page from './components/projects/MainPage';
 import AddTask from './components/tasks/AddTask';
 import AllTasks from './components/tasks/AllTasks';
-import TopBar from './components/TopBar';
+import SideBar from './components/SideBar';
 import User from './components/User';
 import { authenticate } from './store/session';
 
@@ -34,8 +34,11 @@ function App() {
 
   return (
     <ModalProvider>
-    <BrowserRouter>
-      <TopBar />
+    <BrowserRouter future={{
+    v7_startTransition: true,
+    v7_relativeSplatPath: true
+  }}>
+      <SideBar />
       <NavBar />
       <Routes>
         <Route path='/' element={<Page /> }>

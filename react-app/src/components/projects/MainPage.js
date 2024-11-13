@@ -14,7 +14,7 @@ function Page(){
                 <div className='starter-Message'>
                     <p>Welcome to AsanaList Start managing your work with yourself and colleagues</p>
                 </div>
-                <NavLink to='/sign-up' exact={true}>
+                <NavLink to='/sign-up' end>
                     <div className='project-Starter'>Start here</div>
                 </NavLink>
             </div>
