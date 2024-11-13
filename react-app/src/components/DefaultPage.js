@@ -1,5 +1,5 @@
 import React, {useEffect, useState } from 'react';
-import {useHistory } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import { GetAllProjects } from '../store/projects';
 import {GetAllTasks } from '../store/tasks';
 import { useSelector, useDispatch } from 'react-redux';
@@ -8,7 +8,7 @@ import './DefaultPage.css'
 function MainPageStatus(){
     const dispatch = useDispatch()
     const user = useSelector(state=>state.session.user)
-    const history = useHistory()
+    const navigate = useNavigate()
     const projects = Object.values(useSelector(state=>state.projects)).filter(project=>project.userId===user.id)
     const allTasks = Object.values(useSelector(state=>state.tasks))
     const tasks = allTasks.filter(task => task.userId === user.id && task.status==='incomplete')
@@ -54,10 +54,10 @@ function MainPageStatus(){
         message='Good night'
     }
     function onProject(e){
-        history.push(`/projects/${e.target.id}`)
+        navigate.push(`/projects/${e.target.id}`)
     }
     function addProject(e){
-        history.push('/new/project-form')
+        navigate.push('/new/project-form')
     }
     function onUpcoming(e){
         setPastDue(false)
@@ -82,13 +82,13 @@ function MainPageStatus(){
     },[dispatch, user.id])
 
     function pastTask(e){
-        history.push(`/projects/${e.target.id}`)
+        navigate.push(`/projects/${e.target.id}`)
     }
     function upcomingTask(e){
-        history.push(`/projects/${e.target.id}`)
+        navigate.push(`/projects/${e.target.id}`)
     }
     function completedTask(e){
-        history.push(`/projects/${e.target.id}`)
+        navigate.push(`/projects/${e.target.id}`)
     }
 
     return (

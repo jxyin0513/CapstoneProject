@@ -1,18 +1,18 @@
 import React from 'react';
 import {  useDispatch } from 'react-redux';
-import {useHistory} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import { Modal } from '../context/Modal';
 import { DeleteProjects } from '../../store/projects';
 import './DeleteProjectModal.css'
 
 function DeleteProjectModal({id, onClose}){
     const dispatch = useDispatch();
-    const history = useHistory();
+    const navigate = useNavigate();
     async function onDelete(e){
         e.preventDefault();
         const deleted =  await dispatch(DeleteProjects(id))
         if(!deleted){
-            history.push('/')
+            navigate.push('/')
         }
     }
     return (
