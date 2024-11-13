@@ -10,12 +10,12 @@
     padding-top: 20px;
     margin-top: 55px;
 }
-.home-page-act-Button{
+.home-Button.active{
     /* display: inline-block; */
     background-color: rgba(189, 177, 177, 0.467);
     /* width: 200px; */
 }
-.my-tasks-act-Button{
+#my-tasks-Button.active{
     /* display: inline-block; */
     background-color: rgba(189, 177, 177, 0.467);
     /* width: 200px; */
@@ -25,13 +25,13 @@
 }
 .home-nav-Page{
     margin-top: 25px;
-    width: 200px;
+    /* width: 200px; */
 }
 .home-Button{
     display: inline-block;
     padding: 5px 20px ;
     margin: 0px 0;
-    width: 200px;
+    width:100%;
     text-decoration: none;
 }
 #my-tasks-Button{
@@ -39,23 +39,13 @@
     padding: 5px 20px;
     text-decoration: none;
     display: inline-block;
-    width: 200px;
+    width: 100%;
 }
-.my-tasks-outer{
-    /* padding: 5px 0; */
-    width: 200px;
-}
+/* .my-tasks-outer{
+    width: 100%;
+} */
 .my-tasks-outer:hover{
     background-color: rgba(168, 167, 167, 0.33);;
-}
-.all-projects-Profile > h3{
-    margin-left: 15px;
-}
-.all-projects-Profile > a > div{
-    padding: 5px 0 5px 20px;
-}
-.all-projects-Profile > a{
-    text-decoration: none;
 }
 .home-nav-Page > a, .my-tasks-outer > a{
     color:rgb(229, 225, 225);
