@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import image from '../image/sign-page.jpg'
 import './SignUpForm.css'
@@ -43,7 +43,7 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Navigate to='/' />;
   }
 
   return (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ModalProvider } from './components/context/Modal';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
@@ -13,7 +13,7 @@ import Project from './components/projects/ProjectDetail';
 import Page from './components/projects/MainPage';
 import AddTask from './components/tasks/AddTask';
 import AllTasks from './components/tasks/AllTasks';
-import TopBar from './components/TopBar';
+import SideBar from './components/SideBar';
 import User from './components/User';
 import { authenticate } from './store/session';
 
@@ -34,38 +34,44 @@ function App() {
 
   return (
     <ModalProvider>
-    <BrowserRouter>
-      <TopBar />
+    <BrowserRouter future={{
+    v7_startTransition: true,
+    v7_relativeSplatPath: true
+  }}>
+      <SideBar />
       <NavBar />
-      <Switch>
-        <Route path='/' exact={true}>
-          <Page />
+      <Routes>
+        <Route path='/' element={<Page /> }>
         </Route>
-        <Route path='/login' exact={true}>
-          <LoginForm />
+        <Route path='/login' element={<LoginForm />}>
         </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
+        <Route path='/sign-up' element={<SignUpForm />}>
         </Route>
-        <ProtectedRoute path='/tasks' exact={true} >
+        <Route path='/tasks' element={<ProtectedRoute><AllTasks /></ProtectedRoute>}/>
+        {/* <ProtectedRoute path='/tasks' >
           <AllTasks />
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        </ProtectedRoute> */}
+        <Route path='/users/:userId' element={<ProtectedRoute><User /></ProtectedRoute>}/>
+        {/* <ProtectedRoute path='/users/:userId' >
           <User />
-        </ProtectedRoute>
-        <ProtectedRoute path='/projects/:projectId'>
+        </ProtectedRoute> */}
+        <Route path='/projects/:projectId' element={<ProtectedRoute><Project /></ProtectedRoute>}/>
+        {/* <ProtectedRoute path='/projects/:projectId'>
           <Project />
-        </ProtectedRoute>
-        <ProtectedRoute path='/new/project-form'>
+        </ProtectedRoute> */}
+        <Route path='/new/project-form' element={<ProtectedRoute><NewProject /></ProtectedRoute>}/>
+        {/* <ProtectedRoute path='/new/project-form'>
           <NewProject />
-        </ProtectedRoute>
-        <ProtectedRoute path='/new/task'>
+        </ProtectedRoute> */}
+        <Route path='/new/task' element={<ProtectedRoute><AddTask /></ProtectedRoute>}/>
+        {/* <ProtectedRoute path='/new/task'>
           <AddTask />
-        </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        </ProtectedRoute> */}
+        <Route path='/' element={<ProtectedRoute><MainPageStatus /></ProtectedRoute>}/>
+        {/* <ProtectedRoute path='/' >
           <MainPageStatus />
-        </ProtectedRoute>
-      </Switch>
+        </ProtectedRoute> */}
+      </Routes>
     </BrowserRouter>
     </ModalProvider>
   );

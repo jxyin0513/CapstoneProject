@@ -1,10 +1,10 @@
 import React, { useState, useEffect} from 'react';
-import {useHistory } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import { useSelector, } from 'react-redux';
 import './search.css';
 
 const Search = () => {
-    const history = useHistory()
+    const navigate = useNavigate()
     const [search, setSearch] = useState('');
     const [projectsResult, setProjectsResult] = useState([])
     const [taskResults, setTaskResults] = useState([])
@@ -52,12 +52,12 @@ const Search = () => {
 
     function newProject(e){
       setShowResults(false)
-      history.push(`/projects/${e.target.id}`)
+      navigate.push(`/projects/${e.target.id}`)
     }
     function newTask(e){
       setShowResults(false)
-      console.log(e.target.id)
-      history.push(`/projects/${e.target.id}`)
+      // console.log(e.target.id)
+      navigate.push(`/projects/${e.target.id}`)
     }
 
     return (

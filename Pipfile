@@ -12,11 +12,11 @@ six = "==1.15.0"
 Flask = "==2.0.1"
 Flask-Cors = "==3.0.8"
 Flask-SQLAlchemy = "==2.5.1"
-Flask-WTF = "==0.15.1"
+Flask-WTF = "latest"
 Jinja2 = "==3.0.1"
 MarkupSafe = "==2.0.1"
 SQLAlchemy = "==1.4.19"
-Werkzeug = "==2.0.1"
+Werkzeug = "==2.0.3"
 WTForms = "==2.3.3"
 Flask-Migrate = "==3.0.1"
 Flask-Login = "==0.5.0"
@@ -28,7 +28,7 @@ Mako = "==1.1.4"
 email-validator = "*"
 
 [dev-packages]
-psycopg2-binary = "==2.8.6"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.9"

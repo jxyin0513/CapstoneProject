@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { login } from '../../store/session';
 import loginPage from '../image/sign-page.jpg'
 import './LoginForm.css';
@@ -35,7 +35,7 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Navigate to='/' />;
   }
 
   return (
@@ -56,6 +56,7 @@ const LoginForm = () => {
             <input
               name='email'
               type='text'
+              id='email'
               placeholder='Enter your email'
               value={email}
               onChange={updateEmail}
@@ -65,6 +66,7 @@ const LoginForm = () => {
             <label htmlFor='password'></label>
             <input
               name='password'
+              id='password'
               type='password'
               placeholder='Password'
               value={password}

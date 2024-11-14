@@ -1,25 +1,32 @@
 /* .project-detail:focus{
     background-color:azure;
 } */
-.project-detail .project-detail-Name{
+.project-Nav-Bar.active > div{
     /* text-decoration: none; */
     /* font-size: 5px; */
-    background-color: rgba(189, 177, 177, 0.467);
+    /* background-color: rgba(189, 177, 177, 0.467);
     width: 200px;
-    padding: 5px 0 5px 20px;
+    padding: 5px 0 5px 20px; */
+    background-color: rgba(189, 177, 177, 0.467);
 }
 .project-detail-Name:hover{
     background-color: rgba(168, 167, 167, 0.33);
     /* color:darkslateblue; */
 }
-.project-detail-nav-Bar{
+.project-detail-Name{
+    padding: 5px 0 5px 20px;
+}
+.project-Nav-Bar{
     color:rgb(216, 210, 210);
+    text-decoration: none;
+    background-color: rgba(168, 167, 167, 0.33);
 }
 .user-Name{
     color: azure;
     font-size: 23px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 15px 0 0 0;
+    margin-left: 15px;
 }
 /* .not-clicked{
     text-decoration: none;

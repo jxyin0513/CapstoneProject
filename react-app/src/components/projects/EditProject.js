@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {useHistory, useParams} from 'react-router-dom'
+import {useNavigate, useParams} from 'react-router-dom'
 import { EditProjects } from '../../store/projects';
 import './EditProject.css'
 
 function EditProject({onClose}){
     const dispatch = useDispatch()
-    const history = useHistory()
+    const navigate = useNavigate()
     const {projectId} = useParams()
     const user = useSelector(state=>state.session.user)
     const project = useSelector(state=>state.projects[projectId])
@@ -30,7 +30,7 @@ function EditProject({onClose}){
         const editProject = await dispatch(EditProjects(project))
         if(!editProject){
             onClose()
-            history.push(`/projects/${projectId}`)
+            navigate.push(`/projects/${projectId}`)
         }else{
             setErrors(editProject)
         }
