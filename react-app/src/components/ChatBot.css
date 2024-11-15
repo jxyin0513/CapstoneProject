@@ -1,0 +1,8 @@
+.chat-Bot-Container{
+    height: 480px;
+    width: 350px;
+    position: sticky;
+    bottom: 3%;
+    /* right: 1000px; */
+    left: 75%;
+}
