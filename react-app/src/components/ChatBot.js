@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from "@chatscope/chat-ui-kit-react";
 import './ChatBot.css';
+import { BsFillChatTextFill,  } from "react-icons/bs";
+import { MdHorizontalRule } from "react-icons/md";
 
 function ChatBox(){
+    const [chatOpen, setChatOpen] = useState(false);
     const [typing, setTyping] = useState(false);
     const [messages, setMessages] = useState([
         {
@@ -63,6 +66,10 @@ function ChatBox(){
     }
 
     return<div className="chat-Bot-Container">
+    {/* <i className="fa-regular fa-message" style={{height:"30px"}}></i> */}
+        {!chatOpen && <BsFillChatTextFill className="chat-Bot-Button" onClick={()=>setChatOpen(true)}  />}
+        {chatOpen && <div className="chat-Bot">
+            <MdHorizontalRule onClick={()=>setChatOpen(false)} className="chat-Bot-Close" />
         <MainContainer>
             <ChatContainer>
                 <MessageList
@@ -77,6 +84,7 @@ function ChatBox(){
                 <MessageInput placeholder="Ask me anything..." onSend={handleSend}/>
             </ChatContainer>
         </MainContainer>
+        </div>}
     </div>
 }
 
