@@ -61,6 +61,8 @@ function ChatBox(){
                 sender: "ChatGPT",
                 direction: "incoming"
             }])
+        }).catch((e)=>{
+            console.error("Error: " + e)
         })
         setTyping(false);
     }

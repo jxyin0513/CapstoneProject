@@ -14,7 +14,10 @@
     z-index: 3;
     top: 90%;
     left: 80%;
-    color: rgb(167, 165, 165);
+    color: rgb(189, 185, 185);
+}
+.chat-Bot-Button:hover{
+    color:rgb(203, 198, 198);
 }
 .chat-Bot{
     height: 480px;
@@ -33,4 +36,7 @@
     position: absolute;
     z-index: 4;
     left: 85%;
+}
+.chat-Bot-Close:hover{
+    color: rgb(14, 14, 203);
 }
