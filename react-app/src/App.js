@@ -16,6 +16,7 @@ import AllTasks from './components/tasks/AllTasks';
 import SideBar from './components/SideBar';
 import User from './components/User';
 import { authenticate } from './store/session';
+import ChatBox from './components/ChatBot';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -72,6 +73,7 @@ function App() {
           <MainPageStatus />
         </ProtectedRoute> */}
       </Routes>
+      <ChatBox />
     </BrowserRouter>
     </ModalProvider>
   );
