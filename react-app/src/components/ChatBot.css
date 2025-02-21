@@ -2,8 +2,8 @@
     height: 480px;
     width: 350px;
     position: fixed;
-    bottom: 3%;
-    left: 75%;
+    bottom: 3vh;
+    right: 3vw;
     z-index: 2;
 }
 .chat-Bot-Button{
