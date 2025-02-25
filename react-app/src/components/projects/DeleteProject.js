@@ -12,7 +12,7 @@ function DeleteProjectModal({id, onClose}){
         e.preventDefault();
         const deleted =  await dispatch(DeleteProjects(id))
         if(!deleted){
-            navigate.push('/')
+            navigate('/')
         }
     }
     return (

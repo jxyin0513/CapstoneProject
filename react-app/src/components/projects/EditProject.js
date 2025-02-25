@@ -30,7 +30,7 @@ function EditProject({onClose}){
         const editProject = await dispatch(EditProjects(project))
         if(!editProject){
             onClose()
-            navigate.push(`/projects/${projectId}`)
+            navigate(`/projects/${projectId}`)
         }else{
             setErrors(editProject)
         }
