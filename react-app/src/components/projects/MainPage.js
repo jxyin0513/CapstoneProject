@@ -11,7 +11,7 @@ function Page(){
         {!user &&
             <div className='home-Page'>
                 <img alt='' src='https://images.unsplash.com/photo-1533628635777-112b2239b1c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHRvJTIwZG8lMjBsaXN0JTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60'></img>
-                <div className='starter-Message'>
+                <div className='starter-Message bg-amber-500'>
                     <p>Welcome to AsanaList Start managing your work with yourself and colleagues</p>
                 </div>
                 <NavLink to='/sign-up' end>

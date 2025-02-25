@@ -1,4 +1,10 @@
 /* TODO Add site wide styles */
+@import "tailwindcss";
+
+/* @import "tailwindcss/preflight";
+@import "tailwindcss/utilities"; */
+
+
 html, body{
     height: 100%;
     margin: 0;
