@@ -49,7 +49,7 @@ const SignUpForm = () => {
   return (
     <div className='signUp-Container'>
       <img src={image} alt=''></img>
-      <div className='signUp-inner-Container'>
+      <div className='signUp-inner-Container pb-[20px]'>
         <div className='signUp-Header'>Sign up Here</div>
         {/* <i class="fa-solid fa-arrow-left"></i>
         <i class="fa-solid fa-arrow-right"></i> */}
@@ -100,7 +100,7 @@ const SignUpForm = () => {
               required={true}
             ></input>
           </div>
-          <button type='submit'>Sign Up</button>
+          <button className='mt-2' type='submit'>Sign Up</button>
         </form>
       </div>
     </div>

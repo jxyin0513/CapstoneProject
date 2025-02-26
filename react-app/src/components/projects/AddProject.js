@@ -27,7 +27,7 @@ function NewProject(){
         }
         const newProject = await dispatch(CreateProjects(project))
         if(!newProject){
-            navigate.push('/')
+            navigate('/')
         }else{
             setErrors(newProject)
         }

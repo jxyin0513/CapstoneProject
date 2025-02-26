@@ -1,9 +1,9 @@
 /* TODO Add site wide styles */
-@import "tailwindcss";
+/* @import "tailwindcss"; */
 
-/* @import "tailwindcss/preflight";
-@import "tailwindcss/utilities"; */
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html, body{
     height: 100%;

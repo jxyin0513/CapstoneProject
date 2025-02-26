@@ -13,7 +13,7 @@
 }
 .edit-Project-Form{
     width: 310px;
-    height: 350px;
+    /* height: 350px; */
     padding-left: 10px;
 }
 .edit-Project-Form > button{
@@ -25,6 +25,7 @@ button{
     background-color:ivory;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 5px;
+    padding: 2px 3px;
 }
 button:hover{
     background-color: darkgrey;

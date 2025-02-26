@@ -54,10 +54,10 @@ function MainPageStatus(){
         message='Good night'
     }
     function onProject(e){
-        navigate.push(`/projects/${e.target.id}`)
+        navigate(`/projects/${e.target.id}`)
     }
     function addProject(e){
-        navigate.push('/new/project-form')
+        navigate('/new/project-form')
     }
     function onUpcoming(e){
         setPastDue(false)
@@ -82,13 +82,13 @@ function MainPageStatus(){
     },[dispatch, user.id])
 
     function pastTask(e){
-        navigate.push(`/projects/${e.target.id}`)
+        navigate(`/projects/${e.target.id}`)
     }
     function upcomingTask(e){
-        navigate.push(`/projects/${e.target.id}`)
+        navigate(`/projects/${e.target.id}`)
     }
     function completedTask(e){
-        navigate.push(`/projects/${e.target.id}`)
+        navigate(`/projects/${e.target.id}`)
     }
 
     return (

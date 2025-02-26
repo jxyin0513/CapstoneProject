@@ -28,7 +28,7 @@ const NavBar = () => {
             <div className='nav-Bar-Header'>
               <div>
                 <NavLink to='/' end className='home-Logo'>
-                  <img src={logo} className='logo' height='50px' width='auto' alt='Site Logo'></img>
+                  <img src={logo} className='logo w-[50px]' alt='Site Logo'></img>
                 </NavLink>
               </div>
               <div>
