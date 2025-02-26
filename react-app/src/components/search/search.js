@@ -52,12 +52,12 @@ const Search = () => {
 
     function newProject(e){
       setShowResults(false)
-      navigate.push(`/projects/${e.target.id}`)
+      navigate(`/projects/${e.target.id}`)
     }
     function newTask(e){
       setShowResults(false)
       // console.log(e.target.id)
-      navigate.push(`/projects/${e.target.id}`)
+      navigate(`/projects/${e.target.id}`)
     }
 
     return (
