@@ -40,7 +40,7 @@ function EditProject({onClose}){
     }
 
     return (
-        <div className='edit-project-container'>
+        <div className='edit-project-container pb-[20px]'>
             <div className='detail-Header'>
                 <div className='detail-Text'>Project Detail</div>
                 <i id='close-Icon' onClick={onclosePage} className="fa-solid fa-xmark"></i>

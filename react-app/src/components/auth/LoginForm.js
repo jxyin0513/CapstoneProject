@@ -75,8 +75,8 @@ const LoginForm = () => {
           </div>
           <button type='submit'>Login</button>
         </form>
-        <div className='block'>------------------------or--------------------------</div>
-        <p className='demo-User-Container'>Wanna Sign in as <button onClick={demoSign} className='demo-Button'>Demo User</button> ?</p>
+        <div className='block'>--------------------or----------------------</div>
+        <p className='demo-User-Container'>Wanna Sign in as <button onClick={demoSign} className='text-[black]'>Demo User</button> ?</p>
       </div>
     </div>
   );

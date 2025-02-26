@@ -3,15 +3,10 @@
     padding-bottom: 5px;
     margin: 0 10px;
 }
-.errors-handler-task{
-    color: red;
-    padding: 5px 0 5px 0;
-    height: 110px;
-}
 .add-Tasks{
     width: 320px;
-    height: 370px;
-    margin-top: 10px;
+    /* height: 370px; */
+    /* margin-top: 10px; */
     background-color: rgba(255, 255, 255, 0.957);
     border-radius: 15px;
 }

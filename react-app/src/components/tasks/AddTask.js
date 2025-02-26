@@ -40,10 +40,10 @@ function AddTask({onClose}){
     }
 
     return (
-        <div className='add-Tasks'>
+        <div className='add-Tasks pb-[20px]'>
             <div className='add-new-Task'>Add Task</div>
             <form className='add-Task-Form' onSubmit={onSubmit}>
-                <div className='errors-handler-task'>
+                <div className='errors-handler-task text-[red] px-[5px] h-[150px]'>
                     {errors.map((error, ind) => (
                     <div key={ind}>* {error}</div>
                     ))}
